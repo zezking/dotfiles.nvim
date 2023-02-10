@@ -1,2 +1,2 @@
 # neovim-config
-WIP
+My neovim config. WIP
