@@ -259,7 +259,7 @@ local mappings = {
 			"<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
 			"Workspace Symbols",
 		},
-		t = { '<cmd>lua require("user.functions").toggle_diagnostics()<cr>', "Toggle Diagnostics" },
+		t = { '<cmd>lua require("enze.functions").toggle_diagnostics()<cr>', "Toggle Diagnostics" },
 		u = { "<cmd>LuaSnipUnlinkCurrent<cr>", "Unlink Snippet" },
 	},
 

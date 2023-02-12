@@ -74,7 +74,17 @@ return {
 
 	-- Delete buffers (close files) without closing windows or mesing up layout
 	{ "moll/vim-bbye" },
-	-- LSP Servers
+
+	-- Manage and Install LSP servers
+	{ "williamboman/mason-lspconfig" },
+	{
+		"williamboman/mason.nvim",
+		config = function()
+			require("plugins.configs.lsp.mason")
+		end,
+	},
+
+	-- Config for LSP Servers
 	{
 		"glepnir/lspsaga.nvim",
 		config = function()
@@ -88,13 +98,6 @@ return {
 			require("plugins.configs.lsp.lspconfig")
 		end,
 	},
-	{ "williamboman/mason-lspconfig" },
-	{
-		"williamboman/mason.nvim",
-		config = function()
-			require("plugins.configs.lsp.mason")
-		end,
-	},
 
 	-- Formatting
 	{ "jayp0521/mason-null-ls.nvim" },
@@ -104,6 +107,24 @@ return {
 			require("plugins.configs.lsp.null-ls")
 		end,
 	},
+	-- Treesitter
+	{
+		"nvim-treesitter/nvim-treesitter",
+		config = function()
+			require("plugins.configs.treesitter")
+		end,
+	},
+	{ "JoosepAlviste/nvim-ts-context-commentstring" },
+	{ "nvim-treesitter/playground" },
+
+	-- Auto closing
+	{
+		"windwp/nvim-autopairs",
+		config = function()
+			require("plugins.configs.autopairs")
+		end,
+	},
+	{ "windwp/nvim-ts-autotag" },
 	-- UI
 	{
 		"stevearc/dressing.nvim",
@@ -123,4 +144,11 @@ return {
 		"simrat39/rust-tools.nvim",
 	},
 	{ "Saecki/crates.nvim" },
+	{
+		"nvim-lualine/lualine.nvim",
+		config = function()
+			require("plugins.configs.lualine")
+		end,
+		dependencies = { { "nvim-tree/nvim-web-devicons" } },
+	},
 }

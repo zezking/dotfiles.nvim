@@ -80,8 +80,21 @@ lspconfig["gopls"].setup({
 	on_attach = on_attach,
 })
 
+-- configure typescript-language-server (tsserver)
+lspconfig["tsserver"].setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+	filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx" },
+	cmd = { "typescript-language-server", "--stdio" },
+})
+
+-- configure intelephense
+lspconfig["intelephense"].setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+})
 -- configure lua server (with special settings)
-lspconfig["sumneko_lua"].setup({
+lspconfig["lua_ls"].setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
 	settings = { -- custom settings for lua
