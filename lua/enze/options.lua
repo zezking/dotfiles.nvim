@@ -21,6 +21,7 @@ vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.s
 	focusable = false,
 	relative = "cursor",
 })
+vim.o.updatetime = 1250
 vim.cmd([[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]])
 for k, v in pairs(options) do
 	vim.opt[k] = v
