@@ -96,9 +96,19 @@ inoremap("<S-Down>", "<Esc>:m+<CR>")
 nnoremap("<leader>d", '"_d')
 vnoremap("<leader>d", '"_d')
 
--- This is going to get me cancelled
 inoremap("<C-c>", "<Esc>")
 
+--Tabs Bufferline
+nnoremap("<leader>1", "<Cmd>BufferLineGoToBuffer 1<CR>")
+nnoremap("<leader>2", "<Cmd>BufferLineGoToBuffer 2<CR>")
+nnoremap("<leader>3", "<Cmd>BufferLineGoToBuffer 3<CR>")
+nnoremap("<leader>4", "<Cmd>BufferLineGoToBuffer 4<CR>")
+nnoremap("<leader>5", "<Cmd>BufferLineGoToBuffer 5<CR>")
+nnoremap("<leader>6", "<Cmd>BufferLineGoToBuffer 6<CR>")
+nnoremap("<leader>7", "<Cmd>BufferLineGoToBuffer 7<CR>")
+nnoremap("<leader>8", "<Cmd>BufferLineGoToBuffer 8<CR>")
+nnoremap("<leader>9", "<Cmd>BufferLineGoToBuffer 9<CR>")
+nnoremap("<leader>$", "<Cmd>BufferLineGoToBuffer -1<CR>")
 -- Tabs --
 -- keymap("n", "<enter>", ":tabnew %<cr>", opts)
 -- keymap("n", "<s-enter>", ":tabclose<cr>", opts)

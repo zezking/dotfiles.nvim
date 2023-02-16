@@ -58,6 +58,9 @@ return {
 			require("plugins.configs.toggle-term")
 		end,
 	},
+	-- LSP symbols and tags visualizer TODO:Not sure if it is needed
+	-- { "liuchengxu/vista.vim" },
+
 	-- Auto completions
 	{ "hrsh7th/cmp-buffer" }, -- buffer completions
 	{ "hrsh7th/cmp-path" }, -- path completions
