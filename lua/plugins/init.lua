@@ -29,6 +29,13 @@ return {
 			require("plugins.configs.which-key")
 		end,
 	},
+	{
+		"akinsho/bufferline.nvim",
+		lazy = false,
+		config = function()
+			require("plugins.configs.bufferline")
+		end,
+	},
 	-- Telescipe, FzFinder
 	{
 		"nvim-telescope/telescope.nvim",
@@ -150,5 +157,12 @@ return {
 			require("plugins.configs.lualine")
 		end,
 		dependencies = { { "nvim-tree/nvim-web-devicons" } },
+	},
+	-- Surround words with: "({[
+	{
+		"kylechui/nvim-surround",
+		config = function()
+			require("plugins.configs.surround")
+		end,
 	},
 }
