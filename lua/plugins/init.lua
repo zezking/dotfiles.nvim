@@ -168,4 +168,11 @@ return {
 			require("plugins.configs.surround")
 		end,
 	},
+	-- Comment stuff
+	{
+		"numToStr/Comment.nvim",
+		config = function()
+			require("plugins.configs.comment")
+		end,
+	},
 }
