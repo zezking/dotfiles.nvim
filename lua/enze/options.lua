@@ -1,15 +1,21 @@
 local options = {
 	clipboard = "unnamedplus",
+	backup = false,
 	number = true,
+	cmdheight = 1,
 	relativenumber = true,
 	showtabline = 1,
 	termguicolors = true,
-	updatetime = 750,
+	updatetime = 50,
 	splitbelow = true,
 	splitright = true,
 	expandtab = true,
 	tabstop = 2,
 	scrolloff = 8,
+	smartindent = true,
+	swapfile = false,
+	writebackup = false,
+	hidden = true,
 }
 
 vim.diagnostic.config({
@@ -32,7 +38,10 @@ vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.s
 -- Disable Netrw
 vim.g.loaded_netrwPlugin = 1
 vim.g.loaded_netrw = 1
+
+-- Set update time
 vim.o.updatetime = 1250
+vim.o.nohidden = true
 
 -- open neo tree by default
 vim.cmd([[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]])
