@@ -14,6 +14,7 @@ return {
 			require("plugins.configs.neo-tree")
 		end,
 	},
+	-- Theme tokyonight
 	{
 		"folke/tokyonight.nvim",
 		branch = "main",
@@ -173,6 +174,14 @@ return {
 		"numToStr/Comment.nvim",
 		config = function()
 			require("plugins.configs.comment")
+		end,
+	}, -- Impatient optimize the startup time
+	{ "lewis6991/impatient.nvim" },
+	-- Smooth Scrolling
+	{
+		"karb94/neoscroll.nvim",
+		config = function()
+			require("plugins.configs.neoscroll")
 		end,
 	},
 }

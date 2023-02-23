@@ -89,9 +89,9 @@ local m_opts = {
 
 local mappings = {
 	["/"] = { "<Plug>(comment_toggle_linewise_current)", "Comment" },
-	["b"] = { "<cmd>lua require('user.bfs').open()<cr>", "Buffers" },
+	["b"] = { "<cmd>lua require('enze.bfs').open()<cr>", "Buffers" },
 	["e"] = { "<cmd>Neotree toggle<cr>", "Explorer" },
-	["q"] = { '<cmd>lua require("user.functions").smart_quit()<CR>', "Quit" },
+	["q"] = { '<cmd>lua require("enze.functions").smart_quit()<CR>', "Quit" },
 	["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
 	["P"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
 	["gy"] = "Open code in Browser",
@@ -112,7 +112,7 @@ local mappings = {
 		t = { "<cmd>silent BookmarkToggle<cr>", "Toggle" },
 		m = { '<cmd>lua require("harpoon.mark").add_file()<cr>', "Harpoon" },
 		n = { '<cmd>lua require("harpoon.ui").toggle_quick_menu()<cr>', "Harpoon Toggle" },
-		l = { "<cmd>lua require('user.bfs').open()<cr>", "Buffers" },
+		l = { "<cmd>lua require('enze.bfs').open()<cr>", "Buffers" },
 		j = { "<cmd>silent BookmarkNext<cr>", "Next" },
 		s = { "<cmd>Telescope harpoon marks<cr>", "Search Files" },
 		k = { "<cmd>silent BookmarkPrev<cr>", "Prev" },
@@ -133,11 +133,11 @@ local mappings = {
 
 	o = {
 		name = "Options",
-		w = { '<cmd>lua require("user.functions").toggle_option("wrap")<cr>', "Wrap" },
-		r = { '<cmd>lua require("user.functions").toggle_option("relativenumber")<cr>', "Relative" },
-		l = { '<cmd>lua require("user.functions").toggle_option("cursorline")<cr>', "Cursorline" },
-		s = { '<cmd>lua require("user.functions").toggle_option("spell")<cr>', "Spell" },
-		t = { '<cmd>lua require("user.functions").toggle_tabline()<cr>', "Tabline" },
+		w = { '<cmd>lua require("enze.functions").toggle_option("wrap")<cr>', "Wrap" },
+		r = { '<cmd>lua require("enze.functions").toggle_option("relativenumber")<cr>', "Relative" },
+		l = { '<cmd>lua require("enze.functions").toggle_option("cursorline")<cr>', "Cursorline" },
+		s = { '<cmd>lua require("enze.functions").toggle_option("spell")<cr>', "Spell" },
+		t = { '<cmd>lua require("enze.functions").toggle_tabline()<cr>', "Tabline" },
 	},
 
 	w = {
