@@ -5,12 +5,12 @@ if not status_ok then
 end
 
 local header = {
-	[[ ███╗   ██╗ ███████╗ ██████╗  ██╗   ██╗ ██╗ ███╗   ███╗]],
-	[[ ████╗  ██║ ██╔════╝██╔═══██╗ ██║   ██║ ██║ ████╗ ████║]],
-	[[ ██╔██╗ ██║ █████╗  ██║   ██║ ██║   ██║ ██║ ██╔████╔██║]],
-	[[ ██║╚██╗██║ ██╔══╝  ██║   ██║ ╚██╗ ██╔╝ ██║ ██║╚██╔╝██║]],
-	[[ ██║ ╚████║ ███████╗╚██████╔╝  ╚████╔╝  ██║ ██║ ╚═╝ ██║]],
-	[[ ╚═╝  ╚═══╝ ╚══════╝ ╚═════╝    ╚═══╝   ╚═╝ ╚═╝     ╚═╝]],
+	"███╗   ██╗██╗   ██╗██╗███╗   ███╗",
+	"████╗  ██║██║   ██║██║████╗ ████║",
+	"██╔██╗ ██║██║   ██║██║██╔████╔██║",
+	"██║╚██╗██║╚██╗ ██╔╝██║██║╚██╔╝██║",
+	"██║ ╚████║ ╚████╔╝ ██║██║ ╚═╝ ██║",
+	"╚═╝  ╚═══╝  ╚═══╝  ╚═╝╚═╝     ╚═╝",
 }
 dashboard.setup({
 	config = {
@@ -26,16 +26,16 @@ dashboard.setup({
 				key = "f",
 			},
 			{
-				desc = " Apps",
-				group = "DiagnosticHint",
-				action = "Telescope app",
-				key = "a",
+				desc = "󱁴 Search text",
+				group = "Label",
+				action = "Telescope live_grep",
+				key = "d",
 			},
 			{
-				desc = " dotfiles",
-				group = "Number",
-				action = "Telescope dotfiles",
-				key = "d",
+				desc = "󰚋 Check health",
+				group = "DashboardShortCut",
+				action = "checkhealth",
+				key = "a",
 			},
 		},
 	},
