@@ -184,4 +184,13 @@ return {
 			require("plugins.configs.neoscroll")
 		end,
 	},
+	--Dashboard
+	{
+		"glepnir/dashboard-nvim",
+		event = "VimEnter",
+		config = function()
+			require("plugins.configs.dashboard")
+		end,
+		dependencies = { { "nvim-tree/nvim-web-devicons" } },
+	},
 }
