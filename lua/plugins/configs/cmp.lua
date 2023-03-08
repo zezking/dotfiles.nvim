@@ -57,7 +57,7 @@ cmp.setup({
 		-- Accept currently selected item. If none selected, `select` first item.
 		-- Set `select` to `false` to only confirm explicitly selected items.
 		["<CR>"] = cmp.mapping.confirm({ select = false }),
-		-- ["<Right>"] = cmp.mapping.confirm { select = true }, -- This is the worst thing ever
+		-- ["<Right>"] = cmp.mapping.confirm { select = true },
 		["<Tab>"] = cmp.mapping(function(fallback)
 			if cmp.visible() then
 				cmp.select_next_item()
@@ -132,16 +132,22 @@ cmp.setup({
 		select = false,
 	},
 	window = {
-		documentation = {
-			border = "rounded",
-			winhighlight = "NormalFloat:Pmenu,NormalFloat:Pmenu,CursorLine:PmenuSel,Search:None",
-		},
-		completion = {
-			border = "rounded",
-			winhighlight = "NormalFloat:Pmenu,NormalFloat:Pmenu,CursorLine:PmenuSel,Search:None",
-		},
+		--window style
+		-- documentation = {
+		-- 	border = "rounded",
+		-- 	winhighlight = "NormalFloat:Pmenu,NormalFloat:Pmenu,CursorLine:PmenuSel,Search:None",
+		-- },
+		-- completion = {
+		-- 	border = "rounded",
+		-- 	winhighlight = "NormalFloat:Pmenu,NormalFloat:Pmenu,CursorLine:PmenuSel,Search:None",
+		-- },
 	},
 	experimental = {
 		ghost_text = true,
+	},
+	settings = {
+		java = {
+			complete = true,
+		},
 	},
 })
