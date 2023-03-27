@@ -83,7 +83,7 @@ return {
 	{ "saadparwaiz1/cmp_luasnip" },
 	{ "rafamadriz/friendly-snippets" },
 
-	-- Delete buffers (close files) without closing windows or mesing up layout
+	-- Delete buffers (close files) without closing windows or messing up layout
 	{ "moll/vim-bbye" },
 
 	-- Manage and Install LSP servers

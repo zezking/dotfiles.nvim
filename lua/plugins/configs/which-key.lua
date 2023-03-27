@@ -92,12 +92,17 @@ local mappings = {
 	["b"] = { "<cmd>lua require('enze.bfs').open()<cr>", "Buffers" },
 	["e"] = { "<cmd>Neotree toggle<cr>", "Explorer" },
 	["q"] = { '<cmd>lua require("enze.functions").smart_quit()<CR>', "Quit" },
-	["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
 	["P"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
 	["gy"] = "Open code in Browser",
 	["."] = "Goto next harpoon",
 	[","] = "Goto next harpoon",
 
+	c = {
+		name = "Close Buffers",
+		["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
+		["l"] = { "<cmd>BufferLineCloseLeft<CR>", "Close All Buffers to the Right" },
+		["r"] = { "<cmd>BufferLineCloseRight<CR>", "Close All Buffers to the Left" },
+	},
 	u = {
 		name = "TodoComments",
 		["t"] = { "<cmd>TodoTelescope<CR>", "Show Comments" },
