@@ -41,7 +41,7 @@ vim.g.loaded_netrw = 1
 
 -- Set update time
 vim.o.updatetime = 1250
-vim.o.nohidden = true
+-- vim.o.nohidden = true
 
 -- open neo tree by default
 vim.cmd([[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]])

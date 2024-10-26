@@ -80,8 +80,8 @@ lspconfig["gopls"].setup({
 	on_attach = on_attach,
 })
 
--- configure typescript-language-server (tsserver)
-lspconfig["tsserver"].setup({
+-- configure typescript-language-server (ts_ls)
+lspconfig["ts_ls"].setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
 	filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx" },
