@@ -16,6 +16,7 @@ local options = {
 	swapfile = false,
 	writebackup = false,
 	hidden = true,
+	signcolumn = "yes",
 }
 
 vim.diagnostic.config({

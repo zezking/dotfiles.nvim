@@ -76,7 +76,7 @@ return {
 			require("plugins.configs.toggle-term")
 		end,
 	},
-	-- LSP symbols and tags visualizer TODO:Not sure if it is needed
+	-- LSP symbols and tags visualizer
 	{ "liuchengxu/vista.vim" },
 	-- Project navigation
 	{
@@ -97,7 +97,8 @@ return {
 			require("plugins.configs.cmp")
 		end,
 	},
-	-- Snippets
+	-- Snippetstypescript-language-server --stdio
+
 	{ "L3MON4D3/LuaSnip" },
 	{ "saadparwaiz1/cmp_luasnip" },
 	{ "rafamadriz/friendly-snippets" },
@@ -120,9 +121,14 @@ return {
 	-- Config for LSP Servers
 	{
 		"glepnir/lspsaga.nvim",
+		event = "LspAttach",
 		config = function()
 			require("plugins.configs.lsp.lspsaga")
 		end,
+		dependencies = {
+			"nvim-treesitter/nvim-treesitter", -- optional
+			"nvim-tree/nvim-web-devicons", -- optional
+		},
 	},
 	{ "onsails/lspkind.nvim" },
 	{
@@ -173,9 +179,6 @@ return {
 		dependencies = { { "neovim/nvim-lspconfig" } },
 	},
 	{ "kshenoy/vim-signature" },
-	{
-		"simrat39/rust-tools.nvim",
-	},
 	{ "Saecki/crates.nvim" },
 	{
 		"nvim-lualine/lualine.nvim",

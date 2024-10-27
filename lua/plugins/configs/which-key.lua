@@ -146,6 +146,43 @@ which_key.add({
 	{ "<leader>cl", "<cmd>BufferLineCloseLeft<CR>", desc = "Close all buffers to the left" },
 	{ "<leader>cr", "<cmd>BufferLineCloseRight<CR>", desc = "Close all buffers to the right" },
 })
+-- Find
+which_key.add({
+	mode = { "n" },
+	{ "<leader>f", group = "Find" },
+	{ "<leader>fb", "<cmd>Telescope git_branches<cr>", desc = "Checkout branch" },
+	{ "<leader>fc", "<cmd>Telescope colorscheme<cr>", desc = "Colorscheme" },
+	{ "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find File" },
+	{ "<leader>ft", "<cmd>Telescope live_grep theme=ivy<cr>", desc = "Find Text" },
+	{ "<leader>fs", "<cmd>Telescope grep_string theme=ivy<cr>", desc = "Find String" },
+	{ "<leader>fh", "<cmd>Telecope help_tags<cr>", desc = "Help" },
+	{ "<leader>fi", "<cmd>lua require('telescope').extensions.media_files.media_files()<cr>", desc = "Media" },
+	{ "<leader>fl", "<cmd>Telescope resume<cr>", desc = "Last Search" },
+	{ "<leader>fM", "<cmd>Telescope man_pages<cr>", desc = "Man Pages" },
+	{ "<leader>fr", "<cmd>Telescope oldfiles<cr>", desc = "Recent File" },
+	{ "<leader>fR", "<cmd>Telescope registers<cr>", desc = "Registers" },
+	{ "<leader>fk", "<cmd>Telescope keymaps<cr>", desc = "Keymaps" },
+	{ "<leader>fC", "<cmd>Telescope commands<cr>", desc = "Commands" },
+})
+-- Git
+which_key.add({
+	mode = { "n" },
+	{ "<leader>g", group = "Git" },
+	{ "<leader>gg", "<cmd>lua _LAZYGIT_TOGGLE()<CR>", desc = "Lazygit" },
+	{ "<leader>gl", "<cmd>lua require 'gitsigns'.next_hunk()<cr>", desc = "Next Hunk" },
+	{ "<leader>gk", "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", desc = "Prev Hunk" },
+	{ "<leader>gl", "<cmd>GitBlameToggle<cr>", desc = "Blame" },
+	{ "<leader>gp", "<cmd>lua require 'gitsigns'.preview_hunk()<cr>", desc = "Preview Hunk" },
+	{ "<leader>gr", "<cmd>lua require 'gitsigns'.reset_hunk()<cr>", desc = "Reset Hunk" },
+	{ "<leader>gR", "<cmd>lua require 'gitsigns'.reset_buffer()<cr>", desc = "Reset Buffer" },
+	{ "<leader>gs", "<cmd>lua require 'gitsigns'.stage_hunk()<cr>", desc = "Stage Hunk" },
+	{ "<leader>gu", "<cmd>lua require 'gitsigns'.undo_stage_hunk()<cr>", desc = "Undo Stage Hunk" },
+	{ "<leader>go", "<cmd>Telescope git_status<cr>", desc = "Open changed file" },
+	{ "<leader>gb", "<cmd>Telescope git_branches<cr>", desc = "Checkout branch" },
+	{ "<leader>gc", "<cmd>Telescope git_commits<cr>", "Checkout commit" },
+	{ "<leader>gd", "<cmd>Gitsigns diffthis HEAD<cr>", "Diff" },
+})
+
 local mappings = {
 	-- u = {
 	-- 	name = "TodoComments",
@@ -211,44 +248,6 @@ local mappings = {
 	-- 	x = { "<cmd>lua require'dap'.terminate()<cr>", "Exit" },
 	-- },
 	--
-	-- f = {
-	-- 	name = "Find",
-	-- 	b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
-	-- 	c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
-	-- 	f = { "<cmd>Telescope find_files<cr>", "Find File" },
-	-- 	t = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
-	-- 	s = { "<cmd>Telescope grep_string theme=ivy<cr>", "Find String" },
-	-- 	h = { "<cmd>Telescope help_tags<cr>", "Help" },
-	-- 	i = { "<cmd>lua require('telescope').extensions.media_files.media_files()<cr>", "Media" },
-	-- 	l = { "<cmd>Telescope resume<cr>", "Last Search" },
-	-- 	M = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
-	-- 	r = { "<cmd>Telescope oldfiles<cr>", "Recent File" },
-	-- 	R = { "<cmd>Telescope registers<cr>", "Registers" },
-	-- 	k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
-	-- 	C = { "<cmd>Telescope commands<cr>", "Commands" },
-	-- },
-	--
-	-- g = {
-	-- 	name = "Git",
-	-- 	g = { "<cmd>lua _LAZYGIT_TOGGLE()<CR>", "Lazygit" },
-	-- 	j = { "<cmd>lua require 'gitsigns'.next_hunk()<cr>", "Next Hunk" },
-	-- 	k = { "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", "Prev Hunk" },
-	-- 	l = { "<cmd>GitBlameToggle<cr>", "Blame" },
-	-- 	p = { "<cmd>lua require 'gitsigns'.preview_hunk()<cr>", "Preview Hunk" },
-	-- 	r = { "<cmd>lua require 'gitsigns'.reset_hunk()<cr>", "Reset Hunk" },
-	-- 	R = { "<cmd>lua require 'gitsigns'.reset_buffer()<cr>", "Reset Buffer" },
-	-- 	s = { "<cmd>lua require 'gitsigns'.stage_hunk()<cr>", "Stage Hunk" },
-	-- 	u = {
-	-- 		"<cmd>lua require 'gitsigns'.undo_stage_hunk()<cr>",
-	-- 		"Undo Stage Hunk",
-	-- 	},
-	-- 	o = { "<cmd>Telescope git_status<cr>", "Open changed file" },
-	-- 	b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
-	-- 	c = { "<cmd>Telescope git_commits<cr>", "Checkout commit" },
-	-- 	d = {
-	-- 		"<cmd>Gitsigns diffthis HEAD<cr>",
-	-- 		"Diff",
-	-- 	},
 	--
 	-- 	G = {
 	-- 		name = "Gist",
@@ -314,5 +313,4 @@ local vmappings = {
 }
 
 which_key.setup(setup)
--- which_key.add(mappings, opts)
 which_key.add(vmappings, vopts)

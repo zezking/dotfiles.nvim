@@ -63,16 +63,16 @@ lspconfig["pyright"].setup({
 })
 
 -- configure rust_analyzer server
-lspconfig["rust_analyzer"].setup({
-	capabilities = capabilities,
-	on_attach = on_attach,
-	cmd = {
-		"rustup",
-		"run",
-		"stable",
-		"rust-analyzer",
-	},
-})
+-- lspconfig["rust_analyzer"].setup({
+-- 	capabilities = capabilities,
+-- 	on_attach = on_attach,
+-- 	cmd = {
+-- 		"rustup",
+-- 		"run",
+-- 		"stable",
+-- 		"rust-analyzer",
+-- 	},
+-- })
 
 -- configure gopls
 lspconfig["gopls"].setup({
@@ -121,35 +121,35 @@ lspconfig["lua_ls"].setup({
 })
 
 -- configure rust_analyzer server
-local rt_status_ok, rt = pcall(require, "rust-tools")
-if not rt_status_ok then
-	print("no rust-tools")
-	return
-end
+-- local rt_status_ok, rt = pcall(require, "rust-tools")
+-- if not rt_status_ok then
+-- 	print("no rust-tools")
+-- 	return
+-- end
 
-local rust_opts = {
-	tools = {
-		autoSetHints = false,
-		hover_actions = { border = false },
-		cache = true,
-	},
-	server = {
-		on_attach = on_attach,
-		capabilities = capabilities,
-		cmd = {
-			"rustup",
-			"run",
-			"stable",
-			"rust-analyzer",
-		},
-		settings = {
-			["rust-analyzer"] = {
-				diagnostics = {
-					experimental = true,
-				},
-			},
-		},
-	},
-}
-
-rt.setup(rust_opts)
+-- local rust_opts = {
+-- 	tools = {
+-- 		autoSetHints = false,
+-- 		hover_actions = { border = false },
+-- 		cache = true,
+-- 	},
+-- 	server = {
+-- 		on_attach = on_attach,
+-- 		capabilities = capabilities,
+-- 		cmd = {
+-- 			"rustup",
+-- 			"run",
+-- 			"stable",
+-- 			"rust-analyzer",
+-- 		},
+-- 		settings = {
+-- 			["rust-analyzer"] = {
+-- 				diagnostics = {
+-- 					experimental = true,
+-- 				},
+-- 			},
+-- 		},
+-- 	},
+-- }
+--
+-- rt.setup(rust_opts)
