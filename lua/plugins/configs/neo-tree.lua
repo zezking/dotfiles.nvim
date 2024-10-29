@@ -10,19 +10,17 @@ vim.fn.sign_define("DiagnosticSignInfo", { text = " ", texthl = "DiagnosticSi
 vim.fn.sign_define("DiagnosticSignHint", { text = "", texthl = "DiagnosticSignHint" })
 
 -- Neo tree will open a buffer with empty directory by default. This will fix that behavior
--- We also needt to set filesystem.hijack_netrw_behavior to open_current
-vim.api.nvim_create_autocmd("BufEnter", {
-	-- make a group to be able to delete it later
-	group = vim.api.nvim_create_augroup("NeoTreeInit", { clear = true }),
-	callback = function()
-		local f = vim.fn.expand("%:p")
-		if vim.fn.isdirectory(f) ~= 0 then
-			vim.cmd("Neotree current dir=" .. f)
-			-- neo-tree is loaded now, delete the init autocmd
-			vim.api.nvim_clear_autocmds({ group = "NeoTreeInit" })
-		end
-	end,
-})
+if vim.fn.argc(-1) == 1 then
+	local stat = vim.loop.fs_stat(vim.fn.argv(0))
+	if stat and stat.type == "directory" then
+		require("neo-tree").setup({
+			filesystem = {
+				hijack_netrw_behavior = "open_current",
+			},
+		})
+	end
+end
+
 neo_tree.setup({
 	close_if_last_window = true,
 	enable_diagnostics = true,
@@ -76,7 +74,7 @@ neo_tree.setup({
 	},
 	filesystem = {
 		follow_current_file = true,
-		hijack_netrw_behavior = "open_current",
+		hijack_netrw_behavior = "open_default",
 		use_libuv_file_watcher = true,
 		filtered_items = {
 			visible = true,

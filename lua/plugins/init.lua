@@ -48,13 +48,6 @@ return {
 		config = function()
 			require("plugins.configs.auto-session")
 		end,
-		---enables autocomplete for opts
-		---@module "auto-session"
-		---@type AutoSession.Config
-		-- opts = {
-		-- 	suppressed_dirs = { "~/", "~/Projects", "~/Downloads", "/" },
-		-- 	-- log_level = 'debug',
-		--},
 	},
 	-- Telescipe, FzFinder
 	{

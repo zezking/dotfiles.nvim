@@ -4,6 +4,7 @@ if not status_ok then
 	return
 end
 
+-- close_neo_tree and open_neo_tree and with current configs will fix Failed to rename buffer error when nvim is closed with neo tree open.
 local function close_neo_tree()
 	require("neo-tree.sources.manager").close_all()
 	vim.notify("closed all")
