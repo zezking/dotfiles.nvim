@@ -45,14 +45,16 @@ return {
 	{
 		"rmagatti/auto-session",
 		lazy = false,
-
+		config = function()
+			require("plugins.configs.auto-session")
+		end,
 		---enables autocomplete for opts
 		---@module "auto-session"
 		---@type AutoSession.Config
-		opts = {
-			suppressed_dirs = { "~/", "~/Projects", "~/Downloads", "/" },
-			-- log_level = 'debug',
-		},
+		-- opts = {
+		-- 	suppressed_dirs = { "~/", "~/Projects", "~/Downloads", "/" },
+		-- 	-- log_level = 'debug',
+		--},
 	},
 	-- Telescipe, FzFinder
 	{
@@ -99,11 +101,16 @@ return {
 	},
 	-- Snippetstypescript-language-server --stdio
 
-	{ "L3MON4D3/LuaSnip" },
-	{ "saadparwaiz1/cmp_luasnip" },
-	{ "rafamadriz/friendly-snippets" },
-	{ "L3MON4D3/LuaSnip" },
-	{ "saadparwaiz1/cmp_luasnip" },
+	{
+		"L3MON4D3/LuaSnip",
+		config = function()
+			require("plugins.configs.lua-snip")
+		end,
+		dependencies = { "rafamadriz/friendly-snippets" },
+	},
+	{
+		"saadparwaiz1/cmp_luasnip",
+	},
 	{ "rafamadriz/friendly-snippets" },
 
 	-- Delete buffers (close files) without closing windows or messing up layout
@@ -254,19 +261,9 @@ return {
 	},
 	{
 		"f-person/git-blame.nvim",
-		-- load the plugin at startup
 		event = "VeryLazy",
-		-- Because of the keys part, you will be lazy loading this plugin.
-		-- The plugin wil only load once one of the keys is used.
-		-- If you want to load the plugin at startup, add something like event = "VeryLazy",
-		-- or lazy = false. One of both options will work.
-		opts = {
-			-- your configuration comes here
-			-- for example
-			enabled = true, -- if you want to enable the plugin
-			message_template = " <summary> • <date> • <author> • <<sha>>", -- template for the blame message, check the Message template section for more options
-			date_format = "%m-%d-%Y %H:%M:%S", -- template for the date, check Date format section for more options
-			virtual_text_column = 1, -- virtual text start column, check Start virtual text at column section for more options
-		},
+		config = function()
+			require("plugins.configs.git-blame")
+		end,
 	},
 }
