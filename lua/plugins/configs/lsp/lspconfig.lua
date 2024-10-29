@@ -62,6 +62,7 @@ lspconfig["pyright"].setup({
 	on_attach = on_attach,
 })
 
+-- Not using rust
 -- configure rust_analyzer server
 -- lspconfig["rust_analyzer"].setup({
 -- 	capabilities = capabilities,
@@ -86,6 +87,12 @@ lspconfig["ts_ls"].setup({
 	capabilities = capabilities,
 	filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx" },
 	cmd = { "typescript-language-server", "--stdio" },
+	init_options = {
+		preferences = {
+			importModuleSpecifierPreference = "relative",
+			importModuleSpecifierEnding = "minimal",
+		},
+	},
 })
 
 -- configure intelephense

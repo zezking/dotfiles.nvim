@@ -107,7 +107,7 @@ which_key.add({
 	{ "<leader>la", "<cmd>lua vim.lsp.buf.code_action()<cr>" },
 	{ "<leader>lf", "<cmd>lua vim.lsp.buf.format({ async = true })<cr>", desc = "Format" },
 	{ "<leader>lF", "<cmd>LspToggleAutoFormat<cr>", desc = "Toggle autoformat" },
-	{ "<leader>ld", "<cmd>TroubleToggle<cr>", desc = "Diagnostics" },
+	{ "<leader>ld", "<cmd>Lspsaga goto_definition<cr>", desc = "Go to definition" },
 	{ "<leader>lw", "<cmd>Telescope lsp_workspace_diagnostics<cr>", desc = "Workspace diagnostics" },
 	{ "<leader>li", "<cmd>LspInfo<cr>", desc = "Info" },
 	{ "<leader>lh", "<cmd>IlluminationToggle<cr>", desc = "Toggle Doc HL" },
@@ -179,8 +179,8 @@ which_key.add({
 	{ "<leader>gu", "<cmd>lua require 'gitsigns'.undo_stage_hunk()<cr>", desc = "Undo Stage Hunk" },
 	{ "<leader>go", "<cmd>Telescope git_status<cr>", desc = "Open changed file" },
 	{ "<leader>gb", "<cmd>Telescope git_branches<cr>", desc = "Checkout branch" },
-	{ "<leader>gc", "<cmd>Telescope git_commits<cr>", "Checkout commit" },
-	{ "<leader>gd", "<cmd>Gitsigns diffthis HEAD<cr>", "Diff" },
+	{ "<leader>gc", "<cmd>Telescope git_commits<cr>", desc = "Checkout commit" },
+	{ "<leader>gd", "<cmd>Gitsigns diffthis HEAD<cr>", desc = "Diff" },
 })
 
 local mappings = {
