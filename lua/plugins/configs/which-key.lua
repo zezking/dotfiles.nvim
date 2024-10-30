@@ -4,6 +4,7 @@ if not status_ok then
 end
 
 local setup = {
+	preset = "modern",
 	plugins = {
 		marks = true, -- shows a list of your marks on ' and `
 		registers = true, -- shows your registers on " in NORMAL or <C-r> in INSERT mode
@@ -47,11 +48,11 @@ local setup = {
 		wo = {
 			winblend = 0,
 		},
+		width = 0.5,
+		col = 0.5,
 	},
 	layout = {
-		height = { min = 4, max = 20 }, -- min and max height of the columns
-		width = { min = 20, max = 30 }, -- min and max width of the columns
-		spacing = 1, -- spacing between columns
+		spacing = 3, -- spacing between columns
 		align = "center", -- align columns left, center or right
 	},
 	filter = function(mapping)
@@ -69,41 +70,52 @@ local setup = {
 	},
 }
 
-local opts = {
-	mode = "n", -- NORMAL mode
-	prefix = "<leader>",
-	buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
-	silent = true, -- use `silent` when creating keymaps
-	noremap = true, -- use `noremap` when creating keymaps
-	nowait = true, -- use `nowait` when creating keymaps
-}
-
-local m_opts = {
-	mode = "n", -- NORMAL mode
-	prefix = "m",
-	buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
-	silent = true, -- use `silent` when creating keymaps
-	noremap = true, -- use `noremap` when creating keymaps
-	nowait = true, -- use `nowait` when creating keymaps
-}
+which_key.setup(setup)
 
 -- Navigation
 which_key.add({
 	mode = { "n" },
 	{ "<leader>/", "<Plug>(comment_toggle_linewise_current)", desc = "Comment" },
 	{ "<leader>b", "<cmd>lua require('enze.bfs').open()<cr>", desc = "Buffers" },
-	{ "<leader>e", "<cmd>Neotree toggle<cr>", desc = "Explorer" },
+	{ "<leader>e", "<cmd>Neotree toggle<cr>", icon = " ", desc = "Explorer" },
 	{ "<leader>q", '<cmd>lua require("enze.functions").smart_quit()<CR>', desc = "Quit" },
-	{ "<leader>P", "<cmd>lua require('telescope').extensions.projects.projects()<cr>", desc = "Projects" },
+	{
+		"<leader>P",
+		"<cmd>lua require('telescope').extensions.projects.projects()<cr>",
+		icon = " ",
+		desc = "Projects",
+	},
 	{ "<leader>gy", desc = "Open code in Browser" },
-	{ "<leader>.", desc = "Goto prev harpoon" },
-	{ "<leader>,", desc = "Goto next harpoon" },
+	-- Hide bufferline keymaps
+	{ "<leader>1", hidden = true },
+	{ "<leader>2", hidden = true },
+	{ "<leader>3", hidden = true },
+	{ "<leader>4", hidden = true },
+	{ "<leader>5", hidden = true },
+	{ "<leader>6", hidden = true },
+	{ "<leader>7", hidden = true },
+	{ "<leader>8", hidden = true },
+	{ "<leader>9", hidden = true },
+	{ "<leader>$", hidden = true },
+	{ "<leader>r", hidden = true },
+	-- Hide lspsaga keymappings
+	{ "<leader>a", hidden = true },
+	{ "<leader>d", hidden = true },
+	{ "<leader>o", hidden = true },
+	-- Hide default keymappings
+	{ "<leader>y", hidden = true },
+	{ "<leader>Y", hidden = true },
+	{ "<leader>w", hidden = true },
+	{ "<leader>+", hidden = true },
+	{ "<leader>-", hidden = true },
+	-- { "<leader>.", desc = "Goto prev harpoon" },
+	-- { "<leader>,", desc = "Goto next harpoon" },
 })
 
 -- LSP
 which_key.add({
 	mode = { "n" },
-	{ "<leader>l", group = "LSP" },
+	{ "<leader>l", group = "LSP", icon = "󰿘" },
 	{ "<leader>la", "<cmd>lua vim.lsp.buf.code_action()<cr>" },
 	{ "<leader>lf", "<cmd>lua vim.lsp.buf.format({ async = true })<cr>", desc = "Format" },
 	{ "<leader>lF", "<cmd>LspToggleAutoFormat<cr>", desc = "Toggle autoformat" },
@@ -298,19 +310,18 @@ local mappings = {
 	-- },
 }
 
-local vopts = {
-	mode = "v", -- VISUAL mode
-	--  prefix = "<leader>",
-	buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
-	silent = true, -- use `silent` when creating keymaps
-	noremap = true, -- use `noremap` when creating keymaps
-	nowait = true, -- use `nowait` when creating keymaps
-}
-local vmappings = {
-	mode = { "v" },
-	{ "<leader>/", "<Plug>(comment_toggle_linewise_visual)", desc = "Comment toggle linewise (visual)" },
-	{ "<leader>s", "<esc><cmd>'<,'>SnipRun<cr>", desc = "Run range" },
-}
+-- local vopts = {
+-- 	mode = "v", -- VISUAL mode
+-- 	--  prefix = "<leader>",
+-- 	buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
+-- 	silent = true, -- use `silent` when creating keymaps
+-- 	noremap = true, -- use `noremap` when creating keymaps
+-- 	nowait = true, -- use `nowait` when creating keymaps
+-- }
+-- local vmappings = {
+-- 	mode = { "v" },
+-- 	{ "<leader>/", "<Plug>(comment_toggle_linewise_visual)", desc = "Comment toggle linewise (visual)" },
+-- 	{ "<leader>s", "<esc><cmd>'<,'>SnipRun<cr>", desc = "Run range" },
+-- }
 
-which_key.setup(setup)
-which_key.add(vmappings, vopts)
+-- which_key.add(vmappings, vopts)
