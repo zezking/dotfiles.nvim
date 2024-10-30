@@ -76,6 +76,7 @@ which_key.setup(setup)
 which_key.add({
 	mode = { "n" },
 	{ "<leader>/", "<Plug>(comment_toggle_linewise_current)", desc = "Comment" },
+	-- TODO: enze.bfs are broken. Need to fix
 	{ "<leader>b", "<cmd>lua require('enze.bfs').open()<cr>", desc = "Buffers" },
 	{ "<leader>e", "<cmd>Neotree toggle<cr>", icon = " ", desc = "Explorer" },
 	{ "<leader>q", '<cmd>lua require("enze.functions").smart_quit()<CR>', desc = "Quit" },
@@ -110,6 +111,14 @@ which_key.add({
 	{ "<leader>-", hidden = true },
 	-- { "<leader>.", desc = "Goto prev harpoon" },
 	-- { "<leader>,", desc = "Goto next harpoon" },
+})
+
+-- Buffers
+which_key.add({
+	mode = { "n" },
+	{ "<leader>b", group = "Buffers", desc = "Buffers" },
+	{ "<leader>bp", "<cmd>BufferLinePick<cr>" },
+	{ "<leader>bb", "<cmd>lua require('enze.bfs').open()<cr>", desc = "Buffers open" },
 })
 
 -- LSP
