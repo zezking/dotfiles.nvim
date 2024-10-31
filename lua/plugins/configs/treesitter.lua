@@ -9,17 +9,18 @@ treesitter.setup({
 	-- enable syntax highlighting
 	highlight = {
 		enable = true,
-		additional_vim_regex_highlighting = false,
+		-- Disable for now as there are syntax errors. Related issues: https://github.com/camdencheek/tree-sitter-dockerfile/issues/51
+		disable = { "dockerfile" },
 	},
 	-- enable indentation
 	indent = { enable = true },
 	-- enable autotagging (w/ nvim-ts-autotag plugin)
 	autotag = { enable = true },
-	rainbow = {
-		enable = true,
-		extended_mode = true,
-		max_file_lines = nil,
-	},
+	-- rainbow = {
+	-- 	enable = true,
+	-- 	extended_mode = true,
+	-- 	max_file_lines = nil,
+	-- },
 	-- ensure these language parsers are installed
 	ensure_installed = {
 		"json",
@@ -30,17 +31,17 @@ treesitter.setup({
 		"html",
 		"css",
 		-- "markdown",
-		"svelte",
+		-- "svelte",
 		"graphql",
 		"bash",
 		"lua",
 		"vim",
-		"dockerfile",
 		"gitignore",
 		"python",
-		"rust",
+		--"rust",
 		"toml",
 	},
+	ignore_install = { "dockerfile" },
 	-- auto install above language parsers
 	auto_install = true,
 })

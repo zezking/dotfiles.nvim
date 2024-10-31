@@ -75,7 +75,6 @@ which_key.setup(setup)
 -- Navigation
 which_key.add({
 	mode = { "n" },
-	{ "<leader>/", "<Plug>(comment_toggle_linewise_current)", desc = "Comment" },
 	-- TODO: enze.bfs are broken. Need to fix
 	{ "<leader>b", "<cmd>lua require('enze.bfs').open()<cr>", desc = "Buffers" },
 	{ "<leader>e", "<cmd>Neotree toggle<cr>", icon = " ", desc = "Explorer" },
@@ -87,6 +86,8 @@ which_key.add({
 		desc = "Projects",
 	},
 	{ "<leader>gy", desc = "Open code in Browser" },
+	-- Hide comment
+	{ "<leader>/", "<Plug>(comment_toggle_linewise_current)", hidden = true, desc = "Comment" },
 	-- Hide bufferline keymaps
 	{ "<leader>1", hidden = true },
 	{ "<leader>2", hidden = true },
@@ -113,6 +114,12 @@ which_key.add({
 	-- { "<leader>,", desc = "Goto next harpoon" },
 })
 
+-- Harpoon
+which_key.add({
+	{ mode = { "n" } },
+	{ "<leader>h", group = "Harpoon", desc = "Harpoon" },
+	{ "<leader>ha", "<cmd>lua require('harpoon'):list():add()<cr>", desc = "Add to list" },
+})
 -- Buffers
 which_key.add({
 	mode = { "n" },
@@ -150,6 +157,7 @@ which_key.add({
 	{ "<leader>th", "<cmd>ToggleTerm size=10 direction=horizontal<cr>", desc = "Horizontal" },
 	{ "<leader>tv", "<cmd>ToggleTerm size=80 direction=vertical<cr>", desc = "Vertical" },
 })
+
 -- Session
 which_key.add({
 	mode = { "n" },
@@ -159,6 +167,7 @@ which_key.add({
 	{ "<leader>sf", "<cmd>Autosession search<cr>", desc = "Find" },
 	{ "<leader>sd", "<cmd>Autosession delete<cr>", desc = "Find Delete" },
 })
+
 -- Close buffers
 which_key.add({
 	mode = { "n" },
@@ -166,6 +175,7 @@ which_key.add({
 	{ "<leader>cc", "<cmd>Bdelete!<CR>", desc = "Close buffer" },
 	{ "<leader>cl", "<cmd>BufferLineCloseLeft<CR>", desc = "Close all buffers to the left" },
 	{ "<leader>cr", "<cmd>BufferLineCloseRight<CR>", desc = "Close all buffers to the right" },
+	{ "<leader>co", "<cmd>BufferLineCloseOthers<CR>", desc = "Close all other buffers" },
 })
 -- Find
 which_key.add({
@@ -204,120 +214,120 @@ which_key.add({
 	{ "<leader>gd", "<cmd>Gitsigns diffthis HEAD<cr>", desc = "Diff" },
 })
 
-local mappings = {
-	-- u = {
-	-- 	name = "TodoComments",
-	-- 	["t"] = { "<cmd>TodoTelescope<CR>", "Show Comments" },
-	-- 	["q"] = { "<cmd>TodoQuickFix<CR>", "Quick Fix" },
-	-- 	["l"] = { "<cmd>TodoLocList<CR>", "List Comments" },
-	-- },
-	--
-	-- B = {
-	-- 	name = "Bookmarks",
-	-- 	a = { "<cmd>silent BookmarkAnnotate<cr>", "Annotate" },
-	-- 	c = { "<cmd>silent BookmarkClear<cr>", "Clear" },
-	-- 	t = { "<cmd>silent BookmarkToggle<cr>", "Toggle" },
-	-- 	m = { '<cmd>lua require("harpoon.mark").add_file()<cr>', "Harpoon" },
-	-- 	n = { '<cmd>lua require("harpoon.ui").toggle_quick_menu()<cr>', "Harpoon Toggle" },
-	-- 	l = { "<cmd>lua require('enze.bfs').open()<cr>", "Buffers" },
-	-- 	j = { "<cmd>silent BookmarkNext<cr>", "Next" },
-	-- 	s = { "<cmd>Telescope harpoon marks<cr>", "Search Files" },
-	-- 	k = { "<cmd>silent BookmarkPrev<cr>", "Prev" },
-	-- 	S = { "<cmd>silent BookmarkShowAll<cr>", "Prev" },
-	-- 	x = { "<cmd>BookmarkClearAll<cr>", "Clear All" },
-	-- },
-	--
-	-- p = {
-	-- 	name = "Lazy",
-	-- 	c = { "<cmd>Lazy check<cr>", "Check" },
-	-- 	C = { "<cmd>Lazy clean<cr>", "Clean" },
-	-- 	i = { "<cmd>Lazy install<cr>", "Install" },
-	-- 	s = { "<cmd>Lazy sync<cr>", "Sync" },
-	-- 	u = { "<cmd>Lazy update<cr>", "Update" },
-	-- 	r = { "<cmd>Lazy restore<cr>", "Restore" },
-	-- 	l = { "<cmd>Lazy<cr>", "Lazy" },
-	-- },
-	--
-	-- o = {
-	-- 	name = "Options",
-	-- 	w = { '<cmd>lua require("enze.functions").toggle_option("wrap")<cr>', "Wrap" },
-	-- 	r = { '<cmd>lua require("enze.functions").toggle_option("relativenumber")<cr>', "Relative" },
-	-- 	l = { '<cmd>lua require("enze.functions").toggle_option("cursorline")<cr>', "Cursorline" },
-	-- 	s = { '<cmd>lua require("enze.functions").toggle_option("spell")<cr>', "Spell" },
-	-- 	t = { '<cmd>lua require("enze.functions").toggle_tabline()<cr>', "Tabline" },
-	-- },
-	--
-	--
-	--
-	-- r = {
-	-- 	name = "Replace",
-	-- 	r = { "<cmd>lua require('spectre').open()<cr>", "Replace" },
-	-- 	w = { "<cmd>lua require('spectre').open_visual({select_word=true})<cr>", "Replace Word" },
-	-- 	f = { "<cmd>lua require('spectre').open_file_search()<cr>", "Replace Buffer" },
-	-- },
-	--
-	-- d = {
-	-- 	name = "Debug",
-	-- 	b = { "<cmd>lua require'dap'.toggle_breakpoint()<cr>", "Breakpoint" },
-	-- 	c = { "<cmd>lua require'dap'.continue()<cr>", "Continue" },
-	-- 	i = { "<cmd>lua require'dap'.step_into()<cr>", "Into" },
-	-- 	o = { "<cmd>lua require'dap'.step_over()<cr>", "Over" },
-	-- 	O = { "<cmd>lua require'dap'.step_out()<cr>", "Out" },
-	-- 	r = { "<cmd>lua require'dap'.repl.toggle()<cr>", "Repl" },
-	-- 	l = { "<cmd>lua require'dap'.run_last()<cr>", "Last" },
-	-- 	u = { "<cmd>lua require'dapui'.toggle()<cr>", "UI" },
-	-- 	x = { "<cmd>lua require'dap'.terminate()<cr>", "Exit" },
-	-- },
-	--
-	--
-	-- 	G = {
-	-- 		name = "Gist",
-	-- 		a = { "<cmd>Gist -b -a<cr>", "Create Anon" },
-	-- 		d = { "<cmd>Gist -d<cr>", "Delete" },
-	-- 		f = { "<cmd>Gist -f<cr>", "Fork" },
-	-- 		g = { "<cmd>Gist -b<cr>", "Create" },
-	-- 		l = { "<cmd>Gist -l<cr>", "List" },
-	-- 		p = { "<cmd>Gist -b -p<cr>", "Create Private" },
-	-- 	},
-	-- },
-	--
-	-- 	k = {
-	-- 		"<cmd>lua vim.diagnostic.goto_prev({buffer=0})<cr>",
-	-- 		"Prev Diagnostic",
-	-- 	},
-	-- 	l = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
-	-- 	o = { "<cmd>SymbolsOutline<cr>", "Outline" },
-	-- 	q = { "<cmd>lua vim.lsp.diagnostic.set_loclist()<cr>", "Quickfix" },
-	-- 	r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
-	-- 	R = { "<cmd>TroubleToggle lsp_references<cr>", "References" },
-	-- 	s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
-	-- 	S = {
-	-- 		"<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
-	-- 		"Workspace Symbols",
-	-- 	},
-	-- 	t = { '<cmd>lua require("enze.functions").toggle_diagnostics()<cr>', "Toggle Diagnostics" },
-	-- 	u = { "<cmd>LuaSnipUnlinkCurrent<cr>", "Unlink Snippet" },
-	-- },
-	--
-	-- S = {
-	-- 	name = "SnipRun",
-	-- 	c = { "<cmd>SnipClose<cr>", "Close" },
-	-- 	f = { "<cmd>%SnipRun<cr>", "Run File" },
-	-- 	i = { "<cmd>SnipInfo<cr>", "Info" },
-	-- 	m = { "<cmd>SnipReplMemoryClean<cr>", "Mem Clean" },
-	-- 	r = { "<cmd>SnipReset<cr>", "Reset" },
-	-- 	t = { "<cmd>SnipRunToggle<cr>", "Toggle" },
-	-- 	x = { "<cmd>SnipTerminate<cr>", "Terminate" },
-	-- },
-	--
-	--
-	-- T = {
-	-- 	name = "Treesitter",
-	-- 	h = { "<cmd>TSHighlightCapturesUnderCursor<cr>", "Highlight" },
-	-- 	p = { "<cmd>TSPlaygroundToggle<cr>", "Playground" },
-	-- 	r = { "<cmd>TSToggle rainbow<cr>", "Rainbow" },
-	-- },
-}
+--local mappings = {
+-- u = {
+-- 	name = "TodoComments",
+-- 	["t"] = { "<cmd>TodoTelescope<CR>", "Show Comments" },
+-- 	["q"] = { "<cmd>TodoQuickFix<CR>", "Quick Fix" },
+-- 	["l"] = { "<cmd>TodoLocList<CR>", "List Comments" },
+-- },
+--
+-- B = {
+-- 	name = "Bookmarks",
+-- 	a = { "<cmd>silent BookmarkAnnotate<cr>", "Annotate" },
+-- 	c = { "<cmd>silent BookmarkClear<cr>", "Clear" },
+-- 	t = { "<cmd>silent BookmarkToggle<cr>", "Toggle" },
+-- 	m = { '<cmd>lua require("harpoon.mark").add_file()<cr>', "Harpoon" },
+-- 	n = { '<cmd>lua require("harpoon.ui").toggle_quick_menu()<cr>', "Harpoon Toggle" },
+-- 	l = { "<cmd>lua require('enze.bfs').open()<cr>", "Buffers" },
+-- 	j = { "<cmd>silent BookmarkNext<cr>", "Next" },
+-- 	s = { "<cmd>Telescope harpoon marks<cr>", "Search Files" },
+-- 	k = { "<cmd>silent BookmarkPrev<cr>", "Prev" },
+-- 	S = { "<cmd>silent BookmarkShowAll<cr>", "Prev" },
+-- 	x = { "<cmd>BookmarkClearAll<cr>", "Clear All" },
+-- },
+--
+-- p = {
+-- 	name = "Lazy",
+-- 	c = { "<cmd>Lazy check<cr>", "Check" },
+-- 	C = { "<cmd>Lazy clean<cr>", "Clean" },
+-- 	i = { "<cmd>Lazy install<cr>", "Install" },
+-- 	s = { "<cmd>Lazy sync<cr>", "Sync" },
+-- 	u = { "<cmd>Lazy update<cr>", "Update" },
+-- 	r = { "<cmd>Lazy restore<cr>", "Restore" },
+-- 	l = { "<cmd>Lazy<cr>", "Lazy" },
+-- },
+--
+-- o = {
+-- 	name = "Options",
+-- 	w = { '<cmd>lua require("enze.functions").toggle_option("wrap")<cr>', "Wrap" },
+-- 	r = { '<cmd>lua require("enze.functions").toggle_option("relativenumber")<cr>', "Relative" },
+-- 	l = { '<cmd>lua require("enze.functions").toggle_option("cursorline")<cr>', "Cursorline" },
+-- 	s = { '<cmd>lua require("enze.functions").toggle_option("spell")<cr>', "Spell" },
+-- 	t = { '<cmd>lua require("enze.functions").toggle_tabline()<cr>', "Tabline" },
+-- },
+--
+--
+--
+-- r = {
+-- 	name = "Replace",
+-- 	r = { "<cmd>lua require('spectre').open()<cr>", "Replace" },
+-- 	w = { "<cmd>lua require('spectre').open_visual({select_word=true})<cr>", "Replace Word" },
+-- 	f = { "<cmd>lua require('spectre').open_file_search()<cr>", "Replace Buffer" },
+-- },
+--
+-- d = {
+-- 	name = "Debug",
+-- 	b = { "<cmd>lua require'dap'.toggle_breakpoint()<cr>", "Breakpoint" },
+-- 	c = { "<cmd>lua require'dap'.continue()<cr>", "Continue" },
+-- 	i = { "<cmd>lua require'dap'.step_into()<cr>", "Into" },
+-- 	o = { "<cmd>lua require'dap'.step_over()<cr>", "Over" },
+-- 	O = { "<cmd>lua require'dap'.step_out()<cr>", "Out" },
+-- 	r = { "<cmd>lua require'dap'.repl.toggle()<cr>", "Repl" },
+-- 	l = { "<cmd>lua require'dap'.run_last()<cr>", "Last" },
+-- 	u = { "<cmd>lua require'dapui'.toggle()<cr>", "UI" },
+-- 	x = { "<cmd>lua require'dap'.terminate()<cr>", "Exit" },
+-- },
+--
+--
+-- 	G = {
+-- 		name = "Gist",
+-- 		a = { "<cmd>Gist -b -a<cr>", "Create Anon" },
+-- 		d = { "<cmd>Gist -d<cr>", "Delete" },
+-- 		f = { "<cmd>Gist -f<cr>", "Fork" },
+-- 		g = { "<cmd>Gist -b<cr>", "Create" },
+-- 		l = { "<cmd>Gist -l<cr>", "List" },
+-- 		p = { "<cmd>Gist -b -p<cr>", "Create Private" },
+-- 	},
+-- },
+--
+-- 	k = {
+-- 		"<cmd>lua vim.diagnostic.goto_prev({buffer=0})<cr>",
+-- 		"Prev Diagnostic",
+-- 	},
+-- 	l = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
+-- 	o = { "<cmd>SymbolsOutline<cr>", "Outline" },
+-- 	q = { "<cmd>lua vim.lsp.diagnostic.set_loclist()<cr>", "Quickfix" },
+-- 	r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
+-- 	R = { "<cmd>TroubleToggle lsp_references<cr>", "References" },
+-- 	s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
+-- 	S = {
+-- 		"<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
+-- 		"Workspace Symbols",
+-- 	},
+-- 	t = { '<cmd>lua require("enze.functions").toggle_diagnostics()<cr>', "Toggle Diagnostics" },
+-- 	u = { "<cmd>LuaSnipUnlinkCurrent<cr>", "Unlink Snippet" },
+-- },
+--
+-- S = {
+-- 	name = "SnipRun",
+-- 	c = { "<cmd>SnipClose<cr>", "Close" },
+-- 	f = { "<cmd>%SnipRun<cr>", "Run File" },
+-- 	i = { "<cmd>SnipInfo<cr>", "Info" },
+-- 	m = { "<cmd>SnipReplMemoryClean<cr>", "Mem Clean" },
+-- 	r = { "<cmd>SnipReset<cr>", "Reset" },
+-- 	t = { "<cmd>SnipRunToggle<cr>", "Toggle" },
+-- 	x = { "<cmd>SnipTerminate<cr>", "Terminate" },
+-- },
+--
+--
+-- T = {
+-- 	name = "Treesitter",
+-- 	h = { "<cmd>TSHighlightCapturesUnderCursor<cr>", "Highlight" },
+-- 	p = { "<cmd>TSPlaygroundToggle<cr>", "Playground" },
+-- 	r = { "<cmd>TSToggle rainbow<cr>", "Rainbow" },
+-- },
+-- }
 
 -- local vopts = {
 -- 	mode = "v", -- VISUAL mode

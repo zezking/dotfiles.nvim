@@ -5,7 +5,7 @@ if not status_ok then
 end
 
 tokyonight.setup({
-	style = "night",
+	style = "moon",
 })
 
-vim.cmd[[colorscheme tokyonight]]
+vim.cmd([[colorscheme tokyonight]])

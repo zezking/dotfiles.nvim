@@ -78,6 +78,9 @@ return {
 		"ThePrimeagen/harpoon",
 		branch = "harpoon2",
 		dependencies = { "nvim-lua/plenary.nvim" },
+		config = function()
+			require("plugins.configs.harpoon")
+		end,
 	},
 	-- Auto completions
 	{ "hrsh7th/cmp-buffer" }, -- buffer completions
@@ -221,33 +224,34 @@ return {
 		dependencies = { { "nvim-tree/nvim-web-devicons" } },
 	},
 	-- AI
-	{
-		"zbirenbaum/copilot.lua",
-		cmd = "Copilot",
-		event = "InsertEnter",
-		config = function()
-			require("copilot").setup({})
-		end,
-	},
-	{
-		"jackMort/ChatGPT.nvim",
-		config = function()
-			require("plugins.configs.chatgpt")
-		end,
-		dependencies = {
-			{
-				"MunifTanjim/nui.nvim",
-				"nvim-lua/plenary.nvim",
-				"nvim-telescope/telescope.nvim",
-			},
-		},
-	},
-	{
-		"zbirenbaum/copilot-cmp",
-		config = function()
-			require("copilot_cmp").setup()
-		end,
-	},
+	-- Disable for now
+	-- {
+	-- 	"zbirenbaum/copilot.lua",
+	-- 	cmd = "Copilot",
+	-- 	event = "InsertEnter",
+	-- 	config = function()
+	-- 		require("copilot").setup({})
+	-- 	end,
+	-- },
+	-- {
+	-- 	"jackMort/ChatGPT.nvim",
+	-- 	config = function()
+	-- 		require("plugins.configs.chatgpt")
+	-- 	end,
+	-- 	dependencies = {
+	-- 		{
+	-- 			"MunifTanjim/nui.nvim",
+	-- 			"nvim-lua/plenary.nvim",
+	-- 			"nvim-telescope/telescope.nvim",
+	-- 		},
+	-- 	},
+	-- },
+	-- {
+	-- 	"zbirenbaum/copilot-cmp",
+	-- 	config = function()
+	-- 		require("copilot_cmp").setup()
+	-- 	end,
+	-- },
 	{
 		"lervag/vimtex",
 		lazy = false,
