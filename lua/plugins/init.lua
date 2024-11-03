@@ -1,17 +1,27 @@
 return {
 	-- File explorer
+	-- {
+	-- 	"nvim-neo-tree/neo-tree.nvim",
+	-- 	branch = "v2.x",
+	-- 	module = "neo-tree",
+	-- 	cmd = "Neotree",
+	-- 	dependencies = {
+	-- 		{ "MunifTanjim/nui.nvim", module = "nui" },
+	-- 		"nvim-lua/plenary.nvim",
+	-- 		"nvim-tree/nvim-web-devicons",
+	-- 	},
+	-- 	config = function()
+	-- 		require("plugins.configs.neo-tree")
+	-- 	end,
 	{
-		"nvim-neo-tree/neo-tree.nvim",
-		branch = "v2.x",
-		module = "neo-tree",
-		cmd = "Neotree",
-		dependencies = {
-			{ "MunifTanjim/nui.nvim", module = "nui" },
-			"nvim-lua/plenary.nvim",
-			"nvim-tree/nvim-web-devicons",
-		},
+		"stevearc/oil.nvim",
+		---@module 'oil'
+		---@type oil.SetupOpts
+		opts = {},
+		-- Optional dependencies
+		dependencies = { { "echasnovski/mini.icons", opts = {} } },
 		config = function()
-			require("plugins.configs.neo-tree")
+			require("plugins.configs.oil")
 		end,
 	},
 	-- Theme tokyonight
@@ -39,14 +49,6 @@ return {
 		lazy = false,
 		config = function()
 			require("plugins.configs.bufferline")
-		end,
-	},
-	-- AutoSession
-	{
-		"rmagatti/auto-session",
-		lazy = false,
-		config = function()
-			require("plugins.configs.auto-session")
 		end,
 	},
 	-- Telescipe, FzFinder
@@ -77,6 +79,7 @@ return {
 	{
 		"ThePrimeagen/harpoon",
 		branch = "harpoon2",
+		commit = "e76cb03",
 		dependencies = { "nvim-lua/plenary.nvim" },
 		config = function()
 			require("plugins.configs.harpoon")

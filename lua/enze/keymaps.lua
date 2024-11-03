@@ -36,9 +36,6 @@ vnoremap("<leader>y", '"+y')
 nmap("<leader>Y", '"+Y')
 
 -- Harpoon
-keymap("n", ".", "<cmd>lua require('harpoon'):list():next()<cr>", opts)
-keymap("n", ",", "<cmd>lua require('harpoon'):list():prev()<cr>", opts)
-
 nnoremap("<S-l>", function()
 	require("harpoon"):list():add()
 end)
@@ -149,8 +146,8 @@ keymap("n", "<leader>+", "<C-a>", opts)
 keymap("n", "<leader>-", "<C-x>", opts)
 
 -- Naviagate buffers
-keymap("n", "<C-j>", ":bnext<CR>", opts)
-keymap("n", "<C-k>", ":bprevious<CR>", opts)
+keymap("n", "<C-k>", ":bnext<CR>", opts)
+keymap("n", "<C-j>", ":bprevious<CR>", opts)
 
 -- Splits
 -- TODO: Fix Conflits with sessions

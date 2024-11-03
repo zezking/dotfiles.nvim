@@ -77,14 +77,8 @@ which_key.add({
 	mode = { "n" },
 	-- TODO: enze.bfs are broken. Need to fix
 	{ "<leader>b", "<cmd>lua require('enze.bfs').open()<cr>", desc = "Buffers" },
-	{ "<leader>e", "<cmd>Neotree toggle<cr>", icon = " ", desc = "Explorer" },
+	{ "<leader>e", "<cmd>Oil<cr>", icon = " ", desc = "Explorer" },
 	{ "<leader>q", '<cmd>lua require("enze.functions").smart_quit()<CR>', desc = "Quit" },
-	{
-		"<leader>P",
-		"<cmd>lua require('telescope').extensions.projects.projects()<cr>",
-		icon = " ",
-		desc = "Projects",
-	},
 	{ "<leader>gy", desc = "Open code in Browser" },
 	-- Hide comment
 	{ "<leader>/", "<Plug>(comment_toggle_linewise_current)", hidden = true, desc = "Comment" },
@@ -194,6 +188,12 @@ which_key.add({
 	{ "<leader>fR", "<cmd>Telescope registers<cr>", desc = "Registers" },
 	{ "<leader>fk", "<cmd>Telescope keymaps<cr>", desc = "Keymaps" },
 	{ "<leader>fC", "<cmd>Telescope commands<cr>", desc = "Commands" },
+	{
+		"<leader>fp",
+		"<cmd>lua require('telescope').extensions.projects.projects()<cr>",
+		icon = " ",
+		desc = "Projects",
+	},
 })
 -- Git
 which_key.add({

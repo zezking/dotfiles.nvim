@@ -17,6 +17,8 @@ local options = {
 	writebackup = false,
 	hidden = true,
 	signcolumn = "yes",
+	ignorecase = true,
+	smartcase = true,
 }
 
 vim.diagnostic.config({
@@ -44,8 +46,10 @@ vim.g.loaded_netrw = 1
 vim.o.updatetime = 1250
 -- vim.o.nohidden = true
 
+-- Use sessionoptions for a better experience with auto-session
+vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
 -- open neo tree by default
-vim.cmd([[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]])
+-- vim.cmd([[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]])
 for k, v in pairs(options) do
 	vim.opt[k] = v
 end
