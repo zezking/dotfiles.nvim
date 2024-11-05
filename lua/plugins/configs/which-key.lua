@@ -78,7 +78,6 @@ which_key.add({
 	-- TODO: enze.bfs are broken. Need to fix
 	{ "<leader>b", "<cmd>lua require('enze.bfs').open()<cr>", desc = "Buffers" },
 	{ "<leader>e", "<cmd>Oil<cr>", icon = " ", desc = "Explorer" },
-	{ "<leader>q", '<cmd>lua require("enze.functions").smart_quit()<CR>', desc = "Quit" },
 	{ "<leader>gy", desc = "Open code in Browser" },
 	-- Hide comment
 	{ "<leader>/", "<Plug>(comment_toggle_linewise_current)", hidden = true, desc = "Comment" },
@@ -130,11 +129,13 @@ which_key.add({
 	{ "<leader>lf", "<cmd>lua vim.lsp.buf.format({ async = true })<cr>", desc = "Format" },
 	{ "<leader>lF", "<cmd>LspToggleAutoFormat<cr>", desc = "Toggle autoformat" },
 	{ "<leader>ld", "<cmd>Lspsaga goto_definition<cr>", desc = "Go to definition" },
+	{ "<leader>lt", '<cmd>lua require("enze.functions").toggle_diagnostics()<cr>', desc = "Toggle Diagnostics" },
 	{ "<leader>lw", "<cmd>Telescope lsp_workspace_diagnostics<cr>", desc = "Workspace diagnostics" },
 	{ "<leader>li", "<cmd>LspInfo<cr>", desc = "Info" },
 	{ "<leader>lh", "<cmd>IlluminationToggle<cr>", desc = "Toggle Doc HL" },
 	{ "<leader>lI", "<cmd>LspInstallInfo<cr>", desc = "Installer Info" },
 	{ "<leader>lj", "<cmd>lua vim.diagnostic.goto_next({buffer=0})<CR>", desc = "Next diagnostic" },
+	{ "<leader>lk", "<cmd>lua vim.diagnostic.goto_prev({buffer=0})<CR>", desc = "Prev diagnostic" },
 })
 
 -- Terminal
@@ -153,14 +154,15 @@ which_key.add({
 })
 
 -- Session
-which_key.add({
-	mode = { "n" },
-	{ "<leader>s", group = "Session" },
-	{ "<leader>ss", "<cmd>SessionSave<cr>", desc = "Save" },
-	{ "<leader>sr", "<cmd>SessionRestore<cr>", desc = "Restore" },
-	{ "<leader>sf", "<cmd>Autosession search<cr>", desc = "Find" },
-	{ "<leader>sd", "<cmd>Autosession delete<cr>", desc = "Find Delete" },
-})
+-- Use Tmux for session management for now
+-- which_key.add({
+-- 	mode = { "n" },
+-- 	{ "<leader>s", group = "Session" },
+-- 	{ "<leader>ss", "<cmd>SessionSave<cr>", desc = "Save" },
+-- 	{ "<leader>sr", "<cmd>SessionRestore<cr>", desc = "Restore" },
+-- 	{ "<leader>sf", "<cmd>Autosession search<cr>", desc = "Find" },
+-- 	{ "<leader>sd", "<cmd>Autosession delete<cr>", desc = "Find Delete" },
+-- })
 
 -- Close buffers
 which_key.add({
@@ -170,6 +172,7 @@ which_key.add({
 	{ "<leader>cl", "<cmd>BufferLineCloseLeft<CR>", desc = "Close all buffers to the left" },
 	{ "<leader>cr", "<cmd>BufferLineCloseRight<CR>", desc = "Close all buffers to the right" },
 	{ "<leader>co", "<cmd>BufferLineCloseOthers<CR>", desc = "Close all other buffers" },
+	{ "<leader>cp", "<cmd>BufferLinePickClose<CR>", desc = "Close by pick" },
 })
 -- Find
 which_key.add({

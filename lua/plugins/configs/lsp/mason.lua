@@ -14,11 +14,11 @@ if not mason_null_ls_status then
 end
 
 local config = {
-	-- disable virtual text
+	--Turn off virtual_text
 	virtual_text = false,
 	update_in_insert = true,
 	underline = true,
-	severity_sort = true,
+	severity_sor = true,
 	float = {
 		focusable = true,
 		style = "minimal",

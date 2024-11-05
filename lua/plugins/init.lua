@@ -1,18 +1,4 @@
 return {
-	-- File explorer
-	-- {
-	-- 	"nvim-neo-tree/neo-tree.nvim",
-	-- 	branch = "v2.x",
-	-- 	module = "neo-tree",
-	-- 	cmd = "Neotree",
-	-- 	dependencies = {
-	-- 		{ "MunifTanjim/nui.nvim", module = "nui" },
-	-- 		"nvim-lua/plenary.nvim",
-	-- 		"nvim-tree/nvim-web-devicons",
-	-- 	},
-	-- 	config = function()
-	-- 		require("plugins.configs.neo-tree")
-	-- 	end,
 	{
 		"stevearc/oil.nvim",
 		---@module 'oil'
@@ -188,12 +174,17 @@ return {
 	},
 	{ "kshenoy/vim-signature" },
 	{ "Saecki/crates.nvim" },
+
+	-- Lualine
 	{
 		"nvim-lualine/lualine.nvim",
 		config = function()
 			require("plugins.configs.lualine")
 		end,
 		dependencies = { { "nvim-tree/nvim-web-devicons" } },
+	},
+	{
+		"Isrothy/lualine-diagnostic-message",
 	},
 	-- Surround words with: "({[
 	{
@@ -266,6 +257,14 @@ return {
 			require("plugins.configs.git-blame")
 		end,
 	},
+	-- Persistence for session
+	{
+		"folke/persistence.nvim",
+		event = "BufReadPre", -- this will only start session saving when an actual file was opened
+		config = function()
+			require("plugins.configs.persistence")
+		end,
+	},
 	{
 		"christoomey/vim-tmux-navigator",
 		cmd = {
@@ -281,6 +280,43 @@ return {
 			{ "<c-k>", "<cmd><C-U>TmuxNavigateUp<cr>" },
 			{ "<c-l>", "<cmd><C-U>TmuxNavigateRight<cr>" },
 			{ "<c-\\>", "<cmd><C-U>TmuxNavigatePrevious<cr>" },
+		},
+	},
+	{
+		"folke/trouble.nvim",
+		opts = {}, -- for default options, refer to the configuration section for custom setup.
+		cmd = "Trouble",
+		keys = {
+			{
+				"<leader>xx",
+				"<cmd>Trouble diagnostics toggle<cr>",
+				desc = "Diagnostics (Trouble)",
+			},
+			{
+				"<leader>xX",
+				"<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
+				desc = "Buffer Diagnostics (Trouble)",
+			},
+			{
+				"<leader>cs",
+				"<cmd>Trouble symbols toggle focus=false<cr>",
+				desc = "Symbols (Trouble)",
+			},
+			{
+				"<leader>cl",
+				"<cmd>Trouble lsp toggle focus=false win.position=right<cr>",
+				desc = "LSP Definitions / references / ... (Trouble)",
+			},
+			{
+				"<leader>xL",
+				"<cmd>Trouble loclist toggle<cr>",
+				desc = "Location List (Trouble)",
+			},
+			{
+				"<leader>xQ",
+				"<cmd>Trouble qflist toggle<cr>",
+				desc = "Quickfix List (Trouble)",
+			},
 		},
 	},
 }
