@@ -174,6 +174,7 @@ which_key.add({
 	{ "<leader>co", "<cmd>BufferLineCloseOthers<CR>", desc = "Close all other buffers" },
 	{ "<leader>cp", "<cmd>BufferLinePickClose<CR>", desc = "Close by pick" },
 })
+
 -- Find
 which_key.add({
 	mode = { "n" },
@@ -197,6 +198,12 @@ which_key.add({
 		icon = " ",
 		desc = "Projects",
 	},
+})
+-- Docker
+which_key.add({
+	mode = { "n" },
+	{ "<leader>d", group = "Docker" },
+	{ "<leader>dd", "<cmd>lua _LAZYDOCKER_TOGGLE()<cr>", desc = "Checkout branch" },
 })
 -- Git
 which_key.add({

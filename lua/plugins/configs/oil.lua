@@ -7,4 +7,8 @@ require("oil").setup({
 			desc = "Open the entry in a horizontal split",
 		},
 	},
+	view_options = {
+		-- Show files and directories that start with "."
+		show_hidden = false,
+	},
 })
