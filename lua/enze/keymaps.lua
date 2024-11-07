@@ -24,7 +24,6 @@ keymap("n", "<C-j>", "<C-w>j", opts)
 keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
 
--- Open WhichKey
 keymap("n", "<C-Space>", "<cmd>WhichKey \\<leader><cr>", opts)
 
 -- greatest remap ever
@@ -90,9 +89,10 @@ nnoremap("<S-Down>", ":m+<CR>")
 inoremap("<S-Up>", "<Esc>:m-2<CR>")
 inoremap("<S-Down>", "<Esc>:m+<CR>")
 
---
-nnoremap("<leader>d", '"_d')
-vnoremap("<leader>d", '"_d')
+-- Remap d to _d so d doesn't copy to clipboard
+-- We use x to cut content
+nnoremap("d", '"_d')
+vnoremap("d", '"_d')
 
 inoremap("<C-c>", "<Esc>")
 

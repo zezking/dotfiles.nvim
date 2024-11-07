@@ -71,6 +71,7 @@ return {
 			require("plugins.configs.harpoon")
 		end,
 	},
+
 	-- Auto completions
 	{ "hrsh7th/cmp-buffer" }, -- buffer completions
 	{ "hrsh7th/cmp-path" }, -- path completions
@@ -84,8 +85,8 @@ return {
 			require("plugins.configs.cmp")
 		end,
 	},
-	-- Snippetstypescript-language-server --stdio
 
+	-- Snippet
 	{
 		"L3MON4D3/LuaSnip",
 		config = function()
