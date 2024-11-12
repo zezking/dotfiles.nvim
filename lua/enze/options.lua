@@ -19,6 +19,7 @@ local options = {
 	signcolumn = "yes",
 	ignorecase = true,
 	smartcase = true,
+	autoread = true,
 }
 
 vim.diagnostic.config({
