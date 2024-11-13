@@ -144,6 +144,15 @@ telescope.setup({
 		-- }
 		-- Now the picker_config_key will be applied every time you call this
 		-- builtin picker
+		find_files = {
+			find_command = { "rg", "--files", "--iglob", "!.git", "--hidden" },
+		},
+		grep_string = {
+			additional_args = { "--hidden" },
+		},
+		live_grep = {
+			additional_args = { "--hidden" },
+		},
 	},
 	extensions = {
 		media_files = {
