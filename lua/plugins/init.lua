@@ -132,9 +132,19 @@ return {
 	},
 
 	-- Formatting
-	{ "jayp0521/mason-null-ls.nvim" },
 	{
-		"jose-elias-alvarez/null-ls.nvim",
+		"jayp0521/mason-null-ls.nvim",
+		dependencies = {
+			-- Dependencies needed because none-ls removed some unmaintained default lsps
+			-- Migrate to conform, Look into https://github.com/zapling/mason-conform.nvim
+			"nvimtools/none-ls-extras.nvim",
+			"gbprod/none-ls-shellcheck.nvim",
+		},
+	},
+	-- none-ls is an active community folk of null-ls.
+	-- null-ls is archived
+	{
+		"nvimtools/none-ls.nvim",
 		config = function()
 			require("plugins.configs.lsp.null-ls")
 		end,

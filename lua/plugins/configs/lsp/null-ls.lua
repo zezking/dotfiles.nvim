@@ -21,13 +21,15 @@ null_ls.setup({
 		formatting.black.with({ extra_args = { "--fast" } }),
 		formatting.isort,
 		formatting.phpcsfixer,
-		diagnostics.flake8,
-		diagnostics.eslint_d.with({ -- js/ts linter
-			-- only enable eslint if root has .eslintrc.js (not in youtube nvim video)
-			condition = function(utils)
-				return utils.root_has_file(".eslintrc.js") -- change file extension if you use something else
-			end,
-		}),
+		-- Formatters based-off the new none-ls-extras plugin
+		require("none-ls.code_actions.eslint_d"),
+
+		require("none-ls.diagnostics.eslint_d"),
+		require("none-ls.diagnostics.flake8"),
+
+		require("none-ls.formatting.beautysh"),
+		require("none-ls.formatting.eslint_d"),
+		require("none-ls.formatting.jq"),
 	},
 	-- configure format on save
 	on_attach = function(current_client, bufnr)
