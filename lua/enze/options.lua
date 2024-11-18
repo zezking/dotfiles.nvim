@@ -47,9 +47,16 @@ vim.g.loaded_netrw = 1
 vim.o.updatetime = 1250
 -- vim.o.nohidden = true
 
--- Use sessionoptions for a better experience with auto-session
-vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
--- open neo tree by default
+-- Restore session by default
+vim.api.nvim_create_autocmd("VimEnter", {
+	group = vim.api.nvim_create_augroup("restore_session", { clear = true }),
+	callback = function()
+		if vim.fn.getcwd() ~= vim.env.HOME then
+			require("persistence").load()
+		end
+	end,
+	nested = true,
+})
 -- vim.cmd([[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]])
 for k, v in pairs(options) do
 	vim.opt[k] = v

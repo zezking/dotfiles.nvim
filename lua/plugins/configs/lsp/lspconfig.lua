@@ -95,6 +95,11 @@ lspconfig["ts_ls"].setup({
 	},
 })
 
+lspconfig["jsonls"].setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+})
+
 -- configure intelephense
 -- Not using java
 -- lspconfig["intelephense"].setup({

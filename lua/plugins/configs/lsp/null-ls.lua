@@ -13,6 +13,7 @@ local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 -- configure null_ls
 null_ls.setup({
 	-- setup formatters & linters
+	debug = true,
 	sources = {
 		--  to disable file types use
 		--  "formatting.prettier.with({disabled_filetypes: {}})" (see null-ls docs)
@@ -21,6 +22,7 @@ null_ls.setup({
 		formatting.black.with({ extra_args = { "--fast" } }),
 		formatting.isort,
 		formatting.phpcsfixer,
+		--		formatting.jsonls,
 		-- Formatters based-off the new none-ls-extras plugin
 		require("none-ls.code_actions.eslint_d"),
 
@@ -29,7 +31,7 @@ null_ls.setup({
 
 		require("none-ls.formatting.beautysh"),
 		require("none-ls.formatting.eslint_d"),
-		require("none-ls.formatting.jq"),
+		--		require("none-ls.formatting.jq"),
 	},
 	-- configure format on save
 	on_attach = function(current_client, bufnr)
