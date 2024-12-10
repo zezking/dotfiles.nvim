@@ -15,14 +15,14 @@ null_ls.setup({
 	-- setup formatters & linters
 	debug = true,
 	sources = {
-		--  to disable file types use
-		--  "formatting.prettier.with({disabled_filetypes: {}})" (see null-ls docs)
+		-- to disable file types use
+		-- "formatting.prettier.with({disabled_filetypes: {}})" (see null-ls docs)
 		formatting.prettier, -- js/ts formatter
 		formatting.stylua, -- lua formatter
 		formatting.black.with({ extra_args = { "--fast" } }),
 		formatting.isort,
 		formatting.phpcsfixer,
-		--		formatting.jsonls,
+		-- formatting.jsonls,
 		-- Formatters based-off the new none-ls-extras plugin
 		require("none-ls.code_actions.eslint_d"),
 
