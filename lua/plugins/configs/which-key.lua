@@ -103,6 +103,8 @@ which_key.add({
 	{ "<leader>w", hidden = true },
 	{ "<leader>+", hidden = true },
 	{ "<leader>-", hidden = true },
+	-- Hide <leader>we. Need to investigate what it does
+	{ "<leader>we", hidden = true },
 	-- { "<leader>.", desc = "Goto prev harpoon" },
 	-- { "<leader>,", desc = "Goto next harpoon" },
 })
@@ -204,6 +206,13 @@ which_key.add({
 	mode = { "n" },
 	{ "<leader>d", group = "Docker" },
 	{ "<leader>dd", "<cmd>lua _LAZYDOCKER_TOGGLE()<cr>", desc = "Checkout branch" },
+})
+-- Split window
+which_key.add({
+	mode = { "n" },
+	{ "<leader>w", group = "Split window" },
+	{ "<leader>wh", desc = "Split horizontally" },
+	{ "<leader>wv", desc = "Split vertically" },
 })
 -- Git
 which_key.add({

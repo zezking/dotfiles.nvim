@@ -149,7 +149,8 @@ keymap("n", "<C-j>", ":bprevious<CR>", opts)
 keymap("n", "<leader>wv", "<C-w>v", opts)
 keymap("n", "<leader>wh", "<C-w>s", opts)
 keymap("n", "<leader>we", "<C-w>=", opts)
-keymap("n", "<leader>wv", ":close<CR>", opts)
+-- Conflits
+-- keymap("n", "<leader>wv", ":close<CR>", opts)
 
 -- Custom
 -- Clear searh when esc esc
