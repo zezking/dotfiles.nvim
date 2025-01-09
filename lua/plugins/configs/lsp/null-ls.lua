@@ -17,7 +17,8 @@ null_ls.setup({
 	sources = {
 		-- to disable file types use
 		-- "formatting.prettier.with({disabled_filetypes: {}})" (see null-ls docs)
-		formatting.prettier, -- js/ts formatter
+		-- formatting.prettier, -- js/ts formatter
+		formatting.prettier,
 		formatting.stylua, -- lua formatter
 		formatting.black.with({ extra_args = { "--fast" } }),
 		formatting.isort,
@@ -25,10 +26,8 @@ null_ls.setup({
 		-- formatting.jsonls,
 		-- Formatters based-off the new none-ls-extras plugin
 		require("none-ls.code_actions.eslint_d"),
-
-		require("none-ls.diagnostics.eslint_d"),
 		require("none-ls.diagnostics.flake8"),
-
+		require("none-ls.diagnostics.eslint_d"),
 		require("none-ls.formatting.beautysh"),
 		require("none-ls.formatting.eslint_d"),
 		--		require("none-ls.formatting.jq"),

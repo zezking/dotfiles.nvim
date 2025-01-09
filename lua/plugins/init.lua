@@ -133,7 +133,7 @@ return {
 
 	-- Formatting
 	{
-		"jayp0521/mason-null-ls.nvim",
+  	"jayp0521/mason-null-ls.nvim",
 		dependencies = {
 			-- Dependencies needed because none-ls removed some unmaintained default lsps
 			-- Migrate to conform, Look into https://github.com/zapling/mason-conform.nvim
