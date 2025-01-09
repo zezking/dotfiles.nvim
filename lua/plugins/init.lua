@@ -10,16 +10,27 @@ return {
 			require("plugins.configs.oil")
 		end,
 	},
+
 	-- Theme tokyonight
+	-- {
+	-- 	"folke/tokyonight.nvim",
+	-- 	branch = "main",
+	-- 	lazy = false,
+	-- 	priority = 1000,
+	-- 	config = function()
+	-- 		require("plugins.configs.tokyonight")
+	-- 	end,
+	-- },
+
 	{
-		"folke/tokyonight.nvim",
-		branch = "main",
+		"rebelot/kanagawa.nvim",
 		lazy = false,
 		priority = 1000,
 		config = function()
-			require("plugins.configs.tokyonight")
+			require("plugins.configs.kanagawa")
 		end,
 	},
+
 	-- mini icons
 	{ "echasnovski/mini.icons", version = "*" },
 
@@ -30,6 +41,8 @@ return {
 			require("plugins.configs.which-key")
 		end,
 	},
+
+	-- bufferline
 	{
 		"akinsho/bufferline.nvim",
 		lazy = false,
@@ -37,6 +50,7 @@ return {
 			require("plugins.configs.bufferline")
 		end,
 	},
+
 	-- Telescipe, FzFinder
 	{
 		"nvim-telescope/telescope.nvim",
@@ -53,14 +67,18 @@ return {
 		end,
 	},
 	{ "ibhagwan/fzf-lua" },
+
+	--Toggle term
 	{
 		"akinsho/toggleterm.nvim",
 		config = function()
 			require("plugins.configs.toggle-term")
 		end,
 	},
+
 	-- LSP symbols and tags visualizer
 	{ "liuchengxu/vista.vim" },
+
 	-- Project navigation
 	{
 		"ThePrimeagen/harpoon",
@@ -133,7 +151,7 @@ return {
 
 	-- Formatting
 	{
-  	"jayp0521/mason-null-ls.nvim",
+		"jayp0521/mason-null-ls.nvim",
 		dependencies = {
 			-- Dependencies needed because none-ls removed some unmaintained default lsps
 			-- Migrate to conform, Look into https://github.com/zapling/mason-conform.nvim
@@ -197,6 +215,7 @@ return {
 	{
 		"Isrothy/lualine-diagnostic-message",
 	},
+
 	-- Surround words with: "({[
 	{
 		"kylechui/nvim-surround",
@@ -204,14 +223,18 @@ return {
 			require("plugins.configs.surround")
 		end,
 	},
+
 	-- Comment stuff
 	{
 		"numToStr/Comment.nvim",
 		config = function()
 			require("plugins.configs.comment")
 		end,
-	}, -- Impatient optimize the startup time
+	},
+
+	-- Impatient optimize the startup time
 	{ "lewis6991/impatient.nvim" },
+
 	-- Smooth Scrolling
 	{
 		"karb94/neoscroll.nvim",
@@ -219,6 +242,7 @@ return {
 			require("plugins.configs.neoscroll")
 		end,
 	},
+
 	--Dashboard
 	{
 		"glepnir/dashboard-nvim",
@@ -228,16 +252,14 @@ return {
 		end,
 		dependencies = { { "nvim-tree/nvim-web-devicons" } },
 	},
-	-- AI
-	-- Disable for now
-	-- {
-	-- 	"zbirenbaum/copilot.lua",
-	-- 	cmd = "Copilot",
-	-- 	event = "InsertEnter",
-	-- 	config = function()
-	-- 		require("copilot").setup({})
-	-- 	end,
-	-- },
+
+	--AI
+	{
+		"github/copilot.vim",
+		config = function()
+			require("plugins.configs.copilot")
+		end,
+	},
 	-- {
 	-- 	"jackMort/ChatGPT.nvim",
 	-- 	config = function()
@@ -251,16 +273,13 @@ return {
 	-- 		},
 	-- 	},
 	-- },
-	-- {
-	-- 	"zbirenbaum/copilot-cmp",
-	-- 	config = function()
-	-- 		require("copilot_cmp").setup()
-	-- 	end,
-	-- },
+
 	{
 		"lervag/vimtex",
 		lazy = false,
 	},
+
+	--git-blame
 	{
 		"f-person/git-blame.nvim",
 		event = "VeryLazy",
@@ -268,6 +287,7 @@ return {
 			require("plugins.configs.git-blame")
 		end,
 	},
+
 	-- Persistence for session
 	{
 		"folke/persistence.nvim",
@@ -276,6 +296,8 @@ return {
 			require("plugins.configs.persistence")
 		end,
 	},
+
+	-- This plugin is used to navigate between tmux panes and vim splits seamlessly
 	{
 		"christoomey/vim-tmux-navigator",
 		cmd = {
@@ -293,6 +315,8 @@ return {
 			{ "<c-\\>", "<cmd><C-U>TmuxNavigatePrevious<cr>" },
 		},
 	},
+
+	-- Trouble is a plugin that provides a quick way to access and manage the diagnostics list and the quickfix list.
 	{
 		"folke/trouble.nvim",
 		opts = {}, -- for default options, refer to the configuration section for custom setup.
@@ -330,6 +354,8 @@ return {
 			},
 		},
 	},
+
+	-- Neovim's answer to mouse
 	{
 		"ggandor/leap.nvim",
 		config = function()
