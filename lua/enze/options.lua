@@ -47,6 +47,9 @@ vim.g.loaded_netrw = 1
 vim.o.updatetime = 1250
 -- vim.o.nohidden = true
 
+-- check if file is changed outside vim
+vim.cmd([[au FocusGained,BufEnter * :checktime]])
+
 -- Restore session by default
 vim.api.nvim_create_autocmd("VimEnter", {
 	group = vim.api.nvim_create_augroup("restore_session", { clear = true }),
