@@ -22,6 +22,7 @@ return {
 	-- 	end,
 	-- },
 
+	-- Theme kanagawa
 	{
 		"rebelot/kanagawa.nvim",
 		lazy = false,
@@ -121,13 +122,22 @@ return {
 	{ "moll/vim-bbye" },
 
 	-- Manage and Install LSP servers
-	{ "williamboman/mason-lspconfig" },
 	{
 		"williamboman/mason.nvim",
 		config = function()
 			require("plugins.configs.lsp.mason")
 		end,
 	},
+	{ "williamboman/mason-lspconfig" },
+
+	-- Formatting
+	{
+		"stevearc/conform.nvim",
+		event = { "BufWritePre" },
+		cmd = { "ConformInfo" },
+		opts = require("plugins.configs.conform"),
+	},
+	{ "zapling/mason-conform.nvim" },
 
 	-- Config for LSP Servers
 	{
@@ -146,25 +156,6 @@ return {
 		"neovim/nvim-lspconfig",
 		config = function()
 			require("plugins.configs.lsp.lspconfig")
-		end,
-	},
-
-	-- Formatting
-	{
-		"jayp0521/mason-null-ls.nvim",
-		dependencies = {
-			-- Dependencies needed because none-ls removed some unmaintained default lsps
-			-- Migrate to conform, Look into https://github.com/zapling/mason-conform.nvim
-			"nvimtools/none-ls-extras.nvim",
-			"gbprod/none-ls-shellcheck.nvim",
-		},
-	},
-	-- none-ls is an active community folk of null-ls.
-	-- null-ls is archived
-	{
-		"nvimtools/none-ls.nvim",
-		config = function()
-			require("plugins.configs.lsp.null-ls")
 		end,
 	},
 
