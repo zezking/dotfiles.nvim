@@ -8,11 +8,6 @@ if not lsp_status_ok then
 	return
 end
 
--- local mason_null_ls_status, mason_null_ls = pcall(require, "mason-null-ls")
--- if not mason_null_ls_status then
--- 	return
--- end
-
 local config = {
 	--Turn off virtual_text
 	virtual_text = false,
@@ -38,9 +33,3 @@ mason_lsp.setup({
 	ensure_installed = {},
 	-- auto-install configured servers (with lspconfig)
 })
-
--- mason_null_ls.setup({
--- 	-- list of formatters & linters for mason to install
--- 	ensure_installed = {},
--- 	-- auto-install configured formatters & linters (with null-ls)
--- })
