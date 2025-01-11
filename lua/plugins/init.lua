@@ -310,7 +310,7 @@ return {
 	-- Trouble is a plugin that provides a quick way to access and manage the diagnostics list and the quickfix list.
 	{
 		"folke/trouble.nvim",
-		opts = {}, -- for default options, refer to the configuration section for custom setup.
+		opts = require("plugins.configs.trouble"), -- for default options, refer to the configuration section for custom setup.
 		cmd = "Trouble",
 		keys = {
 			{
