@@ -95,10 +95,20 @@ lspconfig["ts_ls"].setup({
 	},
 })
 
--- lspconfig["jsonls"].setup({
--- 	on_attach = on_attach,
--- 	capabilities = capabilities,
--- })
+lspconfig["jsonls"].setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+	settings = {
+		json = {
+			schemas = {
+				{
+					fileMatch = { "package.json" },
+					url = "https://json.schemastore.org/package.json",
+				},
+			},
+		},
+	},
+})
 
 -- configure intelephense
 -- Not using java
