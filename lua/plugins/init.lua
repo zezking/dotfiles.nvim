@@ -353,4 +353,7 @@ return {
 			require("plugins.configs.leap")
 		end,
 	},
+
+	-- Big file
+	{ "LunarVim/bigfile.nvim" },
 }
