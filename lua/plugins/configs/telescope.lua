@@ -4,6 +4,7 @@ if not status_ok then
 end
 
 local actions = require("telescope.actions")
+telescope.load_extension("rooter")
 telescope.load_extension("media_files")
 local icons = require("plugins.configs.icons")
 
