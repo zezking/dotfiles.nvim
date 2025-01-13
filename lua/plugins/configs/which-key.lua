@@ -127,7 +127,6 @@ which_key.add({
 which_key.add({
 	mode = { "n" },
 	{ "<leader>l", group = "LSP", icon = "󰿘" },
-	{ "<leader>la", "<cmd>lua vim.lsp.buf.code_action()<cr>" },
 	{ "<leader>lf", "<cmd>lua vim.lsp.buf.format({ async = true })<cr>", desc = "Format" },
 	{ "<leader>lF", "<cmd>LspToggleAutoFormat<cr>", desc = "Toggle autoformat" },
 	{ "<leader>ld", "<cmd>Lspsaga goto_definition<cr>", desc = "Go to definition" },
