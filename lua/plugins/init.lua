@@ -58,9 +58,6 @@ return {
 		config = function()
 			require("plugins.configs.telescope")
 		end,
-		dependencies = {
-			{ "desdic/telescope-rooter.nvim" },
-		},
 	},
 	{ "nvim-telescope/telescope-media-files.nvim" },
 	{ "nvim-telescope/telescope-fzf-native.nvim" },
@@ -70,7 +67,6 @@ return {
 			require("plugins.configs.project")
 		end,
 	},
-	{ "ibhagwan/fzf-lua" },
 
 	--Toggle term
 	{

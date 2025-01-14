@@ -154,17 +154,6 @@ which_key.add({
 	{ "<leader>tv", "<cmd>ToggleTerm size=80 direction=vertical<cr>", desc = "Vertical" },
 })
 
--- Session
--- Use Tmux for session management for now
--- which_key.add({
--- 	mode = { "n" },
--- 	{ "<leader>s", group = "Session" },
--- 	{ "<leader>ss", "<cmd>SessionSave<cr>", desc = "Save" },
--- 	{ "<leader>sr", "<cmd>SessionRestore<cr>", desc = "Restore" },
--- 	{ "<leader>sf", "<cmd>Autosession search<cr>", desc = "Find" },
--- 	{ "<leader>sd", "<cmd>Autosession delete<cr>", desc = "Find Delete" },
--- })
-
 -- Close buffers
 which_key.add({
 	mode = { "n" },
