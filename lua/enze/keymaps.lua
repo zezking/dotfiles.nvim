@@ -175,11 +175,6 @@ keymap("v", "p", '"_dP', opts)
 vim.api.nvim_set_keymap("n", "K", ":lua require('user.functions').show_documentation()<CR>", opts)
 
 -- Open little window with files
-vim.api.nvim_set_keymap(
-	"n",
-	"<tab>",
-	"<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
-	opts
-)
+vim.api.nvim_set_keymap("n", "<tab>", "<cmd>:lua require('fzf-lua').files({resume=true})<cr>", opts)
 
 return M

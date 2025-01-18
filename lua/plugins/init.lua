@@ -52,15 +52,6 @@ return {
 		end,
 	},
 
-	-- Telescipe, FzFinder
-	{
-		"nvim-telescope/telescope.nvim",
-		config = function()
-			require("plugins.configs.telescope")
-		end,
-	},
-	{ "nvim-telescope/telescope-media-files.nvim" },
-	{ "nvim-telescope/telescope-fzf-native.nvim" },
 	{
 		"ahmedkhalf/project.nvim",
 		config = function()
@@ -68,6 +59,15 @@ return {
 		end,
 	},
 
+	-- fzf lua
+	{
+		"ibhagwan/fzf-lua",
+		-- optional for icon support
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+		-- or if using mini.icons/mini.nvim
+		-- dependencies = { "echasnovski/mini.icons" },
+		opts = require("plugins.configs.fzf-lua"),
+	},
 	--Toggle term
 	{
 		"akinsho/toggleterm.nvim",
