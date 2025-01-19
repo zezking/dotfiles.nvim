@@ -115,6 +115,7 @@ which_key.add({
 	{ "<leader>h", group = "Harpoon", desc = "Harpoon" },
 	{ "<leader>ha", "<cmd>lua require('harpoon'):list():add()<cr>", desc = "Add to list" },
 })
+
 -- Buffers
 which_key.add({
 	mode = { "n" },
@@ -169,19 +170,17 @@ which_key.add({
 which_key.add({
 	mode = { "n" },
 	{ "<leader>f", group = "Find" },
-	{ "<leader>fb", "<cmd>Telescope git_branches<cr>", desc = "Checkout branch" },
-	{ "<leader>fc", "<cmd>Telescope colorscheme<cr>", desc = "Colorscheme" },
-	{ "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find File" },
-	{ "<leader>ft", "<cmd>Telescope live_grep theme=ivy<cr>", desc = "Find Text" },
-	{ "<leader>fs", "<cmd>Telescope grep_string theme=ivy<cr>", desc = "Find String" },
-	{ "<leader>fh", "<cmd>Telecope help_tags<cr>", desc = "Help" },
-	{ "<leader>fi", "<cmd>lua require('telescope').extensions.media_files.media_files()<cr>", desc = "Media" },
-	{ "<leader>fl", "<cmd>Telescope resume<cr>", desc = "Last Search" },
-	{ "<leader>fM", "<cmd>Telescope man_pages<cr>", desc = "Man Pages" },
-	{ "<leader>fr", "<cmd>Telescope oldfiles<cr>", desc = "Recent File" },
-	{ "<leader>fR", "<cmd>Telescope registers<cr>", desc = "Registers" },
-	{ "<leader>fk", "<cmd>Telescope keymaps<cr>", desc = "Keymaps" },
-	{ "<leader>fC", "<cmd>Telescope commands<cr>", desc = "Commands" },
+	{ "<leader>fb", "<cmd>FzfLua git_branches<cr>", desc = "Checkout branch" },
+	{ "<leader>fc", "<cmd>FzfLua colorscheme<cr>", desc = "Colorscheme" },
+	{ "<leader>ff", "<cmd>FzfLua files<cr>", desc = "Find File" },
+	{ "<leader>ft", "<cmd>FzfLua live_grep<cr>", desc = "Find Text" },
+	-- { "<leader>fs", "<cmd>Telescope grep_string theme=ivy<cr>", desc = "Find String" },
+	-- { "<leader>fh", "<cmd>Telecope help_tags<cr>", desc = "Help" },
+	-- { "<leader>fM", "<cmd>Telescope man_pages<cr>", desc = "Man Pages" },
+	-- { "<leader>fr", "<cmd>Telescope oldfiles<cr>", desc = "Recent File" },
+	-- { "<leader>fR", "<cmd>Telescope registers<cr>", desc = "Registers" },
+	{ "<leader>fk", "<cmd>FzfLua keymaps<cr>", desc = "Keymaps" },
+	{ "<leader>fC", "<cmd>FzfLua commands<cr>", desc = "Commands" },
 	{
 		"<leader>fp",
 		"<cmd>lua require('telescope').extensions.projects.projects()<cr>",
@@ -189,12 +188,14 @@ which_key.add({
 		desc = "Projects",
 	},
 })
+
 -- Docker
 which_key.add({
 	mode = { "n" },
 	{ "<leader>d", group = "Docker" },
 	{ "<leader>dd", "<cmd>lua _LAZYDOCKER_TOGGLE()<cr>", desc = "Checkout branch" },
 })
+
 -- Split window
 which_key.add({
 	mode = { "n" },
