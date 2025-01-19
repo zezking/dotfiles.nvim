@@ -11,17 +11,6 @@ return {
 		end,
 	},
 
-	-- Theme tokyonight
-	-- {
-	-- 	"folke/tokyonight.nvim",
-	-- 	branch = "main",
-	-- 	lazy = false,
-	-- 	priority = 1000,
-	-- 	config = function()
-	-- 		require("plugins.configs.tokyonight")
-	-- 	end,
-	-- },
-
 	-- Theme kanagawa
 	{
 		"rebelot/kanagawa.nvim",
@@ -64,10 +53,13 @@ return {
 		"ibhagwan/fzf-lua",
 		-- optional for icon support
 		dependencies = { "nvim-tree/nvim-web-devicons" },
-		-- or if using mini.icons/mini.nvim
-		-- dependencies = { "echasnovski/mini.icons" },
 		opts = require("plugins.configs.fzf-lua"),
+		config = function()
+			local fzf_lua = require("fzf-lua")
+			fzf_lua.setup({ "max-perf" })
+		end,
 	},
+
 	--Toggle term
 	{
 		"akinsho/toggleterm.nvim",
