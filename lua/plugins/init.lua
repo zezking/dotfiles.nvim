@@ -41,13 +41,6 @@ return {
 		end,
 	},
 
-	{
-		"ahmedkhalf/project.nvim",
-		config = function()
-			require("plugins.configs.project")
-		end,
-	},
-
 	-- fzf lua
 	{
 		"ibhagwan/fzf-lua",
@@ -55,8 +48,7 @@ return {
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 		opts = require("plugins.configs.fzf-lua"),
 		config = function()
-			local fzf_lua = require("fzf-lua")
-			fzf_lua.setup({ "max-perf" })
+			require("fzf-lua").setup({ defaults = { git_icons = false, file_icons = false, color_icons = false } })
 		end,
 	},
 

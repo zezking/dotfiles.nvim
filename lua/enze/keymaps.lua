@@ -19,10 +19,10 @@ vim.g.maplocalleader = " "
 
 -- Normal --
 -- Better window navigation
-keymap("n", "<C-h>", "<C-w>h", opts)
-keymap("n", "<C-j>", "<C-w>j", opts)
-keymap("n", "<C-k>", "<C-w>k", opts)
-keymap("n", "<C-l>", "<C-w>l", opts)
+-- keymap("n", "<C-h>", "<C-w>h", opts)
+-- keymap("n", "<C-j>", "<C-w>j", opts)
+-- keymap("n", "<C-k>", "<C-w>k", opts)
+-- keymap("n", "<C-l>", "<C-w>l", opts)
 
 keymap("n", "<C-Space>", "<cmd>WhichKey \\<leader><cr>", opts)
 
@@ -155,11 +155,12 @@ keymap("n", "<leader>we", "<C-w>=", opts)
 -- Custom
 -- Clear searh when esc esc
 keymap("n", "<esc><esc>", "<cmd>nohlsearch<cr>", opts)
-keymap("n", "<C-p>", "<cmd>Telescope projects<cr>", opts)
+-- keymap("n", "<C-p>", "<cmd>Telescope projects<cr>", opts)
 keymap("n", "<C-t>", "<cmd>lua vim.lsp.buf.document_symbol()<cr>", opts)
 keymap("n", "<C-s>", "<cmd>vsplit<cr>", opts)
-keymap("n", "<C-z>", "<cmd>ZenMode<cr>", opts)
-keymap("n", "<c-n>", ":e ~/Notes/<cr>", opts)
+-- keymap("n", "<C-z>", "<cmd>ZenMode<cr>", opts)
+-- keymap("n", "<c-n>", ":e ~/Notes/<cr>", opts)
+keymap("n", "<C-b>", "<cmd>lua require('fzf-lua').buffers()<cr>", opts)
 
 -- Visual --
 -- Stay in indent mode
@@ -172,9 +173,9 @@ keymap("v", "<A-k>", ":m .-2<CR>==", opts)
 keymap("v", "p", '"_dP', opts)
 
 -- Open Documentation in man
-vim.api.nvim_set_keymap("n", "K", ":lua require('user.functions').show_documentation()<CR>", opts)
+keymap("n", "K", ":lua require('user.functions').show_documentation()<CR>", opts)
 
 -- Open little window with files
-vim.api.nvim_set_keymap("n", "<tab>", "<cmd>:lua require('fzf-lua').files({resume=true})<cr>", opts)
+keymap("n", "<tab>", "<cmd>:lua require('fzf-lua').files({resume=true})<cr>", opts)
 
 return M

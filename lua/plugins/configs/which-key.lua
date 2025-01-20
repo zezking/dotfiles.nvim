@@ -181,12 +181,12 @@ which_key.add({
 	-- { "<leader>fR", "<cmd>Telescope registers<cr>", desc = "Registers" },
 	{ "<leader>fk", "<cmd>FzfLua keymaps<cr>", desc = "Keymaps" },
 	{ "<leader>fC", "<cmd>FzfLua commands<cr>", desc = "Commands" },
-	{
-		"<leader>fp",
-		"<cmd>lua require('telescope').extensions.projects.projects()<cr>",
-		icon = " ",
-		desc = "Projects",
-	},
+	-- {
+	-- 	"<leader>fp",
+	-- 	"<cmd>lua require('telescope').extensions.projects.projects()<cr>",
+	-- 	icon = " ",
+	-- 	desc = "Projects",
+	-- },
 })
 
 -- Docker
