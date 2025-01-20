@@ -52,14 +52,6 @@ return {
 		end,
 	},
 
-	--Toggle term
-	{
-		"akinsho/toggleterm.nvim",
-		config = function()
-			require("plugins.configs.toggle-term")
-		end,
-	},
-
 	-- LSP symbols and tags visualizer
 	{ "liuchengxu/vista.vim" },
 
@@ -208,14 +200,6 @@ return {
 
 	-- Impatient optimize the startup time
 	{ "lewis6991/impatient.nvim" },
-
-	-- Smooth Scrolling
-	{
-		"karb94/neoscroll.nvim",
-		config = function()
-			require("plugins.configs.neoscroll")
-		end,
-	},
 
 	--Dashboard
 	{

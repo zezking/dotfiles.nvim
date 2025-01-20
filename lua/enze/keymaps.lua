@@ -17,13 +17,6 @@ keymap("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
--- Normal --
--- Better window navigation
--- keymap("n", "<C-h>", "<C-w>h", opts)
--- keymap("n", "<C-j>", "<C-w>j", opts)
--- keymap("n", "<C-k>", "<C-w>k", opts)
--- keymap("n", "<C-l>", "<C-w>l", opts)
-
 keymap("n", "<C-Space>", "<cmd>WhichKey \\<leader><cr>", opts)
 
 -- greatest remap ever
@@ -121,15 +114,6 @@ nnoremap("<leader>9", function()
 end, opts)
 nnoremap("<leader>$", "<Cmd>BufferLineGoToBuffer -1<CR>")
 
--- Tabs --
--- keymap("n", "<enter>", ":tabnew %<cr>", opts)
--- keymap("n", "<s-enter>", ":tabclose<cr>", opts)
--- keymap("n", "<m-\\>", ":tabonly<cr>", opts)
--- Change tabs
--- This are configured in the QMK firmware
--- keymap("n", "<S-,>", ":tabnext", opts)
--- keymap("n", "<S-.>", ":tabprevious", opts)
-
 -- Resize with arrows
 keymap("n", "<C-Up>", ":resize -2<CR>", opts)
 keymap("n", "<C-Down>", ":resize +2<CR>", opts)
@@ -145,21 +129,17 @@ keymap("n", "<C-k>", ":bnext<CR>", opts)
 keymap("n", "<C-j>", ":bprevious<CR>", opts)
 
 -- Splits
--- TODO: Fix Conflits with sessions
 keymap("n", "<leader>wv", "<C-w>v", opts)
 keymap("n", "<leader>wh", "<C-w>s", opts)
-keymap("n", "<leader>we", "<C-w>=", opts)
+
 -- Conflits
 -- keymap("n", "<leader>wv", ":close<CR>", opts)
 
 -- Custom
 -- Clear searh when esc esc
 keymap("n", "<esc><esc>", "<cmd>nohlsearch<cr>", opts)
--- keymap("n", "<C-p>", "<cmd>Telescope projects<cr>", opts)
 keymap("n", "<C-t>", "<cmd>lua vim.lsp.buf.document_symbol()<cr>", opts)
 keymap("n", "<C-s>", "<cmd>vsplit<cr>", opts)
--- keymap("n", "<C-z>", "<cmd>ZenMode<cr>", opts)
--- keymap("n", "<c-n>", ":e ~/Notes/<cr>", opts)
 keymap("n", "<C-b>", "<cmd>lua require('fzf-lua').buffers()<cr>", opts)
 
 -- Visual --
@@ -175,7 +155,7 @@ keymap("v", "p", '"_dP', opts)
 -- Open Documentation in man
 keymap("n", "K", ":lua require('user.functions').show_documentation()<CR>", opts)
 
--- Open little window with files
-keymap("n", "<tab>", "<cmd>:lua require('fzf-lua').files({resume=true})<cr>", opts)
+vim.keymap.set("n", "<tab>", "<cmd>lua require('fzf-lua').files()<cr>", { desc = "Search file" })
+vim.keymap.set("n", "<leader><leader>", "<cmd>lua require('fzf-lua').resume()<cr>", { desc = "Resume search" })
 
 return M
