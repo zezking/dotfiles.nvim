@@ -211,30 +211,34 @@ return {
 		dependencies = { { "nvim-tree/nvim-web-devicons" } },
 	},
 
-	--AI
+	-- AI
 	{
 		"github/copilot.vim",
 		config = function()
 			require("plugins.configs.copilot")
 		end,
 	},
-	-- {
-	-- 	"jackMort/ChatGPT.nvim",
-	-- 	config = function()
-	-- 		require("plugins.configs.chatgpt")
-	-- 	end,
-	-- 	dependencies = {
-	-- 		{
-	-- 			"MunifTanjim/nui.nvim",
-	-- 			"nvim-lua/plenary.nvim",
-	-- 			"nvim-telescope/telescope.nvim",
-	-- 		},
-	-- 	},
-	-- },
 
+	-- Lazygit
 	{
-		"lervag/vimtex",
-		lazy = false,
+		"kdheepak/lazygit.nvim",
+		lazy = true,
+		cmd = {
+			"LazyGit",
+			"LazyGitConfig",
+			"LazyGitCurrentFile",
+			"LazyGitFilter",
+			"LazyGitFilterCurrentFile",
+		},
+		-- optional for floating window border decoration
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+		},
+		-- setting the keybinding for LazyGit with 'keys' is recommended in
+		-- order to load the plugin when the command is run for the first time
+		keys = {
+			{ "<leader>lg", "<cmd>LazyGit<cr>", desc = "LazyGit" },
+		},
 	},
 
 	--git-blame

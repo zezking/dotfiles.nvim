@@ -141,19 +141,19 @@ which_key.add({
 })
 
 -- Terminal
-which_key.add({
-	mode = { "n" },
-	{ "<leader>t", group = "Terminal" },
-	{ "<leader>t1", ":1ToggleTerm<cr>", desc = "1" },
-	{ "<leader>t2", ":2ToggleTerm<cr>", desc = "2" },
-	{ "<leader>t3", ":3ToggleTerm<cr>", desc = "3" },
-	{ "<leader>t4", ":4ToggleTerm<cr>", desc = "4" },
-	{ "<leader>tn", "<cmd>lua _NODE_TOGGLE()<cr>", desc = "Node" },
-	{ "<leader>tp", "<cmd>lua _PYTHON_TOGGLE()<cr>", desc = "Python" },
-	{ "<leader>tf", "<cmd>ToggleTerm direction=float<cr>", desc = "Float" },
-	{ "<leader>th", "<cmd>ToggleTerm size=10 direction=horizontal<cr>", desc = "Horizontal" },
-	{ "<leader>tv", "<cmd>ToggleTerm size=80 direction=vertical<cr>", desc = "Vertical" },
-})
+-- which_key.add({
+-- 	mode = { "n" },
+-- 	{ "<leader>t", group = "Terminal" },
+-- 	{ "<leader>t1", ":1ToggleTerm<cr>", desc = "1" },
+-- 	{ "<leader>t2", ":2ToggleTerm<cr>", desc = "2" },
+-- 	{ "<leader>t3", ":3ToggleTerm<cr>", desc = "3" },
+-- 	{ "<leader>t4", ":4ToggleTerm<cr>", desc = "4" },
+-- 	{ "<leader>tn", "<cmd>lua _NODE_TOGGLE()<cr>", desc = "Node" },
+-- 	{ "<leader>tp", "<cmd>lua _PYTHON_TOGGLE()<cr>", desc = "Python" },
+-- 	{ "<leader>tf", "<cmd>ToggleTerm direction=float<cr>", desc = "Float" },
+-- 	{ "<leader>th", "<cmd>ToggleTerm size=10 direction=horizontal<cr>", desc = "Horizontal" },
+-- 	{ "<leader>tv", "<cmd>ToggleTerm size=80 direction=vertical<cr>", desc = "Vertical" },
+-- })
 
 -- Close buffers
 which_key.add({
@@ -207,7 +207,6 @@ which_key.add({
 which_key.add({
 	mode = { "n" },
 	{ "<leader>g", group = "Git" },
-	{ "<leader>gg", "<cmd>lua _LAZYGIT_TOGGLE()<CR>", desc = "Lazygit" },
 	{ "<leader>gl", "<cmd>lua require 'gitsigns'.next_hunk()<cr>", desc = "Next Hunk" },
 	{ "<leader>gk", "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", desc = "Prev Hunk" },
 	{ "<leader>gl", "<cmd>GitBlameToggle<cr>", desc = "Blame" },
@@ -216,9 +215,9 @@ which_key.add({
 	{ "<leader>gR", "<cmd>lua require 'gitsigns'.reset_buffer()<cr>", desc = "Reset Buffer" },
 	{ "<leader>gs", "<cmd>lua require 'gitsigns'.stage_hunk()<cr>", desc = "Stage Hunk" },
 	{ "<leader>gu", "<cmd>lua require 'gitsigns'.undo_stage_hunk()<cr>", desc = "Undo Stage Hunk" },
-	{ "<leader>go", "<cmd>Telescope git_status<cr>", desc = "Open changed file" },
-	{ "<leader>gb", "<cmd>Telescope git_branches<cr>", desc = "Checkout branch" },
-	{ "<leader>gc", "<cmd>Telescope git_commits<cr>", desc = "Checkout commit" },
+	{ "<leader>go", "<cmd>FzfLua git_status<cr>", desc = "Open changed file" },
+	{ "<leader>gb", "<cmd>FzfLua git_branches<cr>", desc = "Checkout branch" },
+	{ "<leader>gc", "<cmd>FzfLua git_commits<cr>", desc = "Checkout commit" },
 	{ "<leader>gd", "<cmd>Gitsigns diffthis HEAD<cr>", desc = "Diff" },
 })
 
