@@ -6,18 +6,21 @@ opts = {
 		lua = { "stylua" },
 		python = { "isort", "black" },
 		go = { "gopls" },
-		json = { "prettierd", "prettier", stop_after_first = true },
-		typescript = { { "prettierd", "prettier", stop_after_first = true } },
-		typescriptreact = { { "prettierd", "prettier", stop_after_first = true } },
-		javascript = { "prettierd", "prettier", stop_after_first = true },
-		javascriptreact = { "prettierd", "prettier", stop_after_first = true },
+		-- prettier infers config.json as jsonc
+		jsonc = { "prettierd", "prettier" },
+		json = { "prettierd", "prettier" },
+		typescript = { "prettierd", "prettier" },
+		typescriptreact = { "prettierd", "prettier" },
+		javascript = { "prettierd", "prettier" },
+		javascriptreact = { "prettierd", "prettier" },
 	},
 	-- Set default options
 	default_format_opts = {
 		lsp_format = "fallback",
 	},
 	-- Set up format-on-save
-	format_on_save = { timeout_ms = 10000, lsp_fallback = true },
+	stop_after_first = true,
+	format_on_save = { timeout_ms = 10000 },
 }
 
 return opts

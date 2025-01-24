@@ -85,7 +85,16 @@ lspconfig["gopls"].setup({
 lspconfig["ts_ls"].setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
-	filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx" },
+	filetypes = {
+		"javascript",
+		"javascriptreact",
+		"javascript.jsx",
+		"typescript",
+		"typescriptreact",
+		"typescript.tsx",
+		"json",
+		"jsonc",
+	},
 	cmd = { "typescript-language-server", "--stdio" },
 	init_options = {
 		preferences = {
@@ -104,6 +113,24 @@ lspconfig["jsonls"].setup({
 				{
 					fileMatch = { "package.json" },
 					url = "https://json.schemastore.org/package.json",
+				},
+				{
+					description = "TypeScript compiler configuration file",
+					fileMatch = { "tsconfig.json" },
+					url = "https://json.schemastore.org/tsconfig.json",
+				},
+			},
+		},
+		jsonc = {
+			schemas = {
+				{
+					fileMatch = { "package.json" },
+					url = "https://json.schemastore.org/package.json",
+				},
+				{
+					description = "TypeScript compiler configuration file",
+					fileMatch = { "tsconfig.json" },
+					url = "https://json.schemastore.org/tsconfig.json",
 				},
 			},
 		},
