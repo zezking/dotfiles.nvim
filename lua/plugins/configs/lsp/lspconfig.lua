@@ -95,7 +95,6 @@ lspconfig["jsonls"].setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
 	settings = {
-		-- validate = { enable = true },
 		json = {
 			schemas = require("schemastore").json.schemas(),
 			format = {
