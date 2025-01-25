@@ -22,13 +22,13 @@ dashboard.setup({
 				icon_hl = "@variable",
 				desc = "Files",
 				group = "Label",
-				action = "Telescope find_files",
+				action = "FzfLua find_files",
 				key = "f",
 			},
 			{
 				desc = "󱁴 Search text",
 				group = "Label",
-				action = "Telescope live_grep",
+				action = "FzfLua live_grep",
 				key = "d",
 			},
 			{

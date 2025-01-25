@@ -13,8 +13,6 @@ if not navic_lsp_status_ok then
 	return
 end
 
-local util = require("lspconfig.util")
-
 local keymap = vim.keymap
 
 -- enable keybinds only for when lsp server available
@@ -91,6 +89,7 @@ lspconfig["ts_ls"].setup({
 	},
 })
 
+-- configure jsonls server
 lspconfig["jsonls"].setup({
 	on_attach = on_attach,
 	capabilities = capabilities,

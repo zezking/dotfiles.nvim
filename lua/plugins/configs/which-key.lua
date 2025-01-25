@@ -48,7 +48,7 @@ local setup = {
 		wo = {
 			winblend = 0,
 		},
-		width = 0.5,
+		width = 0.4,
 		col = 0.5,
 	},
 	layout = {
@@ -77,7 +77,6 @@ which_key.add({
 	mode = { "n" },
 	-- TODO: enze.bfs are broken. Need to fix
 	{ "<leader>b", "<cmd>lua require('enze.bfs').open()<cr>", desc = "Buffers" },
-	{ "<leader>e", "<cmd>Oil<cr>", icon = " ", desc = "Explorer" },
 	{ "<leader>gy", desc = "Open code in Browser" },
 	-- Hide comment
 	{ "<leader>/", "<Plug>(comment_toggle_linewise_current)", hidden = true, desc = "Comment" },
@@ -103,17 +102,14 @@ which_key.add({
 	{ "<leader>w", hidden = true },
 	{ "<leader>+", hidden = true },
 	{ "<leader>-", hidden = true },
-	-- Hide <leader>we. Need to investigate what it does
 	{ "<leader>we", hidden = true },
-	-- { "<leader>.", desc = "Goto prev harpoon" },
-	-- { "<leader>,", desc = "Goto next harpoon" },
-})
-
--- Harpoon
-which_key.add({
-	{ mode = { "n" } },
-	{ "<leader>h", group = "Harpoon", desc = "Harpoon" },
-	{ "<leader>ha", "<cmd>lua require('harpoon'):list():add()<cr>", desc = "Add to list" },
+	{ "<leader>q", hidden = true },
+	-- Hide Fzf lua
+	{ "<leader>k", hidden = true },
+	{ "<leader>t", hidden = true },
+	{ "<leader><leader>", hidden = true },
+	-- Hide explorer
+	{ "<leader>e", hidden = true },
 })
 
 -- Buffers
@@ -135,25 +131,9 @@ which_key.add({
 	{ "<leader>lw", "<cmd>Telescope lsp_workspace_diagnostics<cr>", desc = "Workspace diagnostics" },
 	{ "<leader>li", "<cmd>LspInfo<cr>", desc = "Info" },
 	{ "<leader>lh", "<cmd>IlluminationToggle<cr>", desc = "Toggle Doc HL" },
-	{ "<leader>lI", "<cmd>LspInstallInfo<cr>", desc = "Installer Info" },
 	{ "<leader>lj", "<cmd>lua vim.diagnostic.goto_next({buffer=0})<CR>", desc = "Next diagnostic" },
 	{ "<leader>lk", "<cmd>lua vim.diagnostic.goto_prev({buffer=0})<CR>", desc = "Prev diagnostic" },
 })
-
--- Terminal
--- which_key.add({
--- 	mode = { "n" },
--- 	{ "<leader>t", group = "Terminal" },
--- 	{ "<leader>t1", ":1ToggleTerm<cr>", desc = "1" },
--- 	{ "<leader>t2", ":2ToggleTerm<cr>", desc = "2" },
--- 	{ "<leader>t3", ":3ToggleTerm<cr>", desc = "3" },
--- 	{ "<leader>t4", ":4ToggleTerm<cr>", desc = "4" },
--- 	{ "<leader>tn", "<cmd>lua _NODE_TOGGLE()<cr>", desc = "Node" },
--- 	{ "<leader>tp", "<cmd>lua _PYTHON_TOGGLE()<cr>", desc = "Python" },
--- 	{ "<leader>tf", "<cmd>ToggleTerm direction=float<cr>", desc = "Float" },
--- 	{ "<leader>th", "<cmd>ToggleTerm size=10 direction=horizontal<cr>", desc = "Horizontal" },
--- 	{ "<leader>tv", "<cmd>ToggleTerm size=80 direction=vertical<cr>", desc = "Vertical" },
--- })
 
 -- Close buffers
 which_key.add({
@@ -171,38 +151,13 @@ which_key.add({
 	mode = { "n" },
 	{ "<leader>f", group = "Find" },
 	{ "<leader>fb", "<cmd>FzfLua git_branches<cr>", desc = "Checkout branch" },
-	{ "<leader>fc", "<cmd>FzfLua colorscheme<cr>", desc = "Colorscheme" },
+	{ "<leader>fc", "<cmd>FzfLua colorschemes<cr>", desc = "Colorscheme" },
 	{ "<leader>ff", "<cmd>FzfLua files<cr>", desc = "Find File" },
 	{ "<leader>ft", "<cmd>FzfLua live_grep<cr>", desc = "Find Text" },
-	-- { "<leader>fs", "<cmd>Telescope grep_string theme=ivy<cr>", desc = "Find String" },
-	-- { "<leader>fh", "<cmd>Telecope help_tags<cr>", desc = "Help" },
-	-- { "<leader>fM", "<cmd>Telescope man_pages<cr>", desc = "Man Pages" },
-	-- { "<leader>fr", "<cmd>Telescope oldfiles<cr>", desc = "Recent File" },
-	-- { "<leader>fR", "<cmd>Telescope registers<cr>", desc = "Registers" },
 	{ "<leader>fk", "<cmd>FzfLua keymaps<cr>", desc = "Keymaps" },
 	{ "<leader>fC", "<cmd>FzfLua commands<cr>", desc = "Commands" },
-	-- {
-	-- 	"<leader>fp",
-	-- 	"<cmd>lua require('telescope').extensions.projects.projects()<cr>",
-	-- 	icon = " ",
-	-- 	desc = "Projects",
-	-- },
 })
 
--- Docker
-which_key.add({
-	mode = { "n" },
-	{ "<leader>d", group = "Docker" },
-	{ "<leader>dd", "<cmd>lua _LAZYDOCKER_TOGGLE()<cr>", desc = "Checkout branch" },
-})
-
--- Split window
-which_key.add({
-	mode = { "n" },
-	{ "<leader>w", group = "Split window" },
-	{ "<leader>wh", desc = "Split horizontally" },
-	{ "<leader>wv", desc = "Split vertically" },
-})
 -- Git
 which_key.add({
 	mode = { "n" },
@@ -221,114 +176,8 @@ which_key.add({
 	{ "<leader>gd", "<cmd>Gitsigns diffthis HEAD<cr>", desc = "Diff" },
 })
 
---local mappings = {
--- u = {
--- 	name = "TodoComments",
--- 	["t"] = { "<cmd>TodoTelescope<CR>", "Show Comments" },
--- 	["q"] = { "<cmd>TodoQuickFix<CR>", "Quick Fix" },
--- 	["l"] = { "<cmd>TodoLocList<CR>", "List Comments" },
--- },
---
--- B = {
--- 	name = "Bookmarks",
--- 	a = { "<cmd>silent BookmarkAnnotate<cr>", "Annotate" },
--- 	c = { "<cmd>silent BookmarkClear<cr>", "Clear" },
--- 	t = { "<cmd>silent BookmarkToggle<cr>", "Toggle" },
--- 	m = { '<cmd>lua require("harpoon.mark").add_file()<cr>', "Harpoon" },
--- 	n = { '<cmd>lua require("harpoon.ui").toggle_quick_menu()<cr>', "Harpoon Toggle" },
--- 	l = { "<cmd>lua require('enze.bfs').open()<cr>", "Buffers" },
--- 	j = { "<cmd>silent BookmarkNext<cr>", "Next" },
--- 	s = { "<cmd>Telescope harpoon marks<cr>", "Search Files" },
--- 	k = { "<cmd>silent BookmarkPrev<cr>", "Prev" },
--- 	S = { "<cmd>silent BookmarkShowAll<cr>", "Prev" },
--- 	x = { "<cmd>BookmarkClearAll<cr>", "Clear All" },
--- },
---
--- p = {
--- 	name = "Lazy",
--- 	c = { "<cmd>Lazy check<cr>", "Check" },
--- 	C = { "<cmd>Lazy clean<cr>", "Clean" },
--- 	i = { "<cmd>Lazy install<cr>", "Install" },
--- 	s = { "<cmd>Lazy sync<cr>", "Sync" },
--- 	u = { "<cmd>Lazy update<cr>", "Update" },
--- 	r = { "<cmd>Lazy restore<cr>", "Restore" },
--- 	l = { "<cmd>Lazy<cr>", "Lazy" },
--- },
---
--- o = {
--- 	name = "Options",
--- 	w = { '<cmd>lua require("enze.functions").toggle_option("wrap")<cr>', "Wrap" },
--- 	r = { '<cmd>lua require("enze.functions").toggle_option("relativenumber")<cr>', "Relative" },
--- 	l = { '<cmd>lua require("enze.functions").toggle_option("cursorline")<cr>', "Cursorline" },
--- 	s = { '<cmd>lua require("enze.functions").toggle_option("spell")<cr>', "Spell" },
--- 	t = { '<cmd>lua require("enze.functions").toggle_tabline()<cr>', "Tabline" },
--- },
---
---
---
--- r = {
--- 	name = "Replace",
--- 	r = { "<cmd>lua require('spectre').open()<cr>", "Replace" },
--- 	w = { "<cmd>lua require('spectre').open_visual({select_word=true})<cr>", "Replace Word" },
--- 	f = { "<cmd>lua require('spectre').open_file_search()<cr>", "Replace Buffer" },
--- },
---
--- d = {
--- 	name = "Debug",
--- 	b = { "<cmd>lua require'dap'.toggle_breakpoint()<cr>", "Breakpoint" },
--- 	c = { "<cmd>lua require'dap'.continue()<cr>", "Continue" },
--- 	i = { "<cmd>lua require'dap'.step_into()<cr>", "Into" },
--- 	o = { "<cmd>lua require'dap'.step_over()<cr>", "Over" },
--- 	O = { "<cmd>lua require'dap'.step_out()<cr>", "Out" },
--- 	r = { "<cmd>lua require'dap'.repl.toggle()<cr>", "Repl" },
--- 	l = { "<cmd>lua require'dap'.run_last()<cr>", "Last" },
--- 	u = { "<cmd>lua require'dapui'.toggle()<cr>", "UI" },
--- 	x = { "<cmd>lua require'dap'.terminate()<cr>", "Exit" },
--- },
---
---
--- 	G = {
--- 		name = "Gist",
--- 		a = { "<cmd>Gist -b -a<cr>", "Create Anon" },
--- 		d = { "<cmd>Gist -d<cr>", "Delete" },
--- 		f = { "<cmd>Gist -f<cr>", "Fork" },
--- 		g = { "<cmd>Gist -b<cr>", "Create" },
--- 		l = { "<cmd>Gist -l<cr>", "List" },
--- 		p = { "<cmd>Gist -b -p<cr>", "Create Private" },
--- 	},
--- },
--- S = {
--- 	name = "SnipRun",
--- 	c = { "<cmd>SnipClose<cr>", "Close" },
--- 	f = { "<cmd>%SnipRun<cr>", "Run File" },
--- 	i = { "<cmd>SnipInfo<cr>", "Info" },
--- 	m = { "<cmd>SnipReplMemoryClean<cr>", "Mem Clean" },
--- 	r = { "<cmd>SnipReset<cr>", "Reset" },
--- 	t = { "<cmd>SnipRunToggle<cr>", "Toggle" },
--- 	x = { "<cmd>SnipTerminate<cr>", "Terminate" },
--- },
---
---
--- T = {
--- 	name = "Treesitter",
--- 	h = { "<cmd>TSHighlightCapturesUnderCursor<cr>", "Highlight" },
--- 	p = { "<cmd>TSPlaygroundToggle<cr>", "Playground" },
--- 	r = { "<cmd>TSToggle rainbow<cr>", "Rainbow" },
--- },
--- }
-
--- local vopts = {
--- 	mode = "v", -- VISUAL mode
--- 	--  prefix = "<leader>",
--- 	buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
--- 	silent = true, -- use `silent` when creating keymaps
--- 	noremap = true, -- use `noremap` when creating keymaps
--- 	nowait = true, -- use `nowait` when creating keymaps
--- }
--- local vmappings = {
--- 	mode = { "v" },
--- 	{ "<leader>/", "<Plug>(comment_toggle_linewise_visual)", desc = "Comment toggle linewise (visual)" },
--- 	{ "<leader>s", "<esc><cmd>'<,'>SnipRun<cr>", desc = "Run range" },
--- }
-
--- which_key.add(vmappings, vopts)
+-- Trouble
+which_key.add({
+	mode = { "n" },
+	{ "<leader>x", group = "Trouble", icon = "" },
+})

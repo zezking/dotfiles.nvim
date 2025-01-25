@@ -142,7 +142,7 @@ keymap("n", "<C-t>", "<cmd>lua vim.lsp.buf.document_symbol()<cr>", opts)
 keymap("n", "<C-s>", "<cmd>vsplit<cr>", opts)
 keymap("n", "<C-b>", "<cmd>lua require('fzf-lua').buffers()<cr>", opts)
 
--- Visual --
+-- Visual 
 -- Stay in indent mode
 keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
@@ -155,7 +155,14 @@ keymap("v", "p", '"_dP', opts)
 -- Open Documentation in man
 keymap("n", "K", ":lua require('user.functions').show_documentation()<CR>", opts)
 
-vim.keymap.set("n", "<tab>", "<cmd>lua require('fzf-lua').files()<cr>", { desc = "Search file" })
-vim.keymap.set("n", "<leader><leader>", "<cmd>lua require('fzf-lua').resume()<cr>", { desc = "Resume search" })
+-- Fzf-lua
+keymap("n", "<tab>", "<cmd>lua require('fzf-lua').files()<cr>", { desc = "Search file" })
+keymap("n", "<leader><leader>", "<cmd>lua require('fzf-lua').resume()<cr>", { desc = "Resume search" })
+keymap("n", "<leader>k", "<cmd>lua require('fzf-lua').keymaps()<cr>", { desc = "Key mappings" })
+keymap("n", "<leader>t", "<cmd>lua require('fzf-lua').live_grep()<cr>", { desc = "Live grep" })
+keymap("n", "<leader>b", "<cmd>lua require('fzf-lua').buffers()<cr>", { desc = "Buffers" })
+
+-- Oil
+keymap("n", "<leader>e", "<cmd>Oil<cr>", { desc = "Explorer" })
 
 return M

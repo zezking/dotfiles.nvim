@@ -24,7 +24,7 @@ return {
 	-- mini icons
 	{ "echasnovski/mini.icons", version = "*" },
 
-	-- which-key
+	--	Which key
 	{
 		"folke/which-key.nvim",
 		config = function()
@@ -219,6 +219,7 @@ return {
 			require("plugins.configs.copilot")
 		end,
 	},
+
 	-- Lazygit
 	{
 		"kdheepak/lazygit.nvim",
@@ -241,12 +242,20 @@ return {
 		},
 	},
 
-	--git-blame
+	--Git-blame
 	{
 		"f-person/git-blame.nvim",
 		event = "VeryLazy",
 		config = function()
 			require("plugins.configs.git-blame")
+		end,
+	},
+
+	-- Git signs
+	{
+		"lewis6991/gitsigns.nvim",
+		config = function()
+			require("gitsigns").setup()
 		end,
 	},
 
