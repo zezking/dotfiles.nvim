@@ -127,6 +127,7 @@ return {
 		},
 	},
 	{ "onsails/lspkind.nvim" },
+	{ "b0o/schemastore.nvim", lazy = true, version = false },
 	{
 		"neovim/nvim-lspconfig",
 		config = function()
@@ -218,7 +219,6 @@ return {
 			require("plugins.configs.copilot")
 		end,
 	},
-
 	-- Lazygit
 	{
 		"kdheepak/lazygit.nvim",

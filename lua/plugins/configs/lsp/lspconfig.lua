@@ -13,6 +13,8 @@ if not navic_lsp_status_ok then
 	return
 end
 
+local util = require("lspconfig.util")
+
 local keymap = vim.keymap
 
 -- enable keybinds only for when lsp server available
@@ -62,19 +64,6 @@ lspconfig["pyright"].setup({
 	on_attach = on_attach,
 })
 
--- Not using rust
--- configure rust_analyzer server
--- lspconfig["rust_analyzer"].setup({
--- 	capabilities = capabilities,
--- 	on_attach = on_attach,
--- 	cmd = {
--- 		"rustup",
--- 		"run",
--- 		"stable",
--- 		"rust-analyzer",
--- 	},
--- })
-
 -- configure gopls
 lspconfig["gopls"].setup({
 	capabilities = capabilities,
@@ -92,8 +81,6 @@ lspconfig["ts_ls"].setup({
 		"typescript",
 		"typescriptreact",
 		"typescript.tsx",
-		"json",
-		"jsonc",
 	},
 	cmd = { "typescript-language-server", "--stdio" },
 	init_options = {
@@ -108,46 +95,16 @@ lspconfig["jsonls"].setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
 	settings = {
+		-- validate = { enable = true },
 		json = {
-			schemas = {
-				{
-					fileMatch = { "package.json" },
-					url = "https://json.schemastore.org/package.json",
-				},
-				{
-					description = "TypeScript compiler configuration file",
-					fileMatch = { "tsconfig.json" },
-					url = "https://json.schemastore.org/tsconfig.json",
-				},
+			schemas = require("schemastore").json.schemas(),
+			format = {
+				enable = true,
 			},
-		},
-		jsonc = {
-			schemas = {
-				{
-					fileMatch = { "package.json" },
-					url = "https://json.schemastore.org/package.json",
-				},
-				{
-					description = "TypeScript compiler configuration file",
-					fileMatch = { "tsconfig.json" },
-					url = "https://json.schemastore.org/tsconfig.json",
-				},
-			},
+			validate = { enable = true },
 		},
 	},
 })
-
--- configure intelephense
--- Not using java
--- lspconfig["intelephense"].setup({
--- 	capabilities = capabilities,
--- 	on_attach = on_attach,
--- })
---
--- lspconfig["jdtls"].setup({
--- 	capabilities = capabilities,
--- 	on_attach = on_attach,
--- })
 
 -- configure lua server (with special settings)
 lspconfig["lua_ls"].setup({
@@ -169,37 +126,3 @@ lspconfig["lua_ls"].setup({
 		},
 	},
 })
-
--- configure rust_analyzer server
--- local rt_status_ok, rt = pcall(require, "rust-tools")
--- if not rt_status_ok then
--- 	print("no rust-tools")
--- 	return
--- end
-
--- local rust_opts = {
--- 	tools = {
--- 		autoSetHints = false,
--- 		hover_actions = { border = false },
--- 		cache = true,
--- 	},
--- 	server = {
--- 		on_attach = on_attach,
--- 		capabilities = capabilities,
--- 		cmd = {
--- 			"rustup",
--- 			"run",
--- 			"stable",
--- 			"rust-analyzer",
--- 		},
--- 		settings = {
--- 			["rust-analyzer"] = {
--- 				diagnostics = {
--- 					experimental = true,
--- 				},
--- 			},
--- 		},
--- 	},
--- }
---
--- rt.setup(rust_opts)
