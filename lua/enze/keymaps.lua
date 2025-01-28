@@ -81,7 +81,6 @@ nnoremap("<S-Up>", ":m-2<CR>")
 nnoremap("<S-Down>", ":m+<CR>")
 inoremap("<S-Up>", "<Esc>:m-2<CR>")
 inoremap("<S-Down>", "<Esc>:m+<CR>")
-
 inoremap("<C-c>", "<Esc>")
 
 --Bufferline tabs
@@ -132,9 +131,6 @@ keymap("n", "<C-j>", ":bprevious<CR>", opts)
 keymap("n", "<leader>wv", "<C-w>v", opts)
 keymap("n", "<leader>wh", "<C-w>s", opts)
 
--- Conflits
--- keymap("n", "<leader>wv", ":close<CR>", opts)
-
 -- Custom
 -- Clear searh when esc esc
 keymap("n", "<esc><esc>", "<cmd>nohlsearch<cr>", opts)
@@ -142,7 +138,7 @@ keymap("n", "<C-t>", "<cmd>lua vim.lsp.buf.document_symbol()<cr>", opts)
 keymap("n", "<C-s>", "<cmd>vsplit<cr>", opts)
 keymap("n", "<C-b>", "<cmd>lua require('fzf-lua').buffers()<cr>", opts)
 
--- Visual 
+-- Visual
 -- Stay in indent mode
 keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
@@ -160,7 +156,7 @@ keymap("n", "<tab>", "<cmd>lua require('fzf-lua').files()<cr>", { desc = "Search
 keymap("n", "<leader><leader>", "<cmd>lua require('fzf-lua').resume()<cr>", { desc = "Resume search" })
 keymap("n", "<leader>k", "<cmd>lua require('fzf-lua').keymaps()<cr>", { desc = "Key mappings" })
 keymap("n", "<leader>t", "<cmd>lua require('fzf-lua').live_grep()<cr>", { desc = "Live grep" })
-keymap("n", "<leader>b", "<cmd>lua require('fzf-lua').buffers()<cr>", { desc = "Buffers" })
+keymap("n", "<leader>fb", "<cmd>lua require('fzf-lua').buffers()<cr>", { desc = "Buffers" })
 
 -- Oil
 keymap("n", "<leader>e", "<cmd>Oil<cr>", { desc = "Explorer" })
