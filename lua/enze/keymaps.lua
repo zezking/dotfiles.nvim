@@ -1,5 +1,6 @@
 M = {}
 
+-- Choose +ESC option for option key in iterm2 config to allow alt to be mapped
 local Remap = require("plugins.configs.keymaps")
 local nnoremap = Remap.nnoremap
 local vnoremap = Remap.vnoremap
@@ -136,7 +137,6 @@ keymap("n", "<leader>wh", "<C-w>s", opts)
 keymap("n", "<esc><esc>", "<cmd>nohlsearch<cr>", opts)
 keymap("n", "<C-t>", "<cmd>lua vim.lsp.buf.document_symbol()<cr>", opts)
 keymap("n", "<C-s>", "<cmd>vsplit<cr>", opts)
-keymap("n", "<C-b>", "<cmd>lua require('fzf-lua').buffers()<cr>", opts)
 
 -- Visual
 -- Stay in indent mode
@@ -156,7 +156,7 @@ keymap("n", "<tab>", "<cmd>lua require('fzf-lua').files()<cr>", { desc = "Search
 keymap("n", "<leader><leader>", "<cmd>lua require('fzf-lua').resume()<cr>", { desc = "Resume search" })
 keymap("n", "<leader>k", "<cmd>lua require('fzf-lua').keymaps()<cr>", { desc = "Key mappings" })
 keymap("n", "<leader>t", "<cmd>lua require('fzf-lua').live_grep()<cr>", { desc = "Live grep" })
-keymap("n", "<leader>fb", "<cmd>lua require('fzf-lua').buffers()<cr>", { desc = "Buffers" })
+keymap("n", "<C-b>", "<cmd>lua require('fzf-lua').buffers()<cr>", opts)
 
 -- Oil
 keymap("n", "<leader>e", "<cmd>Oil<cr>", { desc = "Explorer" })
