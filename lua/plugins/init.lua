@@ -33,13 +33,13 @@ return {
 	},
 
 	-- bufferline
-	{
-		"akinsho/bufferline.nvim",
-		lazy = false,
-		config = function()
-			require("plugins.configs.bufferline")
-		end,
-	},
+	-- {
+	-- 	"akinsho/bufferline.nvim",
+	-- 	lazy = false,
+	-- 	config = function()
+	-- 		require("plugins.configs.bufferline")
+	-- 	end,
+	-- },
 
 	-- fzf lua
 	{

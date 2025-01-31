@@ -76,7 +76,6 @@ which_key.setup(setup)
 which_key.add({
 	mode = { "n" },
 	-- TODO: enze.bfs are broken. Need to fix
-	{ "<leader>b", "<cmd>lua require('enze.bfs').open()<cr>", desc = "Buffers" },
 	{ "<leader>gy", desc = "Open code in Browser" },
 	-- Hide comment
 	{ "<leader>/", "<Plug>(comment_toggle_linewise_current)", hidden = true, desc = "Comment" },
@@ -112,14 +111,6 @@ which_key.add({
 	{ "<leader>e", hidden = true },
 })
 
--- Buffers
-which_key.add({
-	mode = { "n" },
-	{ "<leader>b", group = "Buffers", desc = "Buffers" },
-	{ "<leader>bp", "<cmd>BufferLinePick<cr>" },
-	{ "<leader>bb", "<cmd>lua require('enze.bfs').open()<cr>", desc = "Buffers open" },
-})
-
 -- LSP
 which_key.add({
 	mode = { "n" },
@@ -133,17 +124,6 @@ which_key.add({
 	{ "<leader>lh", "<cmd>IlluminationToggle<cr>", desc = "Toggle Doc HL" },
 	{ "<leader>lj", "<cmd>lua vim.diagnostic.goto_next({buffer=0})<CR>", desc = "Next diagnostic" },
 	{ "<leader>lk", "<cmd>lua vim.diagnostic.goto_prev({buffer=0})<CR>", desc = "Prev diagnostic" },
-})
-
--- Close buffers
-which_key.add({
-	mode = { "n" },
-	{ "<leader>c", group = "Close buffers" },
-	{ "<leader>cc", "<cmd>Bdelete!<CR>", desc = "Close buffer" },
-	{ "<leader>cl", "<cmd>BufferLineCloseLeft<CR>", desc = "Close all buffers to the left" },
-	{ "<leader>cr", "<cmd>BufferLineCloseRight<CR>", desc = "Close all buffers to the right" },
-	{ "<leader>co", "<cmd>BufferLineCloseOthers<CR>", desc = "Close all other buffers" },
-	{ "<leader>cp", "<cmd>BufferLinePickClose<CR>", desc = "Close by pick" },
 })
 
 -- Find
