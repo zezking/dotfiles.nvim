@@ -95,8 +95,8 @@ keymap("n", "<leader>+", "<C-a>", opts)
 keymap("n", "<leader>-", "<C-x>", opts)
 
 -- Naviagate buffers
-keymap("n", "<C-k>", ":bnext<CR>", opts)
-keymap("n", "<C-j>", ":bprevious<CR>", opts)
+keymap("n", "]b", ":bnext<CR>", { noremap = true, silent = true, desc = "Next buffer" })
+keymap("n", "[b", ":bprevious<CR>", { noremap = true, silent = true, desc = "Previous buffer" })
 
 -- Splits
 keymap("n", "<leader>wv", "<C-w>v", opts)
