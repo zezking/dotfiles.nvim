@@ -119,7 +119,7 @@ which_key.add({
 	{ "<leader>lF", "<cmd>LspToggleAutoFormat<cr>", desc = "Toggle autoformat" },
 	{ "<leader>ld", "<cmd>Lspsaga goto_definition<cr>", desc = "Go to definition" },
 	{ "<leader>lt", '<cmd>lua require("enze.functions").toggle_diagnostics()<cr>', desc = "Toggle Diagnostics" },
-	{ "<leader>lw", "<cmd>Telescope lsp_workspace_diagnostics<cr>", desc = "Workspace diagnostics" },
+	{ "<leader>lw", "<cmd>Fzflua lsp_workspace_diagnostics<cr>", desc = "Workspace diagnostics" },
 	{ "<leader>li", "<cmd>LspInfo<cr>", desc = "Info" },
 	{ "<leader>lh", "<cmd>IlluminationToggle<cr>", desc = "Toggle Doc HL" },
 	{ "<leader>lj", "<cmd>lua vim.diagnostic.goto_next({buffer=0})<CR>", desc = "Next diagnostic" },
