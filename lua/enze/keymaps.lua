@@ -85,10 +85,10 @@ inoremap("<S-Down>", "<Esc>:m+<CR>")
 inoremap("<C-c>", "<Esc>")
 
 -- Resize with arrows
-keymap("n", "<C-Up>", ":resize -2<CR>", opts)
-keymap("n", "<C-Down>", ":resize +2<CR>", opts)
-keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
-keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
+keymap("n", "+", ":resize -2<CR>", opts)
+keymap("n", "_", ":resize +2<CR>", opts)
+keymap("n", "=", ":vertical resize -2<CR>", opts)
+keymap("n", "-", ":vertical resize +2<CR>", opts)
 
 -- Increase and decrease numbers
 keymap("n", "<leader>+", "<C-a>", opts)
