@@ -18,7 +18,7 @@ dressing.setup({
 		insert_only = true,
 
 		-- These are passed to nvim_open_win
-    -- anchor = "SW",
+		-- anchor = "SW",
 		border = "rounded",
 		-- 'editor' and 'win' will default to being centered
 		relative = "cursor",
@@ -53,7 +53,7 @@ dressing.setup({
 
 		-- Priority list of preferred vim.select implementations
 		-- backend = { "telescope", "fzf_lua", "fzf", "builtin", "nui" },
-		backend = { "builtin", "telescope", "nui" },
+		backend = { "builtin", "fzf_lua", "nui" },
 
 		-- Trim trailing `:` from prompt
 		trim_prompt = true,
@@ -96,7 +96,7 @@ dressing.setup({
 		-- Options for built-in selector
 		builtin = {
 			-- These are passed to nvim_open_win
-		  --	anchor = "NW",
+			--	anchor = "NW",
 			border = "rounded",
 			-- 'editor' and 'win' will default to being centered
 			relative = "editor",
