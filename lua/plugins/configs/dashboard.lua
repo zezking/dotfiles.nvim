@@ -13,6 +13,7 @@ local header = {
 	"╚═╝  ╚═══╝  ╚═══╝  ╚═╝╚═╝     ╚═╝",
 }
 dashboard.setup({
+	theme = "hyper",
 	config = {
 		header = header,
 		shortcut = {
