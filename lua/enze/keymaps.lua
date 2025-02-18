@@ -132,4 +132,7 @@ keymap("n", "<leader>qf", "<cmd>lua require('fzf-lua').quickfix()<cr>", { desc =
 -- Oil
 keymap("n", "<leader>e", "<cmd>Oil<cr>", { desc = "Explorer" })
 
+-- Close buffers
+keymap("n", "<leader>bc", "<cmd>%bd | e#<cr>", { desc = "Close all buffers but this one" })
+
 return M
