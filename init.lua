@@ -1,3 +1,3 @@
-require("enze.keymaps")
-require("enze.options")
-require("enze.lazy")
+require("user.keymaps")
+require("user.options")
+require("user.lazy")
