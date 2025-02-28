@@ -75,7 +75,7 @@ which_key.setup(setup)
 -- Navigation
 which_key.add({
 	mode = { "n" },
-	-- TODO: enze.bfs are broken. Need to fix
+	-- TODO: user.bfs are broken. Need to fix
 	{ "<leader>gy", desc = "Open code in Browser" },
 	-- Hide comment
 	{ "<leader>/", "<Plug>(comment_toggle_linewise_current)", hidden = true, desc = "Comment" },
@@ -118,7 +118,7 @@ which_key.add({
 	{ "<leader>lf", "<cmd>lua vim.lsp.buf.format({ async = true })<cr>", desc = "Format" },
 	{ "<leader>lF", "<cmd>LspToggleAutoFormat<cr>", desc = "Toggle autoformat" },
 	{ "<leader>ld", "<cmd>Lspsaga goto_definition<cr>", desc = "Go to definition" },
-	{ "<leader>lt", '<cmd>lua require("enze.functions").toggle_diagnostics()<cr>', desc = "Toggle Diagnostics" },
+	{ "<leader>lt", '<cmd>lua require("user.functions").toggle_diagnostics()<cr>', desc = "Toggle Diagnostics" },
 	{ "<leader>lw", "<cmd>Fzflua lsp_workspace_diagnostics<cr>", desc = "Workspace diagnostics" },
 	{ "<leader>li", "<cmd>LspInfo<cr>", desc = "Info" },
 	{ "<leader>lh", "<cmd>IlluminationToggle<cr>", desc = "Toggle Doc HL" },

@@ -15,6 +15,8 @@ end
 
 local keymap = vim.keymap
 
+local functions = require("user.functions")
+
 -- enable keybinds only for when lsp server available
 local on_attach = function(client, bufnr)
 	-- keybind options
@@ -81,6 +83,12 @@ lspconfig["ts_ls"].setup({
 		"typescript.tsx",
 	},
 	cmd = { "typescript-language-server", "--stdio" },
+	commands = {
+		OrganizeImports = {
+			functions.OrganizeImports,
+			description = "Organize Imports",
+		},
+	},
 	init_options = {
 		preferences = {
 			importModuleSpecifierPreference = "relative",
