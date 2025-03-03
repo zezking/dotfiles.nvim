@@ -24,6 +24,10 @@ vim.cmd([[
   endfunction
 ]])
 
+-- Create a command to temporarily disable lsp. It is mainly used for leetcode.nvim
+-- Run :edit or restart nvim to re-enable lsp
+vim.api.nvim_create_user_command("DisableLSP", "lua require('user.functions').disable_lsp()", {})
+
 function M.sniprun_enable()
 	vim.cmd([[
     %SnipRun
@@ -59,8 +63,6 @@ function M.remove_augroup(name)
 		vim.cmd("au! " .. name)
 	end
 end
-
-vim.cmd([[ command! SnipRunToggle execute 'lua require("user.functions").toggle_sniprun()' ]])
 
 -- get length of current word
 function M.get_word_length()
@@ -109,6 +111,11 @@ function M.get_buf_option(opt)
 	else
 		return buf_option
 	end
+end
+
+function M.disable_lsp(opt)
+	vim.lsp.stop_client(vim.lsp.get_clients())
+	vim.notify("LSP disabled")
 end
 
 function M.smart_quit()
