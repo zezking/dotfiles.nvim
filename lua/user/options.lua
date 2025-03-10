@@ -20,6 +20,8 @@ local options = {
 	ignorecase = true,
 	smartcase = true,
 	autoread = true,
+	spelllang = "en_us",
+	spell = true,
 }
 
 vim.diagnostic.config({
