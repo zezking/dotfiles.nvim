@@ -41,6 +41,10 @@ vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.s
 	focusable = false,
 	relative = "cursor",
 })
+
+-- Disable log level to improve performance. Turn on when debugging
+vim.lsp.set_log_level("off")
+
 -- Disable Netrw
 vim.g.loaded_netrwPlugin = 1
 vim.g.loaded_netrw = 1

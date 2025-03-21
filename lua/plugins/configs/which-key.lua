@@ -126,6 +126,12 @@ which_key.add({
 	{ "<leader>lk", "<cmd>lua vim.diagnostic.goto_prev({buffer=0})<CR>", desc = "Prev diagnostic" },
 })
 
+which_key.add({
+	mode = { "n" },
+	{ "<leader>c", group = "Close" },
+	{ "<leader>cb", "<cmd>bp | bd #<CR>", desc = "Close current buffer without close the split" },
+})
+
 -- Find
 which_key.add({
 	mode = { "n" },
