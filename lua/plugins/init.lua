@@ -21,7 +21,7 @@ return {
 		end,
 	},
 
-	-- mini icons
+	-- Mini icons
 	{ "echasnovski/mini.icons", version = "*" },
 
 	--	Which key
