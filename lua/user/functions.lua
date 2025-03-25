@@ -28,24 +28,37 @@ vim.cmd([[
 -- Run :edit or restart nvim to re-enable lsp
 vim.api.nvim_create_user_command("DisableLSP", "lua require('user.functions').disable_lsp()", {})
 
-vim.api.nvim_create_user_command("FormatDisable", function(args)
+vim.api.nvim_create_user_command("WipeReg", "lua require('user.functions').wipe_register()", {})
+vim.api.nvim_create_user_command("FormatDisable", "lua require('user.functions').format_disable()", {
+	desc = "Disable autoformat-on-save",
+	bang = true,
+})
+
+vim.api.nvim_create_user_command("FormatEnable", "lua require('user.functions').format_enable()", {
+	desc = "Re-enable autoformat-on-save",
+})
+
+function M.wipe_register()
+	vim.cmd([[for i in range(34,122) | silent! call setreg(nr2char(i), []) | endfor]])
+	vim.notify("Register wiped")
+end
+
+function M.format_disable()
 	if args.bang then
 		-- FormatDisable! will disable formatting just for this buffer
 		vim.b.disable_autoformat = true
 	else
 		vim.g.disable_autoformat = true
 	end
-end, {
-	desc = "Disable autoformat-on-save",
-	bang = true,
-})
+	vim.notify("Autoformat disabled")
+end
 
-vim.api.nvim_create_user_command("FormatEnable", function()
+function M.format_enable()
 	vim.b.disable_autoformat = false
 	vim.g.disable_autoformat = false
-end, {
-	desc = "Re-enable autoformat-on-save",
-})
+	vim.notify("Autoformat enabled")
+end
+
 function M.sniprun_enable()
 	vim.cmd([[
     %SnipRun
