@@ -135,6 +135,6 @@ keymap("n", "<leader>lo", "<cmd>lua require('user.functions').organize_imports()
 keymap("n", "<leader>e", "<cmd>Oil<cr>", { desc = "Explorer" })
 
 -- Close buffers
-keymap("n", "<leader>bc", "<cmd>%bd | e#<cr>", { desc = "Close all buffers but this one" })
+keymap("n", "<leader>cab", "<cmd>%bd | e#<cr>", { desc = "Close all buffers but this one" })
 
 return M
