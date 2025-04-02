@@ -3,4 +3,4 @@ vim.keymap.set("i", "<C-y>", 'copilot#Accept("\\<CR>")', {
 	replace_keycodes = false,
 })
 vim.g.copilot_no_tab_map = true
-vim.g.copilot_node_command = "~/.local/share/nvm/v18.20.4/bin/node"
+vim.g.copilot_node_command = "~/.local/share/nvm/v20.18.3/bin/node"
