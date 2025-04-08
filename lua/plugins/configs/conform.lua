@@ -13,6 +13,7 @@ opts = {
 		typescriptreact = { "prettierd", "prettier" },
 		javascript = { "prettierd", "prettier" },
 		javascriptreact = { "prettierd", "prettier" },
+		html = { "prettierd", "prettier" },
 		markdown = { "prettierd", "prettier" },
 	},
 	-- Set default options

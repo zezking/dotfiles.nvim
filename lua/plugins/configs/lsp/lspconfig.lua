@@ -53,21 +53,28 @@ for type, icon in pairs(signs) do
 end
 
 -- configure clangd server
-lspconfig["clangd"].setup({
-	capabilities = capabilities,
-	on_attach = on_attach,
-})
+-- lspconfig["clangd"].setup({
+-- 	capabilities = capabilities,
+-- 	on_attach = on_attach,
+-- })
+--
+-- -- configure pyright server
+-- lspconfig["pyright"].setup({
+-- 	capabilities = capabilities,
+-- 	on_attach = on_attach,
+-- })
+--
+-- -- configure gopls
+-- lspconfig["gopls"].setup({
+-- 	capabilities = capabilities,
+-- 	on_attach = on_attach,
+-- })
 
--- configure pyright server
-lspconfig["pyright"].setup({
+-- configure html-lsp server
+lspconfig["html"].setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
-})
-
--- configure gopls
-lspconfig["gopls"].setup({
-	capabilities = capabilities,
-	on_attach = on_attach,
+	filetypes = { "html" },
 })
 
 -- configure typescript-language-server (ts_ls)
