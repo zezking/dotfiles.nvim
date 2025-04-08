@@ -193,16 +193,6 @@ return {
 	-- Impatient optimize the startup time
 	{ "lewis6991/impatient.nvim" },
 
-	--Dashboard
-	{
-		"nvimdev/dashboard-nvim",
-		event = "VimEnter",
-		config = function()
-			require("plugins.configs.dashboard")
-		end,
-		dependencies = { { "nvim-tree/nvim-web-devicons" } },
-	},
-
 	-- AI
 	{
 		"github/copilot.vim",
