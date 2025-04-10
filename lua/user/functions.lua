@@ -1,6 +1,7 @@
 local M = {}
 local ag = vim.api.nvim_create_augroup
 local au = vim.api.nvim_create_autocmd
+local uc = vim.api.nvim_create_user_command
 
 ---Highlight yanked text
 au("TextYankPost", {
@@ -26,10 +27,10 @@ vim.cmd([[
 
 -- Create a command to temporarily disable lsp. It is mainly used for leetcode.nvim
 -- Run :edit or restart nvim to re-enable lsp
-vim.api.nvim_create_user_command("DisableLSP", "lua require('user.functions').disable_lsp()", {})
+uc("DisableLSP", "lua require('user.functions').disable_lsp()", {})
 
-vim.api.nvim_create_user_command("WipeReg", "lua require('user.functions').wipe_register()", {})
-vim.api.nvim_create_user_command("FormatDisable", "lua require('user.functions').format_disable()", {
+uc("WipeReg", "lua require('user.functions').wipe_register()", {})
+uc("FormatDisable", "lua require('user.functions').format_disable()", {
 	desc = "Disable autoformat-on-save",
 	bang = true,
 })

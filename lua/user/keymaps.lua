@@ -137,4 +137,7 @@ keymap("n", "<leader>e", "<cmd>Oil<cr>", { desc = "Explorer" })
 -- Close buffers
 keymap("n", "<leader>cab", "<cmd>%bd | e#<cr>", { desc = "Close all buffers but this one" })
 
+-- Select and replace in selection
+keymap("v", "<leader>r", ":s/\\%V", { desc = "Replace in selection" })
+
 return M

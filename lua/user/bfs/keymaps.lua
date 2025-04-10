@@ -1,4 +1,5 @@
 M = {}
+
 -- Set floating window keymaps
 function M.setKeymaps(win, buf)
 	vim.api.nvim_buf_set_option(buf, "filetype", "bfs")
