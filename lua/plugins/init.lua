@@ -84,10 +84,7 @@ return {
 	},
 	{ "rafamadriz/friendly-snippets" },
 
-	-- Delete buffers (close files) without closing windows or messing up layout
-	{ "moll/vim-bbye" },
-
-	-- Manage and Install LSP servers
+	-- Manage and install LSP servers
 	{
 		"williamboman/mason.nvim",
 		config = function()
