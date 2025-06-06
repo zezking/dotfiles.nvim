@@ -187,9 +187,6 @@ return {
 		end,
 	},
 
-	-- Impatient optimize the startup time
-	{ "lewis6991/impatient.nvim" },
-
 	-- AI
 	{
 		"github/copilot.vim",
