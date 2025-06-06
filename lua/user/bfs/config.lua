@@ -17,4 +17,6 @@ M.openOptions = {
 	hsplit = "sb %s",
 }
 
+vim.loader.enable()
+
 return M
