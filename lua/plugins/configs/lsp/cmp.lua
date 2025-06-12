@@ -16,6 +16,7 @@ return {
 	appearance = {
 		-- 'mono' (default) for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
 		-- Adjusts spacing to ensure icons are aligned
+		use_nvim_cmp_as_default = true,
 		nerd_font_variant = "mono",
 	},
 
@@ -23,6 +24,13 @@ return {
 	completion = {
 		documentation = { auto_show = false, preselect = false },
 		accpet = { auto_brackets = { enable = true } },
+		menu = {
+			draw = {
+				columns = {
+					{ "kind_icon", "label", "label_description", "source_name", gap = 1 },
+				},
+			},
+		},
 	},
 
 	-- Default list of enabled providers defined so that you can extend it

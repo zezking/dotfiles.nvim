@@ -30,6 +30,6 @@ mason.setup()
 
 mason_lsp.setup({
 	-- list of servers for mason to install
-	ensure_installed = { "" },
+	ensure_installed = { "vtsls" },
 	-- auto-install configured servers (with lspconfig)
 })

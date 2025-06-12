@@ -55,7 +55,7 @@ return {
 		"saghen/blink.cmp",
 		build = "cargo +nightly build --release",
 		dependencies = { "rafamadriz/friendly-snippets" },
-		opts = require("plugins.configs.cmp"),
+		opts = require("plugins.configs.lsp.cmp"),
 		opts_extend = { "sources.default" },
 	},
 
@@ -258,13 +258,13 @@ return {
 			-- configuration goes here
 		},
 	},
-	-- --Colorizer to display color codes in the file
-	-- {
-	-- 	"norcalli/nvim-colorizer.lua",
-	-- 	config = function()
-	-- 		require("colorizer").setup()
-	-- 	end,
-	-- },
+	--Colorizer to display color codes in the file
+	{
+		"norcalli/nvim-colorizer.lua",
+		config = function()
+			require("colorizer").setup()
+		end,
+	},
 	-- {
 	-- 	"scalameta/nvim-metals",
 	-- 	dependencies = {

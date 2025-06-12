@@ -69,8 +69,8 @@ lspconfig["html"].setup({
 	filetypes = { "html" },
 })
 
--- configure typescript-language-server (ts_ls)
-lspconfig["ts_ls"].setup({
+-- configure typescript-language-server (vtsls)
+lspconfig["vtsls"].setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
 	filetypes = {
@@ -81,17 +81,19 @@ lspconfig["ts_ls"].setup({
 		"typescriptreact",
 		"typescript.tsx",
 	},
-	cmd = { "typescript-language-server", "--stdio" },
+	cmd = { "vtsls", "--stdio" },
 	commands = {
 		OrganizeImports = {
 			functions.OrganizeImports,
 			description = "Organize Imports",
 		},
 	},
-	init_options = {
-		preferences = {
-			importModuleSpecifierPreference = "relative",
-			importModuleSpecifierEnding = "minimal",
+
+	settings = {
+		typescript = {
+			preferences = {
+				importModuleSpecifier = "relative",
+			},
 		},
 	},
 })
