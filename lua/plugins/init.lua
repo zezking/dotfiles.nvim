@@ -21,9 +21,6 @@ return {
 		end,
 	},
 
-	-- Mini icons
-	{ "echasnovski/mini.icons", version = "*" },
-
 	--	Which key
 	{
 		"folke/which-key.nvim",
@@ -43,9 +40,6 @@ return {
 		end,
 	},
 
-	-- LSP symbols and tags visualizer
-	{ "liuchengxu/vista.vim" },
-
 	-- Project navigation
 	{
 		"ThePrimeagen/harpoon",
@@ -57,18 +51,12 @@ return {
 		end,
 	},
 
-	-- Auto completions
-	{ "hrsh7th/cmp-buffer" }, -- buffer completions
-	{ "hrsh7th/cmp-path" }, -- path completions
-	{ "hrsh7th/cmp-cmdline" }, -- cmdline completions
-	{ "hrsh7th/cmp-nvim-lsp" },
-	{ "hrsh7th/cmp-emoji" },
-	{ "hrsh7th/cmp-nvim-lua" },
 	{
-		"hrsh7th/nvim-cmp",
-		config = function()
-			require("plugins.configs.cmp")
-		end,
+		"saghen/blink.cmp",
+		build = "cargo +nightly build --release",
+		dependencies = { "rafamadriz/friendly-snippets" },
+		opts = require("plugins.configs.cmp"),
+		opts_extend = { "sources.default" },
 	},
 
 	-- Snippet
@@ -79,19 +67,16 @@ return {
 		end,
 		dependencies = { "rafamadriz/friendly-snippets" },
 	},
-	{
-		"saadparwaiz1/cmp_luasnip",
-	},
-	{ "rafamadriz/friendly-snippets" },
 
 	-- Manage and install LSP servers
 	{
-		"williamboman/mason.nvim",
-		config = function()
-			require("plugins.configs.lsp.mason")
-		end,
+		"mason-org/mason-lspconfig.nvim",
+		opts = {},
+		dependencies = {
+			{ "mason-org/mason.nvim", opts = require("plugins.configs.lsp.mason-lspconfig") },
+			"neovim/nvim-lspconfig",
+		},
 	},
-	{ "williamboman/mason-lspconfig" },
 
 	-- Formatting
 	{
@@ -114,6 +99,7 @@ return {
 			"nvim-tree/nvim-web-devicons", -- optional
 		},
 	},
+	-- Vscode-like pictograms for neovim lsp completion items
 	{ "onsails/lspkind.nvim" },
 	{ "b0o/schemastore.nvim", lazy = true, version = false },
 	{
@@ -130,25 +116,7 @@ return {
 			require("plugins.configs.treesitter")
 		end,
 	},
-	{ "JoosepAlviste/nvim-ts-context-commentstring" },
-	{ "nvim-treesitter/playground" },
-
-	-- Auto closing
-	{
-		"windwp/nvim-autopairs",
-		config = function()
-			require("plugins.configs.autopairs")
-		end,
-	},
 	{ "windwp/nvim-ts-autotag" },
-
-	-- UI
-	{
-		"stevearc/dressing.nvim",
-		config = function()
-			require("plugins.configs.dressing")
-		end,
-	},
 	{
 		"SmiteshP/nvim-navic",
 		config = function()
@@ -156,9 +124,7 @@ return {
 		end,
 		dependencies = { { "neovim/nvim-lspconfig" } },
 	},
-	{ "kshenoy/vim-signature" },
-	{ "Saecki/crates.nvim" },
-
+	--
 	-- Lualine
 	{
 		"nvim-lualine/lualine.nvim",
@@ -171,36 +137,28 @@ return {
 		"Isrothy/lualine-diagnostic-message",
 	},
 
-	-- Surround words with: "({[
+	-- -- Surround words with: "({[
 	{
 		"kylechui/nvim-surround",
 		config = function()
 			require("plugins.configs.surround")
 		end,
 	},
-
+	--
 	-- Comment stuff
 	{
 		"numToStr/Comment.nvim",
 		config = function()
 			require("plugins.configs.comment")
 		end,
+		dependencies = { { "JoosepAlviste/nvim-ts-context-commentstring" } },
 	},
 
-	-- AI
+	-- -- AI
 	{
 		"github/copilot.vim",
 		config = function()
 			require("plugins.configs.copilot")
-		end,
-	},
-
-	--Git-blame
-	{
-		"f-person/git-blame.nvim",
-		event = "VeryLazy",
-		config = function()
-			require("plugins.configs.git-blame")
 		end,
 	},
 
@@ -211,7 +169,7 @@ return {
 			require("gitsigns").setup()
 		end,
 	},
-
+	--
 	-- Persistence for session
 	{
 		"folke/persistence.nvim",
@@ -287,9 +245,6 @@ return {
 		end,
 	},
 
-	-- Big file
-	{ "LunarVim/bigfile.nvim" },
-
 	-- Leetcode in neovim
 	{
 		"kawre/leetcode.nvim",
@@ -303,36 +258,36 @@ return {
 			-- configuration goes here
 		},
 	},
-	--Colorizer to display color codes in the file
-	{
-		"norcalli/nvim-colorizer.lua",
-		config = function()
-			require("colorizer").setup()
-		end,
-	},
-	{
-		"scalameta/nvim-metals",
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-		},
-		ft = { "scala", "sbt", "java" },
-		opts = function()
-			local metals_config = require("metals").bare_config()
-			metals_config.on_attach = function(client, bufnr)
-				-- your on_attach function
-			end
-
-			return metals_config
-		end,
-		config = function(self, metals_config)
-			local nvim_metals_group = vim.api.nvim_create_augroup("nvim-metals", { clear = true })
-			vim.api.nvim_create_autocmd("FileType", {
-				pattern = self.ft,
-				callback = function()
-					require("metals").initialize_or_attach(metals_config)
-				end,
-				group = nvim_metals_group,
-			})
-		end,
-	},
+	-- --Colorizer to display color codes in the file
+	-- {
+	-- 	"norcalli/nvim-colorizer.lua",
+	-- 	config = function()
+	-- 		require("colorizer").setup()
+	-- 	end,
+	-- },
+	-- {
+	-- 	"scalameta/nvim-metals",
+	-- 	dependencies = {
+	-- 		"nvim-lua/plenary.nvim",
+	-- 	},
+	-- 	ft = { "scala", "sbt", "java" },
+	-- 	opts = function()
+	-- 		local metals_config = require("metals").bare_config()
+	-- 		metals_config.on_attach = function(client, bufnr)
+	-- 			-- your on_attach function
+	-- 		end
+	--
+	-- 		return metals_config
+	-- 	end,
+	-- 	config = function(self, metals_config)
+	-- 		local nvim_metals_group = vim.api.nvim_create_augroup("nvim-metals", { clear = true })
+	-- 		vim.api.nvim_create_autocmd("FileType", {
+	-- 			pattern = self.ft,
+	-- 			callback = function()
+	-- 				require("metals").initialize_or_attach(metals_config)
+	-- 			end,
+	-- 			group = nvim_metals_group,
+	-- 		})
+	-- 	end,
+	-- },
 }
