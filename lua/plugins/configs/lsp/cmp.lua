@@ -19,6 +19,9 @@ return {
 		use_nvim_cmp_as_default = true,
 		nerd_font_variant = "mono",
 	},
+	snippets = {
+		preset = "luasnip",
+	},
 
 	-- (Default) Only show the documentation popup when manually triggered
 	completion = {

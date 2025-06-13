@@ -1,0 +1,27 @@
+snippet cpc Create playwright component test
+        import { test, expect } from '@playwright/experimental-ct-react';
+        test.describe('${1:description}', () => {
+          test('should display the component correctly', async ({ page, mount }) => {
+                const component = await mount(<${2:ComponentName} />);
+          });
+        });
+
+snippet cpciw Create playwright integration test wrapper 
+        import React, { useEffect, useState } from 'react';
+        import { Factory } from 'inversify';
+        import { Symbols, container } from '../src/ioc/default';
+        import { ${1:IOContainer} } from '../src/ioc/common/interfaces';
+        import { useObservableState } from 'observable-hooks';
+        import { useDatabaseManager } from '@new-mareland/crystal-mirror-browser-storage';
+
+        export const Default${1:IOContainer}Wrapper = ():JSX.Element => {
+          const [ioc, setIoc] = useState<${1:IOContainer}>();
+          const [dbMgr] = useDatabaseManager();
+          useEffect(() => {
+            const ioFactory = container.get<Factory<${1:IOContainer}>>(Symbols.${1:IOContainer}Factory);
+            const io = ioFactory(dbMgr) as ${1:IOContainer};
+          }, [dbMgr]);
+          return <div></div>;
+        };
+        
+

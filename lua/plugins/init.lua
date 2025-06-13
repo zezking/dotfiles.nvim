@@ -36,7 +36,11 @@ return {
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 		opts = require("plugins.configs.fzf-lua"),
 		config = function()
-			require("fzf-lua").setup({ defaults = { git_icons = false, file_icons = false, color_icons = false } })
+			local config = require("fzf-lua").config
+			local actions = require("trouble.sources.fzf").actions
+			local setup = require("fzf-lua").setup
+			setup({ defaults = { git_icons = false, file_icons = false, color_icons = false } })
+			config.defaults.actions.files["ctrl-t"] = actions.open
 		end,
 	},
 
@@ -63,7 +67,7 @@ return {
 	{
 		"L3MON4D3/LuaSnip",
 		config = function()
-			require("luasnip.loaders.from_vscode").lazy_load()
+			require("plugins.configs.lua-snip")
 		end,
 		dependencies = { "rafamadriz/friendly-snippets" },
 	},

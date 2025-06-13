@@ -1,11 +1,8 @@
-local opts = {}
 
-opts = {
+return {
 	win = {
 		wo = {
 			wrap = true,
 		},
 	},
 }
-
-return opts
