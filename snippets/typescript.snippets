@@ -1,0 +1,6 @@
+snippet cpcit Create playwright component integration test
+        import { test, expect } from '@playwright/test';
+        test.describe('${1:description}', () => {
+          test('Test', async ({ page }) => {
+          });
+        });
