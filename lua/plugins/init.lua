@@ -54,11 +54,11 @@ return {
 			require("plugins.configs.harpoon")
 		end,
 	},
-
 	{
 		"saghen/blink.cmp",
 		build = "cargo +nightly build --release",
-		dependencies = { "rafamadriz/friendly-snippets" },
+		version = "1.*",
+		dependencies = { "rafamadriz/friendly-snippets", "fang2hou/blink-copilot" },
 		opts = require("plugins.configs.lsp.cmp"),
 		opts_extend = { "sources.default" },
 	},
@@ -165,7 +165,6 @@ return {
 			require("plugins.configs.copilot")
 		end,
 	},
-
 	-- Git signs
 	{
 		"lewis6991/gitsigns.nvim",
@@ -269,6 +268,7 @@ return {
 			require("colorizer").setup()
 		end,
 	},
+
 	-- {
 	-- 	"scalameta/nvim-metals",
 	-- 	dependencies = {
