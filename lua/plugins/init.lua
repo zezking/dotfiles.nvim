@@ -54,6 +54,8 @@ return {
 			require("plugins.configs.harpoon")
 		end,
 	},
+
+	-- Code completion
 	{
 		"saghen/blink.cmp",
 		build = "cargo +nightly build --release",

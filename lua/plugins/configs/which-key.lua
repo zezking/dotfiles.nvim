@@ -142,6 +142,8 @@ which_key.add({
 	{ "<leader>ft", "<cmd>FzfLua live_grep<cr>", desc = "Find Text" },
 	{ "<leader>fk", "<cmd>FzfLua keymaps<cr>", desc = "Keymaps" },
 	{ "<leader>fC", "<cmd>FzfLua commands<cr>", desc = "Commands" },
+	{ "<leader>fl", "<cmd>FzfLua files cwd=~/Toku<cr>", desc = "Find files in all Illumass projects" },
+	{ "<leader>flt", "<cmd>FzfLua live_grep cwd=~/Toku<cr>", desc = "Find text Illumass in all Illumass projects" },
 })
 
 -- Git
