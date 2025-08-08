@@ -92,6 +92,8 @@ lspconfig["ts_ls"].setup({
 	settings = {
 		typescript = {
 			preferences = {
+				includeCompletionsForModuleExports = true,
+				includeCompletionsForImportStatements = true,
 				importModuleSpecifier = "relative",
 			},
 		},
