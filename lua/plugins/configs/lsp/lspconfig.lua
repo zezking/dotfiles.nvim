@@ -45,10 +45,10 @@ for type, icon in pairs(signs) do
 end
 
 -- configure clangd server
--- lspconfig["clangd"].setup({
--- 	capabilities = capabilities,
--- 	on_attach = on_attach,
--- })
+lspconfig["clangd"].setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+})
 --
 -- -- configure pyright server
 -- lspconfig["pyright"].setup({
