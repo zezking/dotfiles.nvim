@@ -1,8 +1,3 @@
-local lspconfig_status_ok, lspconfig = pcall(require, "lspconfig")
-if not lspconfig_status_ok then
-	return
-end
-
 local navic_lsp_status_ok, navic = pcall(require, "nvim-navic")
 if not navic_lsp_status_ok then
 	return
@@ -36,6 +31,7 @@ local on_attach = function(client, bufnr)
 	keymap.set("n", "<leader>o", "<cmd>LSoutlineToggle<CR>", opts) -- see outline on right hand side
 end
 
+local lspconfig = vim.lsp.config
 -- Change the Diagnostic symbols in the sign column (gutter)
 local capabilities = require("blink.cmp").get_lsp_capabilities()
 local signs = { Error = " ", Warn = " ", Hint = "ﴞ ", Info = " " }
@@ -45,7 +41,7 @@ for type, icon in pairs(signs) do
 end
 
 -- configure clangd server
-lspconfig["clangd"].setup({
+lspconfig("clangd", {
 	capabilities = capabilities,
 	on_attach = on_attach,
 })
@@ -57,20 +53,20 @@ lspconfig["clangd"].setup({
 -- })
 --
 -- configure gopls
-lspconfig["gopls"].setup({
+lspconfig("gopls", {
 	capabilities = capabilities,
 	on_attach = on_attach,
 })
 
 -- configure html-lsp server
-lspconfig["html"].setup({
+lspconfig("html", {
 	capabilities = capabilities,
 	on_attach = on_attach,
 	filetypes = { "html" },
 })
 
 -- configure typescript-language-server (ts_ls)
-lspconfig["ts_ls"].setup({
+lspconfig("ts_ls", {
 	on_attach = on_attach,
 	capabilities = capabilities,
 	filetypes = {
@@ -101,7 +97,7 @@ lspconfig["ts_ls"].setup({
 })
 
 -- configure jsonls server
-lspconfig["jsonls"].setup({
+lspconfig("jsonls", {
 	on_attach = on_attach,
 	capabilities = capabilities,
 	settings = {
@@ -116,7 +112,7 @@ lspconfig["jsonls"].setup({
 })
 
 -- configure lua server (with special settings)
-lspconfig["lua_ls"].setup({
+lspconfig("lua_ls", {
 	capabilities = capabilities,
 	on_attach = on_attach,
 	settings = { -- custom settings for lua
