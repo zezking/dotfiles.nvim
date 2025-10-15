@@ -130,6 +130,7 @@ which_key.add({
 	mode = { "n" },
 	{ "<leader>c", group = "Close" },
 	{ "<leader>cb", "<cmd>bp | bd #<CR>", desc = "Close current buffer without close the split" },
+	{ "<leader>cc", "<cmd>CodeCompanionChat<CR>", desc = "Start a code companion chat" },
 })
 
 -- Find

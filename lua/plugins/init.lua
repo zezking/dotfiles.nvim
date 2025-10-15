@@ -143,14 +143,14 @@ return {
 		"Isrothy/lualine-diagnostic-message",
 	},
 
-	-- -- Surround words with: "({[
+	-- Surround words with: "({[
 	{
 		"kylechui/nvim-surround",
 		config = function()
 			require("plugins.configs.surround")
 		end,
 	},
-	--
+
 	-- Comment stuff
 	{
 		"numToStr/Comment.nvim",
@@ -160,12 +160,30 @@ return {
 		dependencies = { { "JoosepAlviste/nvim-ts-context-commentstring" } },
 	},
 
-	-- -- AI
+	-- AI
 	{
 		"github/copilot.vim",
 		config = function()
 			require("plugins.configs.copilot")
 		end,
+	},
+	{
+		"olimorris/codecompanion.nvim",
+		opts = {},
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+		},
+	},
+	-- Markdown
+	{
+		"OXY2DEV/markview.nvim",
+		lazy = false,
+		opts = {
+			preview = {
+				filetypes = { "markdown", "codecompanion" },
+				ignore_buftypes = {},
+			},
+		},
 	},
 	-- Git signs
 	{
@@ -174,7 +192,6 @@ return {
 			require("gitsigns").setup()
 		end,
 	},
-	--
 	-- Persistence for session
 	{
 		"folke/persistence.nvim",
