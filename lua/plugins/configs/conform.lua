@@ -6,6 +6,8 @@ opts = {
 		lua = { "stylua" },
 		python = { "isort", "black" },
 		go = { "gopls" },
+		java = { "jdtls" },
+		gradle = { "npm_groovy_lint" },
 		-- prettier infers config.json as jsonc
 		jsonc = { "prettierd", "prettier" },
 		json = { "prettierd", "prettier" },

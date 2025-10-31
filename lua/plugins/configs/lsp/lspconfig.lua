@@ -51,9 +51,21 @@ lspconfig("clangd", {
 -- 	capabilities = capabilities,
 -- 	on_attach = on_attach,
 -- })
---
+
 -- configure gopls
 lspconfig("gopls", {
+	capabilities = capabilities,
+	on_attach = on_attach,
+})
+
+-- configure jdtls server
+lspconfig("jdtls", {
+	capabilities = capabilities,
+	on_attach = on_attach,
+})
+
+-- configure gradle_ls server
+lspconfig("gradle_ls", {
 	capabilities = capabilities,
 	on_attach = on_attach,
 })
