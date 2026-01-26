@@ -4,7 +4,11 @@ if not status_ok then
 	return
 end
 
--- configure treesitter
+-- local vim = vim
+
+-- vim.wo.foldmethod = "indent"
+-- vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()" -- configure treesitter
+
 treesitter.setup({
 	-- enable syntax highlighting
 	highlight = {
