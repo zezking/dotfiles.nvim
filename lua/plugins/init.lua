@@ -167,13 +167,14 @@ return {
 			require("plugins.configs.copilot")
 		end,
 	},
-	{
-		"olimorris/codecompanion.nvim",
-		opts = {},
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-		},
-	},
+	-- Not using it for now
+	-- {
+	-- 	"olimorris/codecompanion.nvim",
+	-- 	opts = {},
+	-- 	dependencies = {
+	-- 		"nvim-lua/plenary.nvim",
+	-- 	},
+	-- },
 	-- Markdown
 	{
 		"OXY2DEV/markview.nvim",
