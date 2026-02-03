@@ -262,7 +262,7 @@ return {
 
 	-- Neovim's answer to mouse
 	{
-		"ggandor/leap.nvim",
+		url = "https://codeberg.org/andyg/leap.nvim",
 		config = function()
 			require("plugins.configs.leap")
 		end,
