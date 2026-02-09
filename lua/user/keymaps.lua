@@ -140,4 +140,8 @@ keymap("n", "<leader>cab", "<cmd>%bd | e#<cr>", { desc = "Close all buffers but 
 -- Select and replace in selection
 keymap("v", "<leader>r", ":s/\\%V", { desc = "Replace in selection" })
 
+--leap
+vim.keymap.set({ "n", "x", "o" }, "s", "<Plug>(leap-forward)")
+vim.keymap.set({ "n", "x", "o" }, "S", "<Plug>(leap-backward)")
+vim.keymap.set("n", "gs", "<Plug>(leap-from-window)")
 return M
