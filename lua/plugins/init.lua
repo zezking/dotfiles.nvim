@@ -160,32 +160,6 @@ return {
 		dependencies = { { "JoosepAlviste/nvim-ts-context-commentstring" } },
 	},
 
-	-- AI
-	{
-		"github/copilot.vim",
-		config = function()
-			require("plugins.configs.copilot")
-		end,
-	},
-	-- Not using it for now
-	-- {
-	-- 	"olimorris/codecompanion.nvim",
-	-- 	opts = {},
-	-- 	dependencies = {
-	-- 		"nvim-lua/plenary.nvim",
-	-- 	},
-	-- },
-	-- Markdown
-	{
-		"OXY2DEV/markview.nvim",
-		lazy = false,
-		opts = {
-			preview = {
-				filetypes = { "markdown", "codecompanion" },
-				ignore_buftypes = {},
-			},
-		},
-	},
 	-- Git signs
 	{
 		"lewis6991/gitsigns.nvim",
@@ -268,19 +242,6 @@ return {
 		end,
 	},
 
-	-- Leetcode in neovim
-	{
-		"kawre/leetcode.nvim",
-		build = ":TSUpdate html", -- if you have `nvim-treesitter` installed
-		dependencies = {
-			"ibhagwan/fzf-lua",
-			"nvim-lua/plenary.nvim",
-			"MunifTanjim/nui.nvim",
-		},
-		opts = {
-			-- configuration goes here
-		},
-	},
 	--Colorizer to display color codes in the file
 	{
 		"norcalli/nvim-colorizer.lua",
@@ -288,30 +249,4 @@ return {
 			require("colorizer").setup()
 		end,
 	},
-
-	-- {
-	-- 	"scalameta/nvim-metals",
-	-- 	dependencies = {
-	-- 		"nvim-lua/plenary.nvim",
-	-- 	},
-	-- 	ft = { "scala", "sbt", "java" },
-	-- 	opts = function()
-	-- 		local metals_config = require("metals").bare_config()
-	-- 		metals_config.on_attach = function(client, bufnr)
-	-- 			-- your on_attach function
-	-- 		end
-	--
-	-- 		return metals_config
-	-- 	end,
-	-- 	config = function(self, metals_config)
-	-- 		local nvim_metals_group = vim.api.nvim_create_augroup("nvim-metals", { clear = true })
-	-- 		vim.api.nvim_create_autocmd("FileType", {
-	-- 			pattern = self.ft,
-	-- 			callback = function()
-	-- 				require("metals").initialize_or_attach(metals_config)
-	-- 			end,
-	-- 			group = nvim_metals_group,
-	-- 		})
-	-- 	end,
-	-- },
 }

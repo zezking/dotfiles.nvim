@@ -125,7 +125,7 @@ keymap("n", "K", ":lua require('user.functions').show_documentation()<CR>", opts
 keymap("n", "<tab>", "<cmd>lua require('fzf-lua').files()<cr>", { desc = "Search file" })
 keymap("n", "<leader><leader>", "<cmd>lua require('fzf-lua').resume()<cr>", { desc = "Resume search" })
 keymap("n", "<leader>k", "<cmd>lua require('fzf-lua').keymaps()<cr>", { desc = "Key mappings" })
-keymap("n", "<leader>t", "<cmd>lua require('fzf-lua').live_grep()<cr>", { desc = "Live grep" })
+keymap("n", "<leader>t", "<cmd>lua require('fzf-lua').live_grep_native()<cr>", { desc = "Live grep" })
 keymap("n", "<leader>b", "<cmd>lua require('fzf-lua').buffers()<cr>", { desc = "Buffer list" })
 keymap("n", "<leader>qf", "<cmd>lua require('fzf-lua').quickfix()<cr>", { desc = "Quickfix list" })
 
