@@ -25,8 +25,9 @@ return {
 
 	-- (Default) Only show the documentation popup when manually triggered
 	completion = {
-		documentation = { auto_show = false, preselect = false },
-		accpet = { auto_brackets = { enable = true } },
+		documentation = { auto_show = false },
+		accept = { auto_brackets = { enabled = true } },
+		list = { selection = { preselect = false } },
 		menu = {
 			draw = {
 				columns = {
@@ -49,7 +50,7 @@ return {
 			},
 		},
 	},
-	signature = { enable = true },
+	signature = { enabled = true },
 
 	-- (Default) Rust fuzzy matcher for typo resistance and significantly better performance
 	-- You may use a lua implementation instead by using `implementation = "lua"` or fallback to the lua implementation,
