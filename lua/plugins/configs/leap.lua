@@ -4,4 +4,4 @@ if not leap then
 	return
 end
 
-leap.opts.case_sensitive = true
+leap.opts.vim_opts["go.ignorecase"] = false
