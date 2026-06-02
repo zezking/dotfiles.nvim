@@ -35,10 +35,12 @@ local lspconfig = vim.lsp.config
 -- Change the Diagnostic symbols in the sign column (gutter)
 local capabilities = require("blink.cmp").get_lsp_capabilities()
 local signs = { Error = " ", Warn = " ", Hint = "ﴞ ", Info = " " }
+local diagnostic_signs = {}
 for type, icon in pairs(signs) do
 	local hl = "DiagnosticSign" .. type
-	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
+	diagnostic_signs[#diagnostic_signs + 1] = { name = hl, text = icon, texthl = hl, numhl = "" }
 end
+vim.diagnostic.config({ signs = { active = diagnostic_signs } })
 
 -- configure clangd server
 lspconfig("clangd", {
