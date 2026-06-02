@@ -32,14 +32,12 @@ return {
 	-- fzf lua
 	{
 		"ibhagwan/fzf-lua",
-		-- optional for icon support
 		dependencies = { "nvim-tree/nvim-web-devicons" },
-		opts = require("plugins.configs.fzf-lua"),
 		config = function()
 			local config = require("fzf-lua").config
 			local actions = require("trouble.sources.fzf").actions
 			local setup = require("fzf-lua").setup
-			setup({ defaults = { git_icons = false, file_icons = false, color_icons = false } })
+			setup(require("plugins.configs.fzf-lua"))
 			config.defaults.actions.files["ctrl-t"] = actions.open
 		end,
 	},
