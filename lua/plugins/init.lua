@@ -34,11 +34,10 @@ return {
 		"ibhagwan/fzf-lua",
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 		config = function()
-			local config = require("fzf-lua").config
+			local fzf = require("fzf-lua")
 			local actions = require("trouble.sources.fzf").actions
-			local setup = require("fzf-lua").setup
-			setup(require("plugins.configs.fzf-lua"))
-			config.defaults.actions.files["ctrl-t"] = actions.open
+			fzf.setup(require("plugins.configs.fzf-lua").opts)
+			fzf.config.defaults.actions.files["ctrl-t"] = actions.open
 		end,
 	},
 
