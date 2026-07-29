@@ -171,8 +171,9 @@ return {
 	-- Git signs
 	{
 		"lewis6991/gitsigns.nvim",
+		event = { "BufReadPre", "BufNewFile" },
 		config = function()
-			require("gitsigns").setup()
+			require("plugins.configs.gitsigns")
 		end,
 	},
 	-- Persistence for session
