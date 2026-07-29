@@ -114,12 +114,23 @@ return {
 
 	-- Treesitter
 	{
+		-- `main` branch is a full rewrite required for Neovim 0.11+.
+		-- The deprecated `master` branch ships query predicates that crash
+		-- Neovim 0.12 during markdown injection processing.
 		"nvim-treesitter/nvim-treesitter",
+		branch = "main",
 		config = function()
 			require("plugins.configs.treesitter")
 		end,
 	},
-	{ "windwp/nvim-ts-autotag" },
+	{
+		-- On nvim-treesitter `main` there is no `autotag` module, so set it up
+		-- explicitly instead of via the removed module system.
+		"windwp/nvim-ts-autotag",
+		config = function()
+			require("nvim-ts-autotag").setup({})
+		end,
+	},
 	{
 		"SmiteshP/nvim-navic",
 		config = function()

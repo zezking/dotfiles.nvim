@@ -1,53 +1,86 @@
--- import nvim-treesitter plugin safely
-local status_ok, treesitter = pcall(require, "nvim-treesitter.configs")
-if not status_ok then
+-- nvim-treesitter (main branch) configuration.
+--
+-- NOTE: The `main` branch is a full, incompatible rewrite of the plugin and is
+-- required for Neovim 0.11+. It drops the old module-based API
+-- (highlight/indent/autotag/ensure_installed/auto_install). Treesitter
+-- highlighting is now provided by Neovim's built-in engine, started here for
+-- every buffer that has a parser installed (except the filetypes below).
+--
+-- The deprecated `master` branch is frozen and ships query predicates
+-- (`lua/nvim-treesitter/query_predicates.lua`) that are incompatible with the
+-- Neovim 0.12 query engine, which crashed when opening markdown files during
+-- markdown_inline injection processing.
+
+local ok, ts = pcall(require, "nvim-treesitter")
+if not ok then
 	return
 end
 
--- local vim = vim
+-- Filetypes where treesitter should NOT be started (buggy/undesired parser).
+local disabled_filetypes = { dockerfile = true }
 
--- vim.wo.foldmethod = "indent"
--- vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()" -- configure treesitter
+-- Parsers to keep installed. `main` exposes no `ensure_installed` option, so we
+-- install any that are missing on startup (best-effort, non-blocking).
+local ensure_installed = {
+	"json5",
+	"json",
+	"jsonc",
+	"javascript",
+	"typescript",
+	"tsx",
+	"yaml",
+	"html",
+	"css",
+	"markdown",
+	"markdown_inline",
+	"graphql",
+	"bash",
+	"lua",
+	"vim",
+	"gitignore",
+	"python",
+	"toml",
+}
 
-treesitter.setup({
-	-- enable syntax highlighting
-	highlight = {
-		enable = true,
-		-- Disable for now as there are syntax errors. Related issues: https://github.com/camdencheek/tree-sitter-dockerfile/issues/51
-		disable = { "dockerfile" },
-	},
-	-- enable indentation
-	indent = { enable = true },
-	-- enable autotagging (w/ nvim-ts-autotag plugin)
-	autotag = { enable = true },
-	-- rainbow = {
-	-- 	enable = true,
-	-- 	extended_mode = true,
-	-- 	max_file_lines = nil,
-	-- },
-	-- ensure these language parsers are installed
-	ensure_installed = {
-		"json5",
-		"json",
-		"jsonc",
-		"javascript",
-		"typescript",
-		"tsx",
-		"yaml",
-		"html",
-		"css",
-		-- "markdown",
-		-- "svelte",
-		"graphql",
-		"bash",
-		"lua",
-		"vim",
-		"gitignore",
-		"python",
-		--"rust",
-		"toml",
-	},
-	ignore_install = { "dockerfile" },
-	-- auto install above language parsers
-	auto_install = true,
+ts.setup({})
+
+-- Returns true if a parser is loadable for the given language.
+local function has_parser(lang)
+	return pcall(vim.treesitter.language.add, lang)
+end
+
+-- Start treesitter highlighting + indentation for buffers that have a parser.
+-- Replaces the removed `highlight`/`indent` modules and replicates the old
+-- `auto_install` behaviour by installing a missing parser on first encounter.
+local auto_installed = {}
+vim.api.nvim_create_autocmd("FileType", {
+	group = vim.api.nvim_create_augroup("NvimTreesitterMain", { clear = true }),
+	callback = function(ev)
+		local buf = ev.buf
+		local ft = vim.bo[buf].filetype
+		if ft == "" or disabled_filetypes[ft] then
+			return
+		end
+
+		local started = pcall(vim.treesitter.start, buf)
+		if started then
+			vim.bo[buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+			return
+		end
+
+		-- Parser missing: install it once (best-effort), non-blocking.
+		if not auto_installed[ft] then
+			auto_installed[ft] = true
+			pcall(ts.install, { ft })
+		end
+	end,
 })
+
+-- Install any ensure_installed parsers that are not yet available.
+local missing = vim.tbl_filter(function(lang)
+	return not has_parser(lang)
+end, ensure_installed)
+if #missing > 0 then
+	vim.notify("nvim-treesitter: installing missing parsers: " .. table.concat(missing, ", "))
+	pcall(ts.install, missing)
+end
