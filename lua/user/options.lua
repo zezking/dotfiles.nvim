@@ -33,17 +33,26 @@ vim.diagnostic.config({
 	update_in_insert = false,
 })
 
-vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-	border = "single",
-})
-vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
-	border = "single",
-	focusable = false,
-	relative = "cursor",
-})
+local hover_handler = vim.lsp.handlers.hover
+vim.lsp.handlers["textDocument/hover"] = function(err, result, ctx, config)
+	config = vim.tbl_deep_extend("force", config or {}, {
+		border = "single",
+	})
+	return hover_handler(err, result, ctx, config)
+end
+
+local signature_help_handler = vim.lsp.handlers.signature_help
+vim.lsp.handlers["textDocument/signatureHelp"] = function(err, result, ctx, config)
+	config = vim.tbl_deep_extend("force", config or {}, {
+		border = "single",
+		focusable = false,
+		relative = "cursor",
+	})
+	return signature_help_handler(err, result, ctx, config)
+end
 
 -- Disable log level to improve performance. Turn on when debugging
-vim.lsp.set_log_level("off")
+vim.lsp.log.set_level("off")
 
 -- Disable Netrw
 vim.g.loaded_netrwPlugin = 1
