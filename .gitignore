@@ -1,3 +1,6 @@
 .DS_Store
 plugin/**
 plugin/packer_compiled.lua
+
+# Local pi agent config
+.pi/
