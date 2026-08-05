@@ -16,6 +16,12 @@ if not ok then
 	return
 end
 
+-- Languages nvim-treesitter knows about. Filetypes absent from this table
+-- (e.g. the lazy.nvim UI: `lazy` / `lazy_backdrop`) are not real languages and
+-- would trigger "skipping unsupported language" warnings if we tried to
+-- install a parser for them.
+local parsers = require("nvim-treesitter.parsers")
+
 -- Filetypes where treesitter should NOT be started (buggy/undesired parser).
 local disabled_filetypes = { dockerfile = true }
 
@@ -68,8 +74,9 @@ vim.api.nvim_create_autocmd("FileType", {
 			return
 		end
 
-		-- Parser missing: install it once (best-effort), non-blocking.
-		if not auto_installed[ft] then
+		-- Parser missing: install it once (best-effort), non-blocking, but only
+		-- for languages nvim-treesitter actually supports.
+		if parsers[ft] ~= nil and not auto_installed[ft] then
 			auto_installed[ft] = true
 			pcall(ts.install, { ft })
 		end
