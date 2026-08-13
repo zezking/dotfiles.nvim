@@ -46,6 +46,7 @@ local ensure_installed = {
 	"gitignore",
 	"python",
 	"toml",
+	"swift",
 }
 
 ts.setup({})

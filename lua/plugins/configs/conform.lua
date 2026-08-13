@@ -8,6 +8,8 @@ opts = {
 		go = { "gopls" },
 		java = { "jdtls" },
 		gradle = { "npm_groovy_lint" },
+		-- Uses the Swift 6.0+ toolchain's built-in `swift format` (no install needed).
+		swift = { "swift" },
 		-- prettier infers config.json as jsonc
 		jsonc = { "prettierd", "prettier" },
 		json = { "prettierd", "prettier" },

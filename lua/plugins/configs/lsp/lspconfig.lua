@@ -47,6 +47,18 @@ lspconfig("clangd", {
 	capabilities = capabilities,
 	on_attach = on_attach,
 })
+
+-- configure sourcekit-lsp server (Swift)
+-- sourcekit-lsp ships with Xcode (/usr/bin/sourcekit-lsp) and is NOT installed
+-- via Mason, so mason-lspconfig's automatic_enable won't start it — enable it
+-- explicitly here. Filetypes are restricted to "swift" only, since sourcekit's
+-- default list also includes c/cpp/objc, which would clash with clangd.
+lspconfig("sourcekit", {
+	capabilities = capabilities,
+	on_attach = on_attach,
+	filetypes = { "swift" },
+})
+vim.lsp.enable("sourcekit")
 --
 -- -- configure pyright server
 -- lspconfig["pyright"].setup({
