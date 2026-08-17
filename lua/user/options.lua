@@ -22,6 +22,8 @@ local options = {
 	autoread = true,
 	spelllang = "en_us",
 	spell = true,
+	-- Save 'zg' words to the committed spell file so they sync via git.
+	spellfile = vim.fn.stdpath("config") .. "/spell/en.utf-8.add",
 }
 
 vim.diagnostic.config({
