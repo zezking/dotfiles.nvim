@@ -134,6 +134,19 @@ keymap("n", "<leader>lo", "<cmd>lua require('user.functions').organize_imports()
 -- Oil
 keymap("n", "<leader>e", "<cmd>Oil<cr>", { desc = "Explorer" })
 
+-- Lazydocker in a new tmux window
+-- nvim's built-in terminal breaks lazydocker's suspend/subprocess handling
+-- (exec shell `E` instantly bounces back), and tmux popups run the command via
+-- `zsh -c` (no job control) which breaks it too. A plain tmux window works.
+nnoremap("<leader>D", function()
+	if vim.env.TMUX == nil then
+		vim.notify("lazydocker: not inside tmux", vim.log.levels.WARN)
+		return
+	end
+	local cmd = "tmux new-window -c " .. vim.fn.shellescape(vim.fn.getcwd()) .. " -n lazydocker lazydocker"
+	vim.fn.jobstart(cmd, { detach = true })
+end, { desc = "Lazydocker (tmux window)" })
+
 -- Close buffers
 keymap("n", "<leader>cab", "<cmd>%bd | e#<cr>", { desc = "Close all buffers but this one" })
 
