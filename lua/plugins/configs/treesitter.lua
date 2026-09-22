@@ -47,6 +47,7 @@ local ensure_installed = {
 	"python",
 	"toml",
 	"swift",
+	"devicetree", -- ZMK .keymap files (ft=dts)
 }
 
 ts.setup({})
@@ -76,10 +77,13 @@ vim.api.nvim_create_autocmd("FileType", {
 		end
 
 		-- Parser missing: install it once (best-effort), non-blocking, but only
-		-- for languages nvim-treesitter actually supports.
-		if parsers[ft] ~= nil and not auto_installed[ft] then
-			auto_installed[ft] = true
-			pcall(ts.install, { ft })
+		-- for languages nvim-treesitter actually supports. NOTE: the parsers
+		-- table is keyed by language name (e.g. "devicetree"), not filetype
+		-- (e.g. "dts"), so map the filetype through get_lang first.
+		local lang = vim.treesitter.language.get_lang(ft) or ft
+		if parsers[lang] ~= nil and not auto_installed[lang] then
+			auto_installed[lang] = true
+			pcall(ts.install, { lang })
 		end
 	end,
 })

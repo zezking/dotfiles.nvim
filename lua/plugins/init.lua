@@ -258,4 +258,27 @@ return {
 			require("colorizer").setup()
 		end,
 	},
+
+	-- Visual formatter for QMK/ZMK keymaps: aligns bindings tables and renders
+	-- an ASCII preview of each layer. Auto-formats *.keymap on save.
+	{
+		"codethread/qmk.nvim",
+		config = function()
+			require("qmk").setup({
+				name = "eyelash_sofle", -- unused for zmk, any name works
+				variant = "zmk",
+				auto_format_pattern = "*.keymap",
+				layout = {
+					"x x x x x x x x x x x x x",
+					"x x x x x x x x x x x x x",
+					"x x x x x x x x x x x x x",
+					"x x x x x x x x x x x x x",
+					"x x x x x x _ x x x x x x", -- thumb row: 6 left | gap | 6 right
+				},
+				comment_preview = {
+					position = "top",
+				},
+			})
+		end,
+	},
 }

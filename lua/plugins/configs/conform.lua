@@ -19,6 +19,8 @@ opts = {
 		javascriptreact = { "prettierd", "prettier" },
 		html = { "prettierd", "prettier" },
 		markdown = { "prettierd", "prettier" },
+		-- ZMK .keymap files are formatted by qmk.nvim (auto on save);
+		-- its ASCII grid handles bindings tables natively.
 	},
 	-- Set default options
 	default_format_opts = {
