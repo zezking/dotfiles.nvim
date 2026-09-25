@@ -20,7 +20,7 @@
   "mason.nvim": { "branch": "main", "commit": "2a6940af80375532e5e9e7c1f2fc6319a1b7a69d" },
   "mini.icons": { "branch": "main", "commit": "f642e3ba8c12afbc8f32f6d77ef6597eac56786f" },
   "nvim-colorizer.lua": { "branch": "master", "commit": "72a05f62c52241bc7441c820eb53946f92b2e6a4" },
-  "nvim-lspconfig": { "branch": "master", "commit": "ffd261c09c3dabd0bf1a438f47a8ae3b22f3c3ff" },
+  "nvim-lspconfig": { "branch": "master", "commit": "046b1a797af1effe8e0474b9af9657a3761ec58a" },
   "nvim-navic": { "branch": "master", "commit": "455808fd0fae06e6d70fadfd61432275db8f34ce" },
   "nvim-surround": { "branch": "main", "commit": "8b47db616ef658b8fc27e61db2896aa2f40134de" },
   "nvim-treesitter": { "branch": "main", "commit": "f603a2f4da48728f80257fb5fbb90145fd1dc173" },
@@ -31,7 +31,7 @@
   "persistence.nvim": { "branch": "main", "commit": "b20b2a7887bd39c1a356980b45e03250f3dce49c" },
   "plenary.nvim": { "branch": "master", "commit": "74b06c6c75e4eeb3108ec01852001636d85a932b" },
   "qmk.nvim": { "branch": "main", "commit": "3c804c1480991e4837514900b22b9358cfd64fa1" },
-  "schemastore.nvim": { "branch": "main", "commit": "626485da21ad1df21bbb25359be759e8936876a9" },
+  "schemastore.nvim": { "branch": "main", "commit": "ee3154ed8ea465a67ea1f22c3b95224b341a3af4" },
   "trouble.nvim": { "branch": "main", "commit": "bd67efe408d4816e25e8491cc5ad4088e708a69a" },
   "vim-tmux-navigator": { "branch": "master", "commit": "e41c431a0c7b7388ae7ba341f01a0d217eb3a432" },
   "which-key.nvim": { "branch": "main", "commit": "3aab2147e74890957785941f0c1ad87d0a44c15a" }
